@@ -11,27 +11,29 @@ namespace QLSTBUS
 {
     public class HangBUS
     {
-        private HangDAL hangDAL;
+        private HangDAL HangDAL;
         public HangBUS()
         {
-            this.hangDAL = new HangDAL();
+            this.HangDAL = new HangDAL();
         }
 
-        public bool suaThamSo(ThamSoDTO ts)
+        public bool sua(HangDTO ts)
         {
-         //   bool re = this.hangDAL.suaThamSo(ts);
-            return true;
+            bool re = this.HangDAL.sua(ts);
+            return re;
         }
 
-        public List<ThamSoDTO> selectListTS()
+        public bool them(HangDTO ts)
         {
-            return null;
+            bool re = this.HangDAL.them(ts);
+            return re;
         }
 
-        public DataTable getThamSo()
+        public bool xoa(HangDTO ts)
         {
-            // return tsDAL.getThamSo();
-            return null;
+            bool re = this.HangDAL.xoa(ts);
+            return re;
+        
         }
     }
 }

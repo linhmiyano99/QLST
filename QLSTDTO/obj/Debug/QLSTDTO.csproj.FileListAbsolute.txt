@@ -1,5 +1,0 @@
-D:\My Works\C#_WorkLoad\SCHOOL PROJECT\QLST\QLSTDTO\bin\Debug\QLSTDTO.dll
-D:\My Works\C#_WorkLoad\SCHOOL PROJECT\QLST\QLSTDTO\bin\Debug\QLSTDTO.pdb
-D:\My Works\C#_WorkLoad\SCHOOL PROJECT\QLST\QLSTDTO\obj\Debug\QLSTDTO.csproj.CoreCompileInputs.cache
-D:\My Works\C#_WorkLoad\SCHOOL PROJECT\QLST\QLSTDTO\obj\Debug\QLSTDTO.dll
-D:\My Works\C#_WorkLoad\SCHOOL PROJECT\QLST\QLSTDTO\obj\Debug\QLSTDTO.pdb

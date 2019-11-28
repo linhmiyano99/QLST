@@ -12,27 +12,30 @@ namespace QLSTBUS
 {
     public class KhachHangBUS
     {
-        private KhachHangDAL khDAL;
+       
+        private KhachHangDAL KhachHangDAL;
         public KhachHangBUS()
         {
-            this.khDAL = new KhachHangDAL();
+            this.KhachHangDAL = new KhachHangDAL();
         }
 
-        public bool suaThamSo(KhachHangDAL ts)
+        public bool suaPhieu(KhachHangDTO ts)
         {
-            //   bool re = this.hangDAL.suaThamSo(ts);
-            return true;
+            bool re = this.KhachHangDAL.sua(ts);
+            return re;
         }
 
-        public List<KhachHangDTO> selectListTS()
+        public bool themPhieu(KhachHangDTO ts)
         {
-            return null;
+            bool re = this.KhachHangDAL.them(ts);
+            return re;
         }
 
-        public DataTable getThamSo()
+        public bool xoaPhieu(KhachHangDTO ts)
         {
-            // return tsDAL.getThamSo();
-            return null;
+            bool re = this.KhachHangDAL.xoa(ts);
+            return re;
         }
+
     }
 }
