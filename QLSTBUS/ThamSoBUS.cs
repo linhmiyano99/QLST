@@ -20,7 +20,7 @@ namespace QLSTBUS
         public bool suaThamSo(ThamSoDTO ts)
         {
             bool re = this.tsDAL.suaThamSo(ts);
-            return true;
+            return re;
         }
 
         public List<ThamSoDTO> selectListTS()
