@@ -213,7 +213,6 @@
             this.grThongTinKhachHang.Name = "grThongTinKhachHang";
             this.grThongTinKhachHang.Size = new System.Drawing.Size(1225, 146);
             this.grThongTinKhachHang.TabIndex = 2;
-            this.grThongTinKhachHang.Text = "Thông Tin Khách Hàng";
             // 
             // txtDiemKhachHang
             // 
