@@ -11,6 +11,27 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QLSTDAL", "QLSTDAL\QLSTDAL.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QLSTBUS", "QLSTBUS\QLSTBUS.csproj", "{C8670696-794B-49A0-9FA9-F6E849040B3B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Resources", "Resources", "{389A5F34-3E37-429E-ABFE-FA8A4C366219}"
+	ProjectSection(SolutionItems) = preProject
+		..\UI_DESIGN\DX_SIEUTHI_MINI\DX_SIEUTHI_MINI\Resources\actions_zoom.svg = ..\UI_DESIGN\DX_SIEUTHI_MINI\DX_SIEUTHI_MINI\Resources\actions_zoom.svg
+		..\UI_DESIGN\DX_SIEUTHI_MINI\DX_SIEUTHI_MINI\Resources\actions_zoom1.svg = ..\UI_DESIGN\DX_SIEUTHI_MINI\DX_SIEUTHI_MINI\Resources\actions_zoom1.svg
+		..\UI_DESIGN\DX_SIEUTHI_MINI\DX_SIEUTHI_MINI\Resources\actions_zoom2.svg = ..\UI_DESIGN\DX_SIEUTHI_MINI\DX_SIEUTHI_MINI\Resources\actions_zoom2.svg
+		..\UI_DESIGN\DX_SIEUTHI_MINI\DX_SIEUTHI_MINI\Resources\actions_zoom3.svg = ..\UI_DESIGN\DX_SIEUTHI_MINI\DX_SIEUTHI_MINI\Resources\actions_zoom3.svg
+		..\UI_DESIGN\DX_SIEUTHI_MINI\DX_SIEUTHI_MINI\Resources\actions_zoom4.svg = ..\UI_DESIGN\DX_SIEUTHI_MINI\DX_SIEUTHI_MINI\Resources\actions_zoom4.svg
+		..\UI_DESIGN\DX_SIEUTHI_MINI\DX_SIEUTHI_MINI\Resources\addfile_16x16.png = ..\UI_DESIGN\DX_SIEUTHI_MINI\DX_SIEUTHI_MINI\Resources\addfile_16x16.png
+		..\UI_DESIGN\DX_SIEUTHI_MINI\DX_SIEUTHI_MINI\Resources\addfile_32x32.png = ..\UI_DESIGN\DX_SIEUTHI_MINI\DX_SIEUTHI_MINI\Resources\addfile_32x32.png
+		..\UI_DESIGN\DX_SIEUTHI_MINI\DX_SIEUTHI_MINI\Resources\addfile_32x321.png = ..\UI_DESIGN\DX_SIEUTHI_MINI\DX_SIEUTHI_MINI\Resources\addfile_32x321.png
+		..\UI_DESIGN\DX_SIEUTHI_MINI\DX_SIEUTHI_MINI\Resources\bo_appointment.svg = ..\UI_DESIGN\DX_SIEUTHI_MINI\DX_SIEUTHI_MINI\Resources\bo_appointment.svg
+		..\UI_DESIGN\DX_SIEUTHI_MINI\DX_SIEUTHI_MINI\Resources\charthorizontalaxis_logscale.svg = ..\UI_DESIGN\DX_SIEUTHI_MINI\DX_SIEUTHI_MINI\Resources\charthorizontalaxis_logscale.svg
+		..\UI_DESIGN\DX_SIEUTHI_MINI\DX_SIEUTHI_MINI\Resources\delete_16x16.png = ..\UI_DESIGN\DX_SIEUTHI_MINI\DX_SIEUTHI_MINI\Resources\delete_16x16.png
+		..\UI_DESIGN\DX_SIEUTHI_MINI\DX_SIEUTHI_MINI\Resources\delete_32x32.png = ..\UI_DESIGN\DX_SIEUTHI_MINI\DX_SIEUTHI_MINI\Resources\delete_32x32.png
+		..\UI_DESIGN\DX_SIEUTHI_MINI\DX_SIEUTHI_MINI\Resources\exporttopdf_16x16.png = ..\UI_DESIGN\DX_SIEUTHI_MINI\DX_SIEUTHI_MINI\Resources\exporttopdf_16x16.png
+		..\UI_DESIGN\DX_SIEUTHI_MINI\DX_SIEUTHI_MINI\Resources\exporttopdf_32x32.png = ..\UI_DESIGN\DX_SIEUTHI_MINI\DX_SIEUTHI_MINI\Resources\exporttopdf_32x32.png
+		..\UI_DESIGN\DX_SIEUTHI_MINI\DX_SIEUTHI_MINI\Resources\exporttopdf_32x321.png = ..\UI_DESIGN\DX_SIEUTHI_MINI\DX_SIEUTHI_MINI\Resources\exporttopdf_32x321.png
+		..\UI_DESIGN\DX_SIEUTHI_MINI\DX_SIEUTHI_MINI\Resources\save_16x16.png = ..\UI_DESIGN\DX_SIEUTHI_MINI\DX_SIEUTHI_MINI\Resources\save_16x16.png
+		..\UI_DESIGN\DX_SIEUTHI_MINI\DX_SIEUTHI_MINI\Resources\save_32x32.png = ..\UI_DESIGN\DX_SIEUTHI_MINI\DX_SIEUTHI_MINI\Resources\save_32x32.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

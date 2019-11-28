@@ -3,12 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data;
-
-
+using System.Windows.Forms;
+using DevExpress.XtraEditors;
 namespace QLSTDAL
 {
     public class ThamSoDAL
@@ -21,8 +18,16 @@ namespace QLSTDAL
         public string ConnectionString { get => connectionString; set => connectionString = value; }
         public bool suaThamSo(ThamSoDTO ts)
         {
-
+      
             string query = string.Empty;
+
+            query += "UPDATE tblTHAMSO SET " +
+                    "ChietKhauHangVang = @fChietKhauHangVang, " +
+                    "ChietKhauHangBac = @fChietKhauHangBac, " +
+                    "ChietKhauHangBachKim = @fChietKhauHangBachKim, " +
+                    "LuongCa = @dLuongCa " +
+                    "Where MaTS = '1'";
+
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
 
@@ -32,12 +37,6 @@ namespace QLSTDAL
                     cmd.CommandType = System.Data.CommandType.Text;
                     cmd.CommandText = query;
 
-                    query += "UPDATE tblTHAMSO SET " +
-                    "ChietKhauHangVang = @fChietKhauHangVang, " +
-                    "ChietKhauHangBac = @fChietKhauHangBac, " +
-                    "ChietKhauHangBachKim = @fChietKhauHangBachKim, " +
-                    "LuongCa = @dLuongCa " +
-                    "Where MaTS = '1'";
                     cmd.Parameters.AddWithValue("@fChietKhauHangVang", ts.FChietKhauVang);
                     cmd.Parameters.AddWithValue("@fChietKhauHangBac", ts.FChietKhauBac);
                     cmd.Parameters.AddWithValue("@fChietKhauHangBachKim", ts.FChietKhauBachKim);
@@ -50,8 +49,9 @@ namespace QLSTDAL
                         con.Close();
                         con.Dispose();
                     }
-                    catch (Exception ex)
+                    catch (Exception )
                     {
+                        XtraMessageBox.Show("LỖI TẦNG DAL!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         con.Close();
                         return false;
                     }
