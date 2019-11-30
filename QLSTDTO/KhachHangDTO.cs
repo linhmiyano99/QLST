@@ -18,7 +18,7 @@ namespace QLSTDTO
         public string StrMaHang { get => strMaHang; set => strMaHang = value; }
         public string StrMaKH { get => strMaKH; set => strMaKH = value; }
 
-        KhachHangDTO()
+        public KhachHangDTO()
         {
 
         }
