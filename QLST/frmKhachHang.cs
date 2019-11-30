@@ -121,15 +121,22 @@ namespace QLST
                     //ngược lại
                     else if (!listMaKhachHang.Contains(row["MaKH"].ToString()))
                     {
+                        try
+                        {
+                            //Create a new row and add to dataTableInsertTemp
+                            DataRow insertRow = dataTableInsertTemp.NewRow();
+                            insertRow[0] = row["MaKH"].ToString();
+                            insertRow[1] = row["HoTen"].ToString();
+                            insertRow[2] = double.Parse(row["Diem"].ToString());
+                            insertRow[3] = row["MaHang"].ToString();
 
-                        //Create a new row and add to dataTableInsertTemp
-                        DataRow insertRow = dataTableInsertTemp.NewRow();
-                        insertRow[0] = row["MaKH"].ToString();
-                        insertRow[1] = row["HoTen"].ToString();
-                        insertRow[2] = double.Parse(row["Diem"].ToString());
-                        insertRow[3] = row["MaHang"].ToString();
+                            dataTableInsertTemp.Rows.Add(insertRow);
+                        }
+                        catch (Exception)
+                        {
 
-                        dataTableInsertTemp.Rows.Add(insertRow);
+                        }
+                        
 
                     }
                 }
