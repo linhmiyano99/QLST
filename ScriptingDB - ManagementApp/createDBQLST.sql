@@ -91,7 +91,7 @@ CREATE TABLE [dbo].[tblKHACHHANG](
 	[MaKH] [int] NOT NULL PRIMARY KEY,
 	[HoTen] [nvarchar](50) NOT NULL,
 	[Diem] [int] NULL,
-	[MaHang] [int] NULL FOREIGN KEY REFERENCES tblMATHANG(MaMH),
+	[MaHang] [int] NULL FOREIGN KEY REFERENCES tblHANG(MaHang),
  ) ON [PRIMARY]
 GO
 

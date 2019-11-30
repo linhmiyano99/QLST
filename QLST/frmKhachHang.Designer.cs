@@ -44,27 +44,15 @@
             this.ribbonControlKhachHang = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnGroup_ = new DevExpress.XtraBars.BarButtonGroup();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
-            this.grThongTinKhachHang = new DevExpress.XtraEditors.GroupControl();
-            this.txtDiemKhachHang = new DevExpress.XtraEditors.TextEdit();
-            this.lbHangKhachHang = new DevExpress.XtraEditors.LabelControl();
-            this.lbDiemKhachHang = new DevExpress.XtraEditors.LabelControl();
-            this.txtMaKjhachHang = new DevExpress.XtraEditors.TextEdit();
-            this.lbTenKhachHang = new DevExpress.XtraEditors.LabelControl();
-            this.lbMaKhachHang = new DevExpress.XtraEditors.LabelControl();
-            this.cmbHangKhachHang = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.txtTenKhachHang = new DevExpress.XtraEditors.TextEdit();
             this.gridKhachHang = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridViewKhachHang = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridSplitContainer1 = new DevExpress.XtraGrid.GridSplitContainer();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControlKhachHang)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grThongTinKhachHang)).BeginInit();
-            this.grThongTinKhachHang.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDiemKhachHang.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaKjhachHang.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbHangKhachHang.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTenKhachHang.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridKhachHang)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewKhachHang)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridSplitContainer1)).BeginInit();
+            this.gridSplitContainer1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ribbonPageGroup3
@@ -102,6 +90,7 @@
             this.btnThemKhachHang.ImageOptions.Image = global::QLST.Properties.Resources.addfile_16x16;
             this.btnThemKhachHang.ImageOptions.LargeImage = global::QLST.Properties.Resources.addfile_32x321;
             this.btnThemKhachHang.Name = "btnThemKhachHang";
+            this.btnThemKhachHang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThemKhachHang_ItemClick);
             // 
             // btnXoaKhachHang
             // 
@@ -110,7 +99,6 @@
             this.btnXoaKhachHang.ImageOptions.Image = global::QLST.Properties.Resources.delete_16x16;
             this.btnXoaKhachHang.ImageOptions.LargeImage = global::QLST.Properties.Resources.delete_32x32;
             this.btnXoaKhachHang.Name = "btnXoaKhachHang";
-            this.btnXoaKhachHang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
             // 
             // ribbonPageGroup2
             // 
@@ -125,6 +113,7 @@
             this.btnLuu.ImageOptions.Image = global::QLST.Properties.Resources.save_16x16;
             this.btnLuu.ImageOptions.LargeImage = global::QLST.Properties.Resources.save_32x32;
             this.btnLuu.Name = "btnLuu";
+            this.btnLuu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLuu_ItemClick);
             // 
             // ribbonPageGroup4
             // 
@@ -158,7 +147,6 @@
             this.barEditItem1.Name = "barEditItem1";
             this.barEditItem1.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
             | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
-            this.barEditItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barEditItem1_ItemClick);
             // 
             // repositoryItemTextEdit1
             // 
@@ -195,165 +183,65 @@
             // 
             // barButtonItem4
             // 
-            this.barButtonItem4.Caption = "Xuất Phiếu Nhập";
+            this.barButtonItem4.Caption = "Xuất Thông Tin";
             this.barButtonItem4.Id = 6;
             this.barButtonItem4.Name = "barButtonItem4";
             // 
-            // grThongTinKhachHang
-            // 
-            this.grThongTinKhachHang.Controls.Add(this.txtDiemKhachHang);
-            this.grThongTinKhachHang.Controls.Add(this.lbHangKhachHang);
-            this.grThongTinKhachHang.Controls.Add(this.lbDiemKhachHang);
-            this.grThongTinKhachHang.Controls.Add(this.txtMaKjhachHang);
-            this.grThongTinKhachHang.Controls.Add(this.lbTenKhachHang);
-            this.grThongTinKhachHang.Controls.Add(this.lbMaKhachHang);
-            this.grThongTinKhachHang.Controls.Add(this.cmbHangKhachHang);
-            this.grThongTinKhachHang.Controls.Add(this.txtTenKhachHang);
-            this.grThongTinKhachHang.Location = new System.Drawing.Point(12, 182);
-            this.grThongTinKhachHang.Name = "grThongTinKhachHang";
-            this.grThongTinKhachHang.Size = new System.Drawing.Size(1225, 146);
-            this.grThongTinKhachHang.TabIndex = 2;
-            this.grThongTinKhachHang.Text = "Thông Tin Khách Hàng";
-            // 
-            // txtDiemKhachHang
-            // 
-            this.txtDiemKhachHang.Location = new System.Drawing.Point(566, 35);
-            this.txtDiemKhachHang.MenuManager = this.ribbonControlKhachHang;
-            this.txtDiemKhachHang.Name = "txtDiemKhachHang";
-            this.txtDiemKhachHang.Properties.Mask.BeepOnError = true;
-            this.txtDiemKhachHang.Properties.Mask.EditMask = "d";
-            this.txtDiemKhachHang.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtDiemKhachHang.Size = new System.Drawing.Size(179, 20);
-            this.txtDiemKhachHang.TabIndex = 8;
-            // 
-            // lbHangKhachHang
-            // 
-            this.lbHangKhachHang.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbHangKhachHang.Appearance.Options.UseFont = true;
-            this.lbHangKhachHang.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
-            this.lbHangKhachHang.LineLocation = DevExpress.XtraEditors.LineLocation.Center;
-            this.lbHangKhachHang.LineStyle = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.lbHangKhachHang.LineVisible = true;
-            this.lbHangKhachHang.Location = new System.Drawing.Point(448, 87);
-            this.lbHangKhachHang.Name = "lbHangKhachHang";
-            this.lbHangKhachHang.Size = new System.Drawing.Size(33, 16);
-            this.lbHangKhachHang.TabIndex = 7;
-            this.lbHangKhachHang.Text = "Hạng";
-            // 
-            // lbDiemKhachHang
-            // 
-            this.lbDiemKhachHang.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDiemKhachHang.Appearance.Options.UseFont = true;
-            this.lbDiemKhachHang.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
-            this.lbDiemKhachHang.LineLocation = DevExpress.XtraEditors.LineLocation.Center;
-            this.lbDiemKhachHang.LineStyle = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.lbDiemKhachHang.LineVisible = true;
-            this.lbDiemKhachHang.Location = new System.Drawing.Point(448, 33);
-            this.lbDiemKhachHang.Name = "lbDiemKhachHang";
-            this.lbDiemKhachHang.Size = new System.Drawing.Size(32, 16);
-            this.lbDiemKhachHang.TabIndex = 6;
-            this.lbDiemKhachHang.Text = "Điểm";
-            // 
-            // txtMaKjhachHang
-            // 
-            this.txtMaKjhachHang.Location = new System.Drawing.Point(123, 35);
-            this.txtMaKjhachHang.MenuManager = this.ribbonControlKhachHang;
-            this.txtMaKjhachHang.Name = "txtMaKjhachHang";
-            this.txtMaKjhachHang.Properties.Mask.EditMask = "\\d?\\d?/\\d?\\d?/\\d\\d";
-            this.txtMaKjhachHang.Size = new System.Drawing.Size(214, 20);
-            this.txtMaKjhachHang.TabIndex = 3;
-            // 
-            // lbTenKhachHang
-            // 
-            this.lbTenKhachHang.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTenKhachHang.Appearance.Options.UseFont = true;
-            this.lbTenKhachHang.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
-            this.lbTenKhachHang.LineLocation = DevExpress.XtraEditors.LineLocation.Center;
-            this.lbTenKhachHang.LineStyle = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.lbTenKhachHang.LineVisible = true;
-            this.lbTenKhachHang.Location = new System.Drawing.Point(5, 87);
-            this.lbTenKhachHang.Name = "lbTenKhachHang";
-            this.lbTenKhachHang.Size = new System.Drawing.Size(103, 16);
-            this.lbTenKhachHang.TabIndex = 1;
-            this.lbTenKhachHang.Text = "Tên Khách Hàng";
-            // 
-            // lbMaKhachHang
-            // 
-            this.lbMaKhachHang.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMaKhachHang.Appearance.Options.UseFont = true;
-            this.lbMaKhachHang.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
-            this.lbMaKhachHang.LineLocation = DevExpress.XtraEditors.LineLocation.Center;
-            this.lbMaKhachHang.LineStyle = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.lbMaKhachHang.LineVisible = true;
-            this.lbMaKhachHang.Location = new System.Drawing.Point(5, 33);
-            this.lbMaKhachHang.Name = "lbMaKhachHang";
-            this.lbMaKhachHang.Size = new System.Drawing.Size(99, 16);
-            this.lbMaKhachHang.TabIndex = 0;
-            this.lbMaKhachHang.Text = "Mã Khách Hàng";
-            // 
-            // cmbHangKhachHang
-            // 
-            this.cmbHangKhachHang.Location = new System.Drawing.Point(566, 89);
-            this.cmbHangKhachHang.MenuManager = this.ribbonControlKhachHang;
-            this.cmbHangKhachHang.Name = "cmbHangKhachHang";
-            this.cmbHangKhachHang.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbHangKhachHang.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.cmbHangKhachHang.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.cmbHangKhachHang.Size = new System.Drawing.Size(179, 20);
-            this.cmbHangKhachHang.TabIndex = 9;
-            // 
-            // txtTenKhachHang
-            // 
-            this.txtTenKhachHang.Location = new System.Drawing.Point(123, 89);
-            this.txtTenKhachHang.MenuManager = this.ribbonControlKhachHang;
-            this.txtTenKhachHang.Name = "txtTenKhachHang";
-            this.txtTenKhachHang.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.txtTenKhachHang.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.txtTenKhachHang.Properties.Mask.AutoComplete = DevExpress.XtraEditors.Mask.AutoCompleteType.Strong;
-            this.txtTenKhachHang.Properties.Mask.BeepOnError = true;
-            this.txtTenKhachHang.Properties.Mask.EditMask = "@\"^[a-zA-Z ]*$\"";
-            this.txtTenKhachHang.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txtTenKhachHang.Size = new System.Drawing.Size(214, 20);
-            this.txtTenKhachHang.TabIndex = 4;
-            // 
             // gridKhachHang
             // 
-            this.gridKhachHang.Location = new System.Drawing.Point(12, 350);
-            this.gridKhachHang.MainView = this.gridView1;
+            this.gridKhachHang.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridKhachHang.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.gridKhachHang.Location = new System.Drawing.Point(0, 0);
+            this.gridKhachHang.MainView = this.gridViewKhachHang;
             this.gridKhachHang.MenuManager = this.ribbonControlKhachHang;
             this.gridKhachHang.Name = "gridKhachHang";
-            this.gridKhachHang.Size = new System.Drawing.Size(1225, 256);
-            this.gridKhachHang.TabIndex = 3;
+            this.gridKhachHang.Size = new System.Drawing.Size(1225, 440);
+            this.gridKhachHang.TabIndex = 13;
             this.gridKhachHang.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.gridViewKhachHang});
             // 
-            // gridView1
+            // gridViewKhachHang
             // 
-            this.gridView1.GridControl = this.gridKhachHang;
-            this.gridView1.Name = "gridView1";
+            this.gridViewKhachHang.Appearance.FixedLine.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
+            this.gridViewKhachHang.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.gridViewKhachHang.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gridViewKhachHang.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
+            this.gridViewKhachHang.ChildGridLevelName = "Detail";
+            this.gridViewKhachHang.GridControl = this.gridKhachHang;
+            this.gridViewKhachHang.Name = "gridViewKhachHang";
+            this.gridViewKhachHang.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
+            this.gridViewKhachHang.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
+            this.gridViewKhachHang.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.Click;
+            this.gridViewKhachHang.OptionsEditForm.EditFormColumnCount = 4;
+            this.gridViewKhachHang.OptionsView.ShowFooter = true;
+            this.gridViewKhachHang.ViewCaption = "Danh Sách Khách Hàng";
+            // 
+            // gridSplitContainer1
+            // 
+            this.gridSplitContainer1.Grid = this.gridKhachHang;
+            this.gridSplitContainer1.Horizontal = true;
+            this.gridSplitContainer1.Location = new System.Drawing.Point(12, 166);
+            this.gridSplitContainer1.Name = "gridSplitContainer1";
+            this.gridSplitContainer1.Panel1.Controls.Add(this.gridKhachHang);
+            this.gridSplitContainer1.Size = new System.Drawing.Size(1225, 440);
+            this.gridSplitContainer1.TabIndex = 15;
             // 
             // frmKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1249, 618);
-            this.Controls.Add(this.gridKhachHang);
-            this.Controls.Add(this.grThongTinKhachHang);
+            this.Controls.Add(this.gridSplitContainer1);
             this.Controls.Add(this.ribbonControlKhachHang);
             this.Name = "frmKhachHang";
             this.Text = "Quản Lý Khách Hàng";
+            this.Load += new System.EventHandler(this.frmKhachHang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControlKhachHang)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grThongTinKhachHang)).EndInit();
-            this.grThongTinKhachHang.ResumeLayout(false);
-            this.grThongTinKhachHang.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDiemKhachHang.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaKjhachHang.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbHangKhachHang.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTenKhachHang.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridKhachHang)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewKhachHang)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridSplitContainer1)).EndInit();
+            this.gridSplitContainer1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -373,19 +261,12 @@
         private DevExpress.XtraBars.BarButtonGroup btnGroup_;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControlKhachHang;
-        private DevExpress.XtraEditors.GroupControl grThongTinKhachHang;
-        private DevExpress.XtraEditors.TextEdit txtDiemKhachHang;
-        private DevExpress.XtraEditors.LabelControl lbHangKhachHang;
-        private DevExpress.XtraEditors.LabelControl lbDiemKhachHang;
-        private DevExpress.XtraEditors.TextEdit txtMaKjhachHang;
-        private DevExpress.XtraEditors.LabelControl lbTenKhachHang;
-        private DevExpress.XtraEditors.LabelControl lbMaKhachHang;
-        private DevExpress.XtraEditors.ComboBoxEdit cmbHangKhachHang;
-        private DevExpress.XtraEditors.TextEdit txtTenKhachHang;
-        private DevExpress.XtraGrid.GridControl gridKhachHang;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
         private DevExpress.XtraBars.BarEditItem barEditItem1;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
+        private DevExpress.XtraGrid.GridControl gridKhachHang;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridViewKhachHang;
+        private DevExpress.XtraGrid.GridSplitContainer gridSplitContainer1;
+       
     }
 }
