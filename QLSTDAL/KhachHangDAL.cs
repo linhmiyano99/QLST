@@ -141,8 +141,7 @@ namespace QLSTDAL
         public List<KhachHangDTO> getListDanhSachKhachHang()
         {
             string query = string.Empty;
-            query += "SELECT  MaKH, HoTen, Diem, tblHang.TenHang FROM tblKHACHHANG";
-            query += " INNER JOIN tblHANG ON tblKHACHHANG.MaHang = tblHANG.MaHang";
+            query += "SELECT  MaKH, HoTen, Diem, MaHang FROM tblKHACHHANG";
 
 
             List<KhachHangDTO> listKhachHang = new List<KhachHangDTO>();
