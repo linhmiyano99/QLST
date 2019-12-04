@@ -183,6 +183,18 @@ namespace QLST.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+
+        internal static System.Drawing.Bitmap edittask_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("edittask_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+
         internal static System.Drawing.Bitmap exporttopdf_16x16 {
             get {
                 object obj = ResourceManager.GetObject("exporttopdf_16x16", resourceCulture);
@@ -193,6 +205,18 @@ namespace QLST.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+
+        internal static System.Drawing.Bitmap exporttopdf_16x161 {
+            get {
+                object obj = ResourceManager.GetObject("exporttopdf_16x161", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+
         internal static System.Drawing.Bitmap exporttopdf_32x32 {
             get {
                 object obj = ResourceManager.GetObject("exporttopdf_32x32", resourceCulture);
@@ -213,6 +237,38 @@ namespace QLST.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+
+        internal static System.Drawing.Bitmap exporttopdf_32x322 {
+            get {
+                object obj = ResourceManager.GetObject("exporttopdf_32x322", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap formatastable_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("formatastable_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap formatastable_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("formatastable_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+
         internal static System.Drawing.Bitmap save_16x16 {
             get {
                 object obj = ResourceManager.GetObject("save_16x16", resourceCulture);
