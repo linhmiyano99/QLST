@@ -35,5 +35,10 @@ namespace QLSTBUS
             return re;
         
         }
+
+        public List<HangDTO> GetDanhSach()
+        {
+            return HangDAL.Select();
+        }
     }
 }

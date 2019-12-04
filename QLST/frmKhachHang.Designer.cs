@@ -1,4 +1,6 @@
-﻿namespace QLST
+﻿using System.Drawing;
+
+namespace QLST
 {
     partial class frmKhachHang
     {
@@ -28,6 +30,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonThaoTac = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -38,21 +41,19 @@
             this.btnLuu = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.btnXuatThongTin = new DevExpress.XtraBars.BarButtonItem();
-            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barEditItem1 = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.ribbonControlKhachHang = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnGroup_ = new DevExpress.XtraBars.BarButtonGroup();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
-            this.gridKhachHang = new DevExpress.XtraGrid.GridControl();
-            this.gridViewKhachHang = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridSplitContainer1 = new DevExpress.XtraGrid.GridSplitContainer();
+            this.txtSearch = new DevExpress.XtraEditors.TextEdit();
+            this.lbSearch = new DevExpress.XtraEditors.LabelControl();
+            this.gridViewKhachHang = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.dataGridViewKhachHang = new DevComponents.DotNetBar.Controls.DataGridViewX();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControlKhachHang)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridKhachHang)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSearch.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewKhachHang)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridSplitContainer1)).BeginInit();
-            this.gridSplitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewKhachHang)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbonPageGroup3
@@ -70,8 +71,7 @@
             this.ribbonThaoTac.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1,
             this.ribbonPageGroup2,
-            this.ribbonPageGroup4,
-            this.ribbonPageGroup5});
+            this.ribbonPageGroup4});
             this.ribbonThaoTac.ImageOptions.SvgImage = global::QLST.Properties.Resources.bo_appointment;
             this.ribbonThaoTac.Name = "ribbonThaoTac";
             this.ribbonThaoTac.Text = "Thao Tác";
@@ -99,6 +99,7 @@
             this.btnXoaKhachHang.ImageOptions.Image = global::QLST.Properties.Resources.delete_16x16;
             this.btnXoaKhachHang.ImageOptions.LargeImage = global::QLST.Properties.Resources.delete_32x32;
             this.btnXoaKhachHang.Name = "btnXoaKhachHang";
+            this.btnXoaKhachHang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnXoaKhachHang_ItemClick);
             // 
             // ribbonPageGroup2
             // 
@@ -125,28 +126,9 @@
             // 
             this.btnXuatThongTin.Caption = "Xuất Thông Tin Khách Hàng";
             this.btnXuatThongTin.Id = 7;
-            this.btnXuatThongTin.ImageOptions.Image = global::QLST.Properties.Resources.exporttopdf_16x16;
-            this.btnXuatThongTin.ImageOptions.LargeImage = global::QLST.Properties.Resources.exporttopdf_32x321;
+            this.btnXuatThongTin.ImageOptions.Image = global::QLST.Properties.Resources.exporttopdf_16x161;
+            this.btnXuatThongTin.ImageOptions.LargeImage = global::QLST.Properties.Resources.exporttopdf_32x322;
             this.btnXuatThongTin.Name = "btnXuatThongTin";
-            // 
-            // ribbonPageGroup5
-            // 
-            this.ribbonPageGroup5.ImageOptions.SvgImage = global::QLST.Properties.Resources.actions_zoom2;
-            this.ribbonPageGroup5.ItemLinks.Add(this.barEditItem1);
-            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
-            this.ribbonPageGroup5.Text = "Tìm Kiếm";
-            // 
-            // barEditItem1
-            // 
-            this.barEditItem1.Caption = "Tìm Kiếm";
-            this.barEditItem1.Edit = this.repositoryItemTextEdit1;
-            this.barEditItem1.EditWidth = 200;
-            this.barEditItem1.Hint = "Tìm Kiếm Khách Hàng";
-            this.barEditItem1.Id = 10;
-            this.barEditItem1.ImageOptions.SvgImage = global::QLST.Properties.Resources.actions_zoom1;
-            this.barEditItem1.Name = "barEditItem1";
-            this.barEditItem1.RibbonStyle = ((DevExpress.XtraBars.Ribbon.RibbonItemStyles)(((DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithText) 
-            | DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText)));
             // 
             // repositoryItemTextEdit1
             // 
@@ -164,8 +146,7 @@
             this.btnXoaKhachHang,
             this.btnLuu,
             this.barButtonItem4,
-            this.btnXuatThongTin,
-            this.barEditItem1});
+            this.btnXuatThongTin});
             this.ribbonControlKhachHang.Location = new System.Drawing.Point(0, 0);
             this.ribbonControlKhachHang.MaxItemId = 11;
             this.ribbonControlKhachHang.Name = "ribbonControlKhachHang";
@@ -187,61 +168,77 @@
             this.barButtonItem4.Id = 6;
             this.barButtonItem4.Name = "barButtonItem4";
             // 
-            // gridKhachHang
+            // txtSearch
             // 
-            this.gridKhachHang.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridKhachHang.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gridKhachHang.Location = new System.Drawing.Point(0, 0);
-            this.gridKhachHang.MainView = this.gridViewKhachHang;
-            this.gridKhachHang.MenuManager = this.ribbonControlKhachHang;
-            this.gridKhachHang.Name = "gridKhachHang";
-            this.gridKhachHang.Size = new System.Drawing.Size(1225, 440);
-            this.gridKhachHang.TabIndex = 13;
-            this.gridKhachHang.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridViewKhachHang});
+            this.txtSearch.Location = new System.Drawing.Point(428, 104);
+            this.txtSearch.MenuManager = this.ribbonControlKhachHang;
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(220, 20);
+            this.txtSearch.TabIndex = 17;
+            this.txtSearch.EditValueChanged += new System.EventHandler(this.txtSearch_EditValueChanged);
+            // 
+            // lbSearch
+            // 
+            this.lbSearch.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbSearch.Appearance.Options.UseFont = true;
+            this.lbSearch.LineVisible = true;
+            this.lbSearch.Location = new System.Drawing.Point(369, 107);
+            this.lbSearch.Name = "lbSearch";
+            this.lbSearch.Size = new System.Drawing.Size(41, 13);
+            this.lbSearch.TabIndex = 19;
+            this.lbSearch.Text = "Tìm Kiếm";
             // 
             // gridViewKhachHang
             // 
-            this.gridViewKhachHang.Appearance.FixedLine.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
-            this.gridViewKhachHang.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.gridViewKhachHang.Appearance.HeaderPanel.Options.UseFont = true;
-            this.gridViewKhachHang.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
-            this.gridViewKhachHang.ChildGridLevelName = "Detail";
-            this.gridViewKhachHang.GridControl = this.gridKhachHang;
+            this.gridViewKhachHang.Location = new System.Drawing.Point(0, 0);
             this.gridViewKhachHang.Name = "gridViewKhachHang";
-            this.gridViewKhachHang.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.True;
-            this.gridViewKhachHang.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.True;
-            this.gridViewKhachHang.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.Click;
-            this.gridViewKhachHang.OptionsEditForm.EditFormColumnCount = 4;
-            this.gridViewKhachHang.OptionsView.ShowFooter = true;
-            this.gridViewKhachHang.ViewCaption = "Danh Sách Khách Hàng";
+            this.gridViewKhachHang.Size = new System.Drawing.Size(240, 150);
+            this.gridViewKhachHang.TabIndex = 0;
             // 
-            // gridSplitContainer1
+            // dataGridViewKhachHang
             // 
-            this.gridSplitContainer1.Grid = this.gridKhachHang;
-            this.gridSplitContainer1.Horizontal = true;
-            this.gridSplitContainer1.Location = new System.Drawing.Point(12, 166);
-            this.gridSplitContainer1.Name = "gridSplitContainer1";
-            this.gridSplitContainer1.Panel1.Controls.Add(this.gridKhachHang);
-            this.gridSplitContainer1.Size = new System.Drawing.Size(1225, 440);
-            this.gridSplitContainer1.TabIndex = 15;
+            this.dataGridViewKhachHang.AllowUserToAddRows = false;
+            this.dataGridViewKhachHang.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dataGridViewKhachHang.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            this.dataGridViewKhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewKhachHang.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewKhachHang.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+            this.dataGridViewKhachHang.Location = new System.Drawing.Point(12, 167);
+            this.dataGridViewKhachHang.Name = "dataGridViewKhachHang";
+            this.dataGridViewKhachHang.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            this.dataGridViewKhachHang.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            this.dataGridViewKhachHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewKhachHang.Size = new System.Drawing.Size(1237, 451);
+            this.dataGridViewKhachHang.TabIndex = 25;
+            this.dataGridViewKhachHang.AllowUserToAddRowsChanged += new System.EventHandler(this.dataGridViewKhachHang_AllowUserToAddRowsChanged);
+            this.dataGridViewKhachHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewKhachHang_CellClick);
+            this.dataGridViewKhachHang.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewKhachHang_CellContentDoubleClick);
+            this.dataGridViewKhachHang.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewKhachHang_CellValueChanged);
             // 
             // frmKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1249, 618);
-            this.Controls.Add(this.gridSplitContainer1);
+            this.Controls.Add(this.dataGridViewKhachHang);
+            this.Controls.Add(this.lbSearch);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.ribbonControlKhachHang);
             this.Name = "frmKhachHang";
             this.Text = "Quản Lý Khách Hàng";
             this.Load += new System.EventHandler(this.frmKhachHang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControlKhachHang)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridKhachHang)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSearch.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewKhachHang)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridSplitContainer1)).EndInit();
-            this.gridSplitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewKhachHang)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -261,12 +258,10 @@
         private DevExpress.XtraBars.BarButtonGroup btnGroup_;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControlKhachHang;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
-        private DevExpress.XtraBars.BarEditItem barEditItem1;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
-        private DevExpress.XtraGrid.GridControl gridKhachHang;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridViewKhachHang;
-        private DevExpress.XtraGrid.GridSplitContainer gridSplitContainer1;
-       
+        private DevExpress.XtraEditors.TextEdit txtSearch;
+        private DevExpress.XtraEditors.LabelControl lbSearch;
+        private DevComponents.DotNetBar.Controls.DataGridViewX gridViewKhachHang;
+        private DevComponents.DotNetBar.Controls.DataGridViewX dataGridViewKhachHang;
     }
 }
