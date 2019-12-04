@@ -1,6 +1,8 @@
+
 ﻿using System.Drawing;
 
 namespace QLST
+
 {
     partial class frmKhachHang
     {
@@ -30,7 +32,9 @@ namespace QLST
         /// </summary>
         private void InitializeComponent()
         {
+
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonThaoTac = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -41,10 +45,13 @@ namespace QLST
             this.btnLuu = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.btnXuatThongTin = new DevExpress.XtraBars.BarButtonItem();
+
+
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.ribbonControlKhachHang = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnGroup_ = new DevExpress.XtraBars.BarButtonGroup();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
+
             this.txtSearch = new DevExpress.XtraEditors.TextEdit();
             this.lbSearch = new DevExpress.XtraEditors.LabelControl();
             this.gridViewKhachHang = new DevComponents.DotNetBar.Controls.DataGridViewX();
@@ -54,6 +61,7 @@ namespace QLST
             ((System.ComponentModel.ISupportInitialize)(this.txtSearch.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewKhachHang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewKhachHang)).BeginInit();
+
             this.SuspendLayout();
             // 
             // ribbonPageGroup3
@@ -71,7 +79,9 @@ namespace QLST
             this.ribbonThaoTac.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1,
             this.ribbonPageGroup2,
+
             this.ribbonPageGroup4});
+
             this.ribbonThaoTac.ImageOptions.SvgImage = global::QLST.Properties.Resources.bo_appointment;
             this.ribbonThaoTac.Name = "ribbonThaoTac";
             this.ribbonThaoTac.Text = "Thao Tác";
@@ -90,7 +100,9 @@ namespace QLST
             this.btnThemKhachHang.ImageOptions.Image = global::QLST.Properties.Resources.addfile_16x16;
             this.btnThemKhachHang.ImageOptions.LargeImage = global::QLST.Properties.Resources.addfile_32x321;
             this.btnThemKhachHang.Name = "btnThemKhachHang";
+
             this.btnThemKhachHang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThemKhachHang_ItemClick);
+
             // 
             // btnXoaKhachHang
             // 
@@ -99,7 +111,9 @@ namespace QLST
             this.btnXoaKhachHang.ImageOptions.Image = global::QLST.Properties.Resources.delete_16x16;
             this.btnXoaKhachHang.ImageOptions.LargeImage = global::QLST.Properties.Resources.delete_32x32;
             this.btnXoaKhachHang.Name = "btnXoaKhachHang";
+
             this.btnXoaKhachHang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnXoaKhachHang_ItemClick);
+
             // 
             // ribbonPageGroup2
             // 
@@ -114,7 +128,9 @@ namespace QLST
             this.btnLuu.ImageOptions.Image = global::QLST.Properties.Resources.save_16x16;
             this.btnLuu.ImageOptions.LargeImage = global::QLST.Properties.Resources.save_32x32;
             this.btnLuu.Name = "btnLuu";
+
             this.btnLuu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLuu_ItemClick);
+
             // 
             // ribbonPageGroup4
             // 
@@ -126,10 +142,12 @@ namespace QLST
             // 
             this.btnXuatThongTin.Caption = "Xuất Thông Tin Khách Hàng";
             this.btnXuatThongTin.Id = 7;
+
             this.btnXuatThongTin.ImageOptions.Image = global::QLST.Properties.Resources.exporttopdf_16x161;
             this.btnXuatThongTin.ImageOptions.LargeImage = global::QLST.Properties.Resources.exporttopdf_32x322;
             this.btnXuatThongTin.Name = "btnXuatThongTin";
             // 
+
             // repositoryItemTextEdit1
             // 
             this.repositoryItemTextEdit1.AutoHeight = false;
@@ -146,7 +164,9 @@ namespace QLST
             this.btnXoaKhachHang,
             this.btnLuu,
             this.barButtonItem4,
+
             this.btnXuatThongTin});
+
             this.ribbonControlKhachHang.Location = new System.Drawing.Point(0, 0);
             this.ribbonControlKhachHang.MaxItemId = 11;
             this.ribbonControlKhachHang.Name = "ribbonControlKhachHang";
@@ -164,6 +184,7 @@ namespace QLST
             // 
             // barButtonItem4
             // 
+
             this.barButtonItem4.Caption = "Xuất Thông Tin";
             this.barButtonItem4.Id = 6;
             this.barButtonItem4.Name = "barButtonItem4";
@@ -221,12 +242,15 @@ namespace QLST
             this.dataGridViewKhachHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewKhachHang_CellClick);
             this.dataGridViewKhachHang.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewKhachHang_CellContentDoubleClick);
             this.dataGridViewKhachHang.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewKhachHang_CellValueChanged);
+
+           
             // 
             // frmKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1249, 618);
+
             this.Controls.Add(this.dataGridViewKhachHang);
             this.Controls.Add(this.lbSearch);
             this.Controls.Add(this.txtSearch);
@@ -239,6 +263,8 @@ namespace QLST
             ((System.ComponentModel.ISupportInitialize)(this.txtSearch.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewKhachHang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewKhachHang)).EndInit();
+
+            
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -258,10 +284,12 @@ namespace QLST
         private DevExpress.XtraBars.BarButtonGroup btnGroup_;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControlKhachHang;
+
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
         private DevExpress.XtraEditors.TextEdit txtSearch;
         private DevExpress.XtraEditors.LabelControl lbSearch;
         private DevComponents.DotNetBar.Controls.DataGridViewX gridViewKhachHang;
         private DevComponents.DotNetBar.Controls.DataGridViewX dataGridViewKhachHang;
+
     }
 }

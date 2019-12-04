@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+
 using QLSTDTO;
 using QLSTBUS;
 using DevExpress.XtraGrid.Views.Grid;
@@ -20,10 +21,12 @@ using DevExpress.XtraEditors.Repository;
 using DevComponents.DotNetBar;
 using System.Resources;
 
+
 namespace QLST
 {
     public partial class frmKhachHang : DevExpress.XtraEditors.XtraForm
     {
+
         private KhachHangDTO khachHangDTO = new KhachHangDTO();
         private KhachHangDTO khachHang_CellClickDTO = new KhachHangDTO();
         private KhachHangBUS khachHangBUS = new KhachHangBUS();
@@ -601,6 +604,7 @@ namespace QLST
         private void dataGridViewKhachHang_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             AddNewRowItem(false);
+
         }
     }
 }

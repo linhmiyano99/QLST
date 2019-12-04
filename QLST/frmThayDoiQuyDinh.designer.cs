@@ -29,20 +29,13 @@
         private void InitializeComponent()
         {
             this.groupKhachHang_NhanVien = new DevExpress.XtraEditors.GroupControl();
+
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.txtChietKhauHangBachKim = new DevExpress.XtraEditors.TextEdit();
-            this.lbLuongTheoCa = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.txtLuongCa = new DevExpress.XtraEditors.TextEdit();
-            this.txtChietKhauHangVang = new DevExpress.XtraEditors.TextEdit();
-            this.lbChietKhauHangBac = new DevExpress.XtraEditors.LabelControl();
-            this.lbChietKhauHangVang = new DevExpress.XtraEditors.LabelControl();
-            this.txtChietKhauHangBac = new DevExpress.XtraEditors.TextEdit();
-            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
-            this.btnLuu = new DevExpress.XtraEditors.SimpleButton();
+
+
             ((System.ComponentModel.ISupportInitialize)(this.groupKhachHang_NhanVien)).BeginInit();
             this.groupKhachHang_NhanVien.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtChietKhauHangBachKim.Properties)).BeginInit();
@@ -71,6 +64,7 @@
             this.groupKhachHang_NhanVien.TabIndex = 0;
             this.groupKhachHang_NhanVien.Text = "Quy Định";
             // 
+
             // labelControl5
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -127,6 +121,7 @@
             this.labelControl1.TabIndex = 13;
             this.labelControl1.Text = "%";
             // 
+
             // txtChietKhauHangBachKim
             // 
             this.txtChietKhauHangBachKim.Location = new System.Drawing.Point(199, 137);
@@ -246,6 +241,9 @@
             this.btnLuu.Text = "Lưu";
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
+
+
+
             // frmThayDoiQuyDinh
             // 
             this.Appearance.Options.UseFont = true;
