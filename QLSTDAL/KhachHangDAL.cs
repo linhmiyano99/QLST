@@ -10,8 +10,8 @@ using System.Threading.Tasks;
 
 namespace QLSTDAL
 {
-   public class KhachHangDAL
-   {
+    public class KhachHangDAL
+    {
         private string connectionString;
         public KhachHangDAL()
         {
@@ -37,7 +37,7 @@ namespace QLSTDAL
                     cmd.CommandText = query;
                     //---------------------
 
-                   
+
                     cmd.Parameters.AddWithValue("@MaKH", khachHangDto.StrMaKH);
                     cmd.Parameters.AddWithValue("@HoTen", khachHangDto.StrHoTen);
                     cmd.Parameters.AddWithValue("@Diem", khachHangDto.DDiem);
@@ -52,7 +52,7 @@ namespace QLSTDAL
                         con.Close();
                         con.Dispose();
                     }
-                    catch (Exception )
+                    catch (Exception)
                     {
                         con.Close();
                         return false;
@@ -76,7 +76,7 @@ namespace QLSTDAL
                     con.Close();
                 }
             }
-            catch (SystemException )
+            catch (SystemException)
             {
                 return false;
             }
@@ -108,7 +108,7 @@ namespace QLSTDAL
                         con.Close();
                         con.Dispose();
                     }
-                    catch (Exception )
+                    catch (Exception)
                     {
                         con.Close();
                         return false;
@@ -122,19 +122,53 @@ namespace QLSTDAL
         {
 
             var table = new DataTable();
-            using (var da = new SqlDataAdapter("SELECT * FROM tblKHACHHANG", connectionString))
+            using (var da = new SqlDataAdapter(" SELECT * " +
+                "FROM tblKHACHHANG "
+                , connectionString))
+
+            // using (var da = new SqlDataAdapter(" SELECT MaKH, HoTen, tblKHACHHANG.Diem, tblHang.TenHang " +
+            //"FROM tblKHACHHANG " +
+            //"INNER JOIN tblHANG ON tblKHACHHANG.MaHang = tblHANG.MaHang", connectionString))
             {
+
+
                 da.Fill(table);
             }
             return table;
         }
 
-        //Get Danh Sach Khach Hang theo List
-        public List<KhachHangDTO> getListDanhSachKhachHang() 
+
+        public DataTable getDanhSachKhachHangByKey(string sKey)
         {
             string query = string.Empty;
-            query += "SELECT  * FROM tblKHACHHANG";
-         
+
+            query += " SELECT[MaKH] ,[HoTen], [Diem], [MaHang]";
+            query += " FROM[dbQLST].[dbo].[tblKHACHHANG] ";
+            query += " WHERE(MaKH LIKE CONCAT('%', @sKey,'%'))";
+            query += " OR(HoTen LIKE CONCAT('%', @sKey,'%'))";
+            query += " OR(Diem LIKE CONCAT('%', @sKey,'%'))";
+            query += " OR(MaHang LIKE CONCAT('%', @sKey,'%'))";
+
+            SqlConnection con = new SqlConnection(ConnectionString);
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@sKey", sKey);
+          
+            var table = new DataTable();
+            using (var da = new SqlDataAdapter(cmd))
+              
+            {
+                da.Fill(table);
+            }
+            return table;
+        }
+        //Get Danh Sach Khach Hang theo List
+        public List<KhachHangDTO> getListDanhSachKhachHang()
+        {
+            string query = string.Empty;
+            query += "select * from tblKHACHHANG";
+           // query += " INNER JOIN tblHANG ON tblKHACHHANG.MaHang = tblHANG.MaHang";
+
+
             List<KhachHangDTO> listKhachHang = new List<KhachHangDTO>();
 
             using (SqlConnection con = new SqlConnection(ConnectionString))
@@ -172,7 +206,7 @@ namespace QLSTDAL
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine("KHAC_HANG_DAL_ERROR-> "+ex.ToString());
+                        Console.WriteLine("KHAC_HANG_DAL_ERROR-> " + ex.ToString());
                         con.Close();
                         return null;
                     }
@@ -180,6 +214,65 @@ namespace QLSTDAL
             }
             return listKhachHang;
         }
+
+        public List<KhachHangDTO> getListKhachHangByKey(string sKey)
+        {
+            string query = string.Empty;
+            query += " SELECT[MaKH] ,[HoTen], [Diem], [MaHang]";
+            query += " FROM[dbQLST].[dbo].[tblKHACHHANG] ";
+            query += " WHERE(MaKH LIKE CONCAT('%', @sKey,'%'))";
+            query += " OR(HoTen LIKE CONCAT('%', @sKey,'%'))";
+            query += " OR(Diem LIKE CONCAT('%', @sKey,'%'))";
+            query += " OR(MaHang LIKE CONCAT('%', @sKey,'%'))";
+
+
+
+            List<KhachHangDTO> listKhachHang = new List<KhachHangDTO>();
+
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = con;
+                    cmd.CommandType = System.Data.CommandType.Text;
+                    cmd.CommandText = query;
+                    cmd.Parameters.AddWithValue("@sKey", sKey);
+                    try
+                    {
+                        con.Open();
+                        SqlDataReader reader = null;
+                        reader = cmd.ExecuteReader();
+                        if (reader.HasRows == true)
+                        {
+                            while (reader.Read())
+                            {
+                                KhachHangDTO khachHangDTO = new KhachHangDTO();
+                                khachHangDTO.StrMaKH = (reader["MaKH"].ToString());
+                                khachHangDTO.StrHoTen = reader["HoTen"].ToString();
+
+                                string DDiem = reader["Diem"].ToString();
+                                khachHangDTO.DDiem = double.Parse(DDiem.ToString());
+
+                                khachHangDTO.StrMaHang = reader["MaHang"].ToString();
+                                listKhachHang.Add(khachHangDTO);
+                            }
+                        }
+
+                        con.Close();
+                        con.Dispose();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("KHAC_HANG_DAL_ERROR-> " + ex.ToString());
+                        con.Close();
+                        return null;
+                    }
+                }
+            }
+            return listKhachHang;
+        }
+
 
     }
 }

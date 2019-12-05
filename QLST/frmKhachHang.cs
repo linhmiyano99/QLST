@@ -8,75 +8,114 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+
 using QLSTDTO;
 using QLSTBUS;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid;
 using QLST.Properties;
+using DevExpress.XtraEditors.Controls;
+using DevExpress.Utils;
+using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraEditors.Repository;
+using DevComponents.DotNetBar;
+using System.Resources;
+
 
 namespace QLST
 {
-
     public partial class frmKhachHang : DevExpress.XtraEditors.XtraForm
     {
+
         private KhachHangDTO khachHangDTO = new KhachHangDTO();
+        private KhachHangDTO khachHang_CellClickDTO = new KhachHangDTO();
         private KhachHangBUS khachHangBUS = new KhachHangBUS();
         private DataTable khachHangDataTable = new DataTable();
         private List<string> listMaKhachHang = new List<string>();
         private DataTable dataTableUpdateTemp;
         private DataTable dataTableInsertTemp;
-
-
+        private string sKeyword = string.Empty;
 
 
         public frmKhachHang()
         {
             InitializeComponent();
 
-            dataTableUpdateTemp = InitKhachHangDataTable("dataTableUpdateTemp");
-            dataTableInsertTemp = InitKhachHangDataTable("dataTableInsertTemp");
-
         }
-
 
         private void frmKhachHang_Load(object sender, EventArgs e)
         {
             loadDanhSachKhachHang();
             getListMaKhachHang();
-            createGridViewColumn();
+
+
+            khachHangDataTable = InitKhachHangDataTable("khachHangDataTable");
+            dataTableUpdateTemp = InitKhachHangDataTable("dataTableUpdateTemp");
+            dataTableInsertTemp = InitKhachHangDataTable("dataTableInsertTemp");
         }
-
-
 
         #region DATA_BINDING
         /*
          * Binding Data vào UI và xử lý các tác vụ liên quan đến database
          */
-        private void loadDanhSachKhachHang()
+        public void loadDanhSachKhachHang()
         {
-            List<KhachHangDTO> listKhachHang = khachHangBUS.getListDanhSachKhachHang();
+            //List<KhachHangDTO> listKhachHang = khachHangBUS.getListDanhSachKhachHang();
             khachHangDataTable = khachHangBUS.getDanhSachKhachHang();
-           
 
-            if (listKhachHang == null)
+
+            if (khachHangDataTable == null)
             {
-                XtraMessageBox.Show("Đã Có Lỗi Xảy Ra Khi Tải Dữ Liệu!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show("ĐÃ CÓ LỖI XẢY RA KHI TẢI DỮ LIỆU!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            GridView view = gridKhachHang.MainView as GridView;
-            (view).Columns.Clear();
-            gridKhachHang.DataSource = null;
+            dataGridViewKhachHang.Columns.Clear();
+            dataGridViewKhachHang.DataSource = null;
 
-            changeGridViewHeaderText();
-            // createGridViewColumn();
-            gridKhachHang.DataSource = khachHangDataTable;
-            gridKhachHang.ForceInitialize();
+            dataGridViewKhachHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewKhachHang.AutoGenerateColumns = false;
+            //dataGridViewKhachHang.AllowUserToAddRows = false;
 
-            gridKhachHang.MainView.PopulateColumns();
-            CurrencyManager myCurrencyManager = (CurrencyManager)this.BindingContext[gridKhachHang.DataSource];
+            dataGridViewKhachHang.DataSource = khachHangDataTable;
+            CreateDataGridViewKhachHang();
+
+
+
+            CurrencyManager myCurrencyManager = (CurrencyManager)this.BindingContext[dataGridViewKhachHang.DataSource];
             myCurrencyManager.Refresh();
 
+
+        }
+
+
+        private void loadDanhSachKhachHang_byKey(DataTable khachHang )
+        {
+
+           // khachHang = khachHangBUS.getDanhSachKhachHang();
+            //listKhachHang = khachHangBUS.getListKhachHangByKey(sKeyword);
+
+
+            if (khachHang == null)
+            {
+                XtraMessageBox.Show("ĐÃ CÓ LỖI XẢY RA KHI TẢI DỮ LIỆU!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            dataGridViewKhachHang.Columns.Clear();
+            dataGridViewKhachHang.DataSource = null;
+
+            dataGridViewKhachHang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewKhachHang.AutoGenerateColumns = false;
+            //dataGridViewKhachHang.AllowUserToAddRows = false;
+
+            dataGridViewKhachHang.DataSource = khachHang;
+            CreateDataGridViewKhachHang();
+
+            // dgvLoadSach.Sort(dgvLoadSach.Columns[0], ListSortDirection.Ascending);
+
+            CurrencyManager myCurrencyManager = (CurrencyManager)this.BindingContext[dataGridViewKhachHang.DataSource];
+            myCurrencyManager.Refresh();
 
         }
 
@@ -114,22 +153,42 @@ namespace QLST
                     //nếu MaKH đã tồn tại trong database -> UPdate
                     if (listMaKhachHang.Contains(row["MaKH"].ToString()))
                     {
-                        // dataTableUpdateTemp.NewRow();
-                        dataTableUpdateTemp.ImportRow(row);
+                        try
+                        {
+                            //Create a new row and add to dataTableInsertTemp
+                            DataRow updateRow = dataTableUpdateTemp.NewRow();
+                            updateRow[0] = row["MaKH"].ToString();
+                            updateRow[1] = row["HoTen"].ToString();
+                            updateRow[2] = double.Parse(row["Diem"].ToString());
+                            updateRow[3] = row["MaHang"].ToString();
+
+                            dataTableInsertTemp.Rows.Add(updateRow);
+                        }
+                        catch (Exception)
+                        {
+
+                        }
                     }
 
                     //ngược lại
                     else if (!listMaKhachHang.Contains(row["MaKH"].ToString()))
                     {
+                        try
+                        {
+                            //Create a new row and add to dataTableInsertTemp
+                            DataRow insertRow = dataTableInsertTemp.NewRow();
+                            insertRow[0] = row["MaKH"].ToString();
+                            insertRow[1] = row["HoTen"].ToString();
+                            insertRow[2] = double.Parse(row["Diem"].ToString());
+                            insertRow[3] = row["MaHang"].ToString();
 
-                        //Create a new row and add to dataTableInsertTemp
-                        DataRow insertRow = dataTableInsertTemp.NewRow();
-                        insertRow[0] = row["MaKH"].ToString();
-                        insertRow[1] = row["HoTen"].ToString();
-                        insertRow[2] = double.Parse(row["Diem"].ToString());
-                        insertRow[3] = row["MaHang"].ToString();
+                            dataTableInsertTemp.Rows.Add(insertRow);
+                        }
+                        catch (Exception)
+                        {
 
-                        dataTableInsertTemp.Rows.Add(insertRow);
+                        }
+
 
                     }
                 }
@@ -140,6 +199,203 @@ namespace QLST
                 return false;
         }
         #endregion
+
+        #region UI FORMAT
+
+
+        private void CreateDataGridViewKhachHang()
+        {
+
+            DataGridViewTextBoxColumn MaKH = new DataGridViewTextBoxColumn();
+            MaKH.Name = "MaKH";
+            MaKH.HeaderText = "Mã Khách Hàng";
+            MaKH.DataPropertyName = "MaKH";
+            // MaPM.Width = (dgvThemSach_frmMuon.Width / 4) / 3;
+            dataGridViewKhachHang.Columns.Add(MaKH);
+
+
+            DataGridViewTextBoxColumn HoTen = new DataGridViewTextBoxColumn();
+            HoTen.Name = "HoTen";
+            HoTen.HeaderText = "Họ Tên Khách Hàng";
+            HoTen.DataPropertyName = "HoTen";
+            //MaDG.Width = ((dgvThemSach_frmMuon.Width - 3 * (MaSach.Width)) - 25);
+            dataGridViewKhachHang.Columns.Add(HoTen);
+
+            DataGridViewTextBoxColumn Diem = new DataGridViewTextBoxColumn();
+            Diem.Name = "Diem";
+            Diem.HeaderText = "Điểm Số Tích Lũy";
+            Diem.DataPropertyName = "Diem";
+            //MaDG.Width = ((dgvThemSach_frmMuon.Width - 3 * (MaSach.Width)) - 25);
+            dataGridViewKhachHang.Columns.Add(Diem);
+
+            DataGridViewTextBoxColumn MaHang = new DataGridViewTextBoxColumn();
+            MaHang.Name = "MaHang";
+            MaHang.HeaderText = "Tên Hạng";
+            MaHang.DataPropertyName = "MaHang";
+            //MaDG.Width = ((dgvThemSach_frmMuon.Width - 3 * (MaSach.Width)) - 25);
+            dataGridViewKhachHang.Columns.Add(MaHang);
+
+            // 
+            // colButtonEdit
+            // 
+            DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn colButtonEdit = new DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn();
+
+            colButtonEdit.ColorTable = DevComponents.DotNetBar.eButtonColor.Flat;
+            colButtonEdit.DataPropertyName = "ButtonEdit";
+            colButtonEdit.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            colButtonEdit.HeaderText = "Button Edit";
+             colButtonEdit.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.Image;
+           
+            colButtonEdit.Image =  ((System.Drawing.Image)(Properties.Resources.edit_16x16 ));
+            colButtonEdit.ImageTextSpacing = 5;
+            colButtonEdit.Name = "colButtonEdit";
+            colButtonEdit.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            colButtonEdit.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(2);
+            colButtonEdit.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
+            colButtonEdit.SubItemsExpandWidth = 20;
+            colButtonEdit.Text = "Sửa";
+            colButtonEdit.ToolTipText = "Cập Nhật Thông Tin";
+            colButtonEdit.Click += buttonEditClick;
+            dataGridViewKhachHang.Columns.Add(colButtonEdit);
+
+            DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn colButtonDelete = new DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn();
+
+            colButtonDelete.ColorTable = DevComponents.DotNetBar.eButtonColor.Flat;
+            colButtonDelete.DataPropertyName = "ButtonEdit";
+            colButtonDelete.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            colButtonDelete.HeaderText = "Button Xóa";
+            colButtonDelete.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.Image;
+            colButtonDelete.Image = Properties.Resources.delete_16x16;
+            colButtonDelete.ImageTextSpacing = 5;
+            colButtonDelete.Name = "colButtonDelete";
+            colButtonEdit.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            colButtonDelete.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(2);
+            colButtonDelete.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
+            colButtonDelete.SubItemsExpandWidth = 20;
+            colButtonDelete.Text = "Xóa";
+            colButtonDelete.ToolTipText = "Xóa Thông Tin";
+            colButtonDelete.Click += btnDeleteClick;
+
+            dataGridViewKhachHang.Columns.Add(colButtonDelete);
+
+
+        }
+
+
+        #endregion
+
+        #region MAPPING_BUS
+
+        private int themKhachHang(KhachHangDTO khachHang)
+        {
+            bool re = khachHangBUS.themKhachHang(khachHang);
+            return (re == true ? 1 : 0);
+        }
+
+        private int updateKhachHang(KhachHangDTO khachHang)
+        {
+            bool re = khachHangBUS.suaKhachHang(khachHang);
+            return (re == true ? 1 : 0);
+        }
+        #endregion
+
+        private void timKiemKhachHang()
+        {
+            sKeyword = txtSearch.Text.Trim();
+            // List<KhachHangDTO> ListKhachHang = khachHangBUS.getListKhachHangByKey(sKeyword);
+            DataTable dataKhachHang = khachHangBUS.getDanhSachKhachKhachByKey(sKeyword);
+            if (sKeyword == null || sKeyword == string.Empty || sKeyword.Length == 0)
+            {
+                this.loadDanhSachKhachHang();
+
+            }
+            else
+            {
+
+                dataGridViewKhachHang.DataSource = dataKhachHang;
+                dataGridViewKhachHang.Refresh();
+                dataGridViewKhachHang.Update();
+
+            }
+        }
+
+
+        private void txtSearch_EditValueChanged(object sender, EventArgs e)
+        {
+            timKiemKhachHang();
+        }
+
+        private void dataGridViewKhachHang_AllowUserToAddRowsChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnXoaKhachHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            deleteKhachHang();
+        }
+
+
+
+        private void deleteKhachHang()
+        {
+
+            //Tạo List string chứ MaKH
+            List<string> selectedRowsID = new List<string>();
+
+            //add MaKH của những row đang được select vào List
+            foreach (DataGridViewRow row in dataGridViewKhachHang.SelectedRows)
+            {
+                string id = row.Cells[0].Value.ToString();
+                selectedRowsID.Add(id);
+            }
+
+
+            //1. Map data from GUI
+            KhachHangDTO khachHang = new KhachHangDTO();
+
+
+            if (selectedRowsID.Count == 0)
+            {
+                //MessageBox.Show("HÃY CHỌN ÍT NHẤT MỘT HÀNG DỮ LIỆU ĐỂ XÓA!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show("HÃY CHỌN ÍT NHẤT MỘT HÀNG DỮ LIỆU ĐỂ XÓA!!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+
+
+                DialogResult result_ = XtraMessageBox.Show("BẠN CHẮC CHẮN MUỐN XÓA KHÁCH HÀNG CHỨ ?", "Warning!", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+                if (result_ == DialogResult.OK)
+                {
+                    foreach (string strID in selectedRowsID)
+                    {
+                        khachHang.StrMaKH = strID;
+
+                        //2.Kiem tra tren tang database
+                        bool result = khachHangBUS.xoaKhachHang(khachHang);
+                        if (result == false)
+                        {
+                            XtraMessageBox.Show("XẢY RA LỖI KHI XÓA KHÁCH HÀNG!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+
+
+                    loadDanhSachKhachHang();
+
+                    XtraMessageBox.Show("ĐÃ XÓA THÀNH CÔNG", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+
+                }
+
+                else
+                {
+                    //Roll back to NhanVien
+                }
+            }
+        }
+
 
 
         #region EventHandle
@@ -152,13 +408,21 @@ namespace QLST
             
          */
 
-            //BTN_THEM
+        //BTN_THEM
         private void btnThemKhachHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            for (int i = 0; i < gridViewKhachHang.VisibleColumns.Count; i++)
-                gridViewKhachHang.VisibleColumns[i].RealColumnEdit.EditValueChanged += OnEditValueChanged;
+            try
+            {
+                AddNewRowItem(true);
+                int newRowIndex =
+                dataGridViewKhachHang.NewRowIndex;
+                dataGridViewKhachHang.CurrentCell = dataGridViewKhachHang.Rows[newRowIndex].Cells[0];
+            }
+            catch (Exception)
+            {
+                XtraMessageBox.Show("HỆ THỐNG ĐÃ XẢY RA LỖI, VUI LÒNG THỬ LẠI SAU!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
-            AddNewRowItem(true);
 
         }
 
@@ -168,13 +432,12 @@ namespace QLST
             //getCurrentlyEditedRowData();
             if (!getDataForTempTable())
             {
-                XtraMessageBox.Show("Đã Có Lỗi Xảy Ra, Vui Lòng Kiểm Tra Lại!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show("ĐÃ CÓ LỖI XẢY RA, VUI LÒNG KIỂM TRA LẠI!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
             }
-               
-            
 
             int flag = 0;
+            int flag1 = 1;
             //Insert Database
             foreach (DataRow row in dataTableInsertTemp.Rows)
             {
@@ -186,54 +449,73 @@ namespace QLST
 
                 //return 1 if successfull
                 flag = themKhachHang(khachHangDTO);
-
-                if (flag == 0)
-                {
-                    XtraMessageBox.Show("Đã Có Lỗi Xảy Ra, Vui Lòng Kiểm Tra Lại!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                XtraMessageBox.Show("Dữ Liệu đã được cập nhật!", "Notifications!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                gridKhachHang.RefreshDataSource();
             }
+
+            foreach (DataRow row in dataTableUpdateTemp.Rows)
+            {
+                khachHangDTO = new KhachHangDTO();
+                khachHangDTO.StrMaKH = row["MaKH"].ToString();
+                khachHangDTO.StrHoTen = row["HoTen"].ToString();
+                khachHangDTO.DDiem = double.Parse(row["Diem"].ToString());
+                khachHangDTO.StrMaHang = row["MaHang"].ToString();
+
+                //return 1 if successfull
+                flag1 = updateKhachHang(khachHangDTO);
+
+
+            }
+
+            if (flag == 0)
+            {
+                XtraMessageBox.Show("ĐÃ CÓ LỖI XẢY RA, VUI LÒNG KIỂM TRA LẠI!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            XtraMessageBox.Show("DỮ LIỆU ĐÃ ĐƯỢC CẬP NHẬT!", "Notifications!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            // gridKhachHang.RefreshDataSource();
         }
 
         //Add new row
         private void OnEditValueChanged(object sender, EventArgs e)
         {
-            if (gridViewKhachHang.FocusedRowHandle == GridControl.NewItemRowHandle)
-            {
-                gridViewKhachHang.CloseEditor();
-                gridViewKhachHang.UpdateCurrentRow();
-                gridViewKhachHang.ShowEditor();
+            //if (gridViewKhachHang.FocusedRowHandle == GridControl.NewItemRowHandle)
+            //{
+            //    gridViewKhachHang.CloseEditor();
+            //    gridViewKhachHang.UpdateCurrentRow();
+            //    gridViewKhachHang.ShowEditor();
 
 
-                TextEdit edit = sender as TextEdit;
-                if (edit == null) return;
-                edit.SelectionStart = 1;
-                edit.SelectionLength = 0;
-            }
-            AddNewRowItem(false);
+            //    TextEdit edit = sender as TextEdit;
+            //    if (edit == null) return;
+            //    edit.SelectionStart = 1;
+            //    edit.SelectionLength = 0;
+            //}
+            //AddNewRowItem(false);
         }
 
 
         //Thực hiện Add 1 row mới vào gridControl
         private void AddNewRowItem(bool result)
         {
-            if (result == true)
-            {
-                gridViewKhachHang.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.Bottom;
-            }
+            if (result)
+                dataGridViewKhachHang.AllowUserToAddRows = true;
             else
-                this.gridViewKhachHang.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None;
+            {
+                dataGridViewKhachHang.AllowUserToAddRows = false;
+            }
+
+
+
         }
 
 
         //Rằng buộc dữ liệu trong cell được nhập
         private void gridViewKhachHang_InvalidRowException(object sender, DevExpress.XtraGrid.Views.Base.InvalidRowExceptionEventArgs e)
         {
-            gridViewKhachHang.OptionsView.NewItemRowPosition = DevExpress.XtraGrid.Views.Grid.NewItemRowPosition.None;
-            e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.NoAction;
+
+            e.ExceptionMode = DevExpress.XtraEditors.Controls.ExceptionMode.DisplayError;
+            string mess = DevExpress.XtraEditors.Controls.ExceptionMode.DisplayError.ToString();
+            XtraMessageBox.Show(mess, "Notifications!", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
 
@@ -241,23 +523,21 @@ namespace QLST
         {
             //Trả về DataTable các rows đã được chỉnh sửa
 
-            DataTable myTable;
-            DataView MyView;
-            DataSet ds = new DataSet();
-
             // Bind dataGridView to DataView.
-            MyView = (DataView)gridViewKhachHang.DataSource;
+            // MyView = (DataView)dataGridViewKhachHang.DataSource;
 
             // Bind  DataView to Table.
-            myTable = (DataTable)MyView.Table.GetChanges();
+            //myTable = (DataTable)MyView.Table.GetChanges();
 
-            //BindingSource bindingSource = (BindingSource)gridViewKhachHang.DataSource;
+            DataTable dt = (DataTable)(dataGridViewKhachHang.DataSource);
+            dt = dt.GetChanges();
+
+            //BindingSource bindingSource = (BindingSource)dataGridViewKhachHang.DataSource;
             //DataTable changedRowsDataTable = (DataTable)bindingSource.DataSource;
-            //changedRowsDataTable.GetChanges();
+            // changedRowsDataTable.GetChanges();
 
-            //DataTable changedRowsDataTable = ((DataTable)((BindingSource)gridViewKhachHang.DataSource).DataSource).GetChanges();
-            // return changedRowsDataTable;
-            return myTable;
+
+            return dt;
         }
         #endregion
 
@@ -268,91 +548,74 @@ namespace QLST
          * thực hiện việc update và ngược lại.
          * 
          */
-       
-        #region UI FORMAT
-        private void changeGridViewHeaderText()
+
+        private void dataGridViewKhachHang_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //GridView view = gridKhachHang.MainView as GridView;
-            //(gridKhachHang.MainView as GridView).Columns[0].Caption = "123";
+            int ind = e.RowIndex;
+            try
+            {
+                DataGridViewRow selectedRows = dataGridViewKhachHang.Rows[ind];
 
-            //gridViewKhachHang.Columns[0].Caption = "Mã Khách Hàng";
-            //gridViewKhachHang.Columns[1].Caption = "Họ Tên Khách Hàng";
-            //gridViewKhachHang.Columns[2].Caption = "Điểm Số Tích Lũy";
-            //gridViewKhachHang.Columns[3].Caption = "Tên Hạng";
+                //Get data into cellclick dto
 
-        }
-        private void createGridViewColumn()
-        {
+                khachHang_CellClickDTO.StrMaKH = selectedRows.Cells[0].Value.ToString();
+                khachHang_CellClickDTO.StrHoTen = selectedRows.Cells[1].Value.ToString();
+                khachHang_CellClickDTO.DDiem = double.Parse((selectedRows.Cells[2].Value.ToString()));
+                khachHang_CellClickDTO.StrMaHang = (selectedRows.Cells[3].Value.ToString());
 
+            }
+            catch
+            {
 
-            DevExpress.XtraGrid.Columns.GridColumn colMaKhachHang = new DevExpress.XtraGrid.Columns.GridColumn();
-            DevExpress.XtraGrid.Columns.GridColumn colTenKhachHang = new DevExpress.XtraGrid.Columns.GridColumn();
-            DevExpress.XtraGrid.Columns.GridColumn colDiem = new DevExpress.XtraGrid.Columns.GridColumn();
-            DevExpress.XtraGrid.Columns.GridColumn colTenHang = new DevExpress.XtraGrid.Columns.GridColumn();
-
-            // 
-            // colMaKhachHang
-            // 
-            colMaKhachHang.Caption = "Mã Khách Hàng";
-            colMaKhachHang.CustomizationCaption = "Mã Khách Hàng";
-            colMaKhachHang.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            colMaKhachHang.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
-            //colMaKhachHang.ImageOptions.Image = ((System.Drawing.Image)(Resources.GetObject("colMaKhachHang.ImageOptions.Image")));
-            colMaKhachHang.Name = "colMaKhachHang";
-            colMaKhachHang.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.True;
-            colMaKhachHang.OptionsEditForm.Caption = "Mã Khách Hàng";
-            colMaKhachHang.SortMode = DevExpress.XtraGrid.ColumnSortMode.DisplayText;
-            colMaKhachHang.ToolTip = "Hiển Thị Mã Khách Hàng Thành Viên";
-            colMaKhachHang.Visible = true;
-            colMaKhachHang.VisibleIndex = 0;
-            colMaKhachHang.Width = 204;
-            // 
-            // colTenKhachHang
-            // 
-            colTenKhachHang.Caption = "Họ Tên ";
-            colTenKhachHang.Name = "colTenKhachHang";
-            colTenKhachHang.OptionsEditForm.Caption = "Họ Tên";
-            colTenKhachHang.Visible = true;
-            colTenKhachHang.VisibleIndex = 1;
-            colTenKhachHang.Width = 162;
-            // 
-            // colDiem
-            // 
-            colDiem.Caption = "Điểm Tích Lũy";
-            colDiem.CustomizationCaption = "Điểm Tích Lũy";
-            colDiem.Name = "colDiem";
-            colDiem.Visible = true;
-            colDiem.VisibleIndex = 2;
-            colDiem.Width = 162;
-            // 
-            // colTenHang
-            // 
-            colTenHang.Caption = "Tên Hạng";
-            colTenHang.CustomizationCaption = "Tên Hạng";
-            colTenHang.Name = "colTenHang";
-            colTenHang.Visible = true;
-            colTenHang.VisibleIndex = 3;
-            colTenHang.Width = 162;
-
-            //gridViewKhachHang.Columns.Add(colMaKhachHang);
-            //gridViewKhachHang.Columns.Add(colTenKhachHang);
-            //gridViewKhachHang.Columns.Add(colDiem);
-            //gridViewKhachHang.Columns.Add(colTenHang);
-
-            gridViewKhachHang.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(colMaKhachHang, DevExpress.Data.ColumnSortOrder.Ascending)});
+            }
         }
 
-        #endregion
-
-        #region MAPPING_BUS
-
-        private int themKhachHang(KhachHangDTO khachHang)
+        private void dataGridViewKhachHang_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            bool re = khachHangBUS.themKhachHang(khachHang);
-            return (re == true ? 1 : 0);
+            try
+            {
+                int lastRow = e.RowIndex;
+                DataGridViewRow nRow = dataGridViewKhachHang.Rows[lastRow];
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
-        #endregion
+        private void btnEditClick(object sender, EventArgs e)
+        {
+
+
+        }
+
+        private void btnDeleteClick(object sender, EventArgs e)
+        {
+            deleteKhachHang();
+        }
+
+        private void buttonEditClick(object sender, EventArgs e)
+        {
+            frmEditKhachHang frmEdit = new frmEditKhachHang(khachHang_CellClickDTO);
+            try
+            {
+                //frmEditKhachHang frmEdit = new frmEditKhachHang(khachHang_CellClickDTO);
+                frmEdit.StartPosition = FormStartPosition.CenterParent;
+                frmEdit.ShowDialog();
+            }
+            catch (Exception)
+            {
+                frmEdit.Close();
+            }
+            dataGridViewKhachHang.Refresh();
+            dataGridViewKhachHang.Update();
+        }
+
+        private void dataGridViewKhachHang_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            AddNewRowItem(false);
+
+        }
     }
 }

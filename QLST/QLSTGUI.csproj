@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevComponents.DotNetBar.Keyboard, Version=14.1.0.28, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL" />
+    <Reference Include="DevComponents.DotNetBar.SuperGrid, Version=14.1.0.28, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL" />
+    <Reference Include="DevComponents.DotNetBar2, Version=14.1.0.28, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL" />
+    <Reference Include="DevComponents.Instrumentation, Version=14.1.0.28, Culture=neutral, PublicKeyToken=f90dc37c26666a67, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.BonusSkins.v19.1" />
     <Reference Include="DevExpress.Data.v19.1" />
     <Reference Include="DevExpress.Printing.v19.1.Core" />
@@ -61,6 +65,12 @@
     <Compile Include="frmDangNhap.designer.cs">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEditKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditKhachHang.Designer.cs">
+      <DependentUpon>frmEditKhachHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +93,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditKhachHang.resx">
+      <DependentUpon>frmEditKhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmKhachHang.resx">
       <DependentUpon>frmKhachHang.cs</DependentUpon>
@@ -154,6 +167,48 @@
       <Project>{C529F84E-3A94-4F30-AF38-269D0B970513}</Project>
       <Name>QLSTDTO</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edittask_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\formatastable_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\formatastable_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exporttopdf_32x323.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exporttopdf_16x162.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editname_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editname_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\del.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editnames.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pencolor.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exporttopdf_32x324.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exporttopdf_16x163.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

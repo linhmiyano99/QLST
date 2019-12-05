@@ -115,5 +115,56 @@ namespace QLSTDAL
             return true;
         }
 
+
+        public List<HangDTO> Select()
+        {
+            string query = string.Empty;
+            query += "SELECT * ";
+            query += "FROM [tblHANG]";
+
+            List<HangDTO> listhang = new List<HangDTO>();
+
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = con;
+                    cmd.CommandType = System.Data.CommandType.Text;
+                    cmd.CommandText = query;
+
+                    try
+                    {
+                        con.Open();
+                        SqlDataReader reader = null;
+                        reader = cmd.ExecuteReader();
+                        if (reader.HasRows == true)
+                        {
+                            while (reader.Read())
+                            {
+                                HangDTO hang = new HangDTO();
+                                hang.StrMaHang = (reader["MaHang"].ToString());
+                                hang.StrTenHang = reader["TenHang"].ToString();
+                                double diem = double.Parse( reader["Diem"].ToString());
+                                hang.DDiem = diem;
+                                float chietkhau = float.Parse(reader["ChietKhau"].ToString());
+                                hang.FChietKhau = chietkhau;
+                                listhang.Add(hang);
+                            }
+                        }
+
+                        con.Close();
+                        con.Dispose();
+                    }
+                    catch (Exception)
+                    {
+                        con.Close();
+                        return null;
+                    }
+                }
+            }
+            return listhang;
+        }
+
     }
 }

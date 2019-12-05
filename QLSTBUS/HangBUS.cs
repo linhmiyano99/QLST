@@ -17,22 +17,28 @@ namespace QLSTBUS
             this.HangDAL = new HangDAL();
         }
 
-        public bool suaPhieu(HangDTO ts)
+        public bool sua(HangDTO ts)
         {
             bool re = this.HangDAL.sua(ts);
             return re;
         }
 
-        public bool themPhieu(HangDTO ts)
+        public bool them(HangDTO ts)
         {
             bool re = this.HangDAL.them(ts);
             return re;
         }
 
-        public bool xoaPhieu(HangDTO ts)
+        public bool xoa(HangDTO ts)
         {
             bool re = this.HangDAL.xoa(ts);
             return re;
+        
+        }
+
+        public List<HangDTO> GetDanhSach()
+        {
+            return HangDAL.Select();
         }
     }
 }

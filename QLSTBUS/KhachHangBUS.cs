@@ -12,7 +12,7 @@ namespace QLSTBUS
 {
     public class KhachHangBUS
     {
-        private KhachHangDTO khachHangDTO = new KhachHangDTO();
+
         private KhachHangDAL KhachHangDAL;
         public KhachHangBUS()
         {
@@ -42,10 +42,21 @@ namespace QLSTBUS
             return KhachHangDAL.getDanhSachKhachHang();
         }
 
+        public DataTable getDanhSachKhachKhachByKey(string sKey)
+        {
+            return KhachHangDAL.getDanhSachKhachHangByKey(sKey);
+        }
+
         public List<KhachHangDTO> getListDanhSachKhachHang()
         {
             return KhachHangDAL.getListDanhSachKhachHang();
         }
+
+        public List<KhachHangDTO> getListKhachHangByKey(string sKey)
+        {
+            return KhachHangDAL.getListKhachHangByKey(sKey);
+        }
+       
 
     }
 }
