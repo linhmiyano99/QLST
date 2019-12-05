@@ -21,17 +21,17 @@ namespace QLSTBUS
         public bool suaHoaDonBanHang(HoaDonBanHangDTO hoaDonBanHangDto)
         {
             bool re = this.hdDAL.sua(hoaDonBanHangDto);
-            return true;
+            return re;
         }
         public bool themHoaDonBanHang(HoaDonBanHangDTO hoaDonBanHangDto)
         {
             bool re = this.hdDAL.them(hoaDonBanHangDto);
-            return true;
+            return re;
         }
         public bool xoaHoaDonBanHang(HoaDonBanHangDTO hoaDonBanHangDto)
         {
             bool re = this.hdDAL.xoa(hoaDonBanHangDto);
-            return true;
+            return re;
         }
 
     }
