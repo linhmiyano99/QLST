@@ -96,7 +96,6 @@
     <EmbeddedResource Include="frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
-
     <EmbeddedResource Include="frmEditKhachHang.resx">
       <DependentUpon>frmEditKhachHang.cs</DependentUpon>
     </EmbeddedResource>
@@ -187,6 +186,34 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\exporttopdf_16x162.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\edit_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editname_32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editname_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\del.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editnames.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pencolor.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exporttopdf_32x324.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exporttopdf_16x163.png" />
   </ItemGroup>
 
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -50,7 +50,7 @@ namespace QLST
             }
             catch (Exception)
             {
-                XtraMessageBox.Show("Đã Có Lỗi Xảy Ra Khi Tải Dữ Liệu!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show("ĐÃ CÓ LỖI XẢY RA KHI TẢI DỮ LIỆU!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -64,12 +64,12 @@ namespace QLST
             bool re = thamSoBUS.suaThamSo(thamSoDTO);
             if (re)
             {
-                XtraMessageBox.Show("Đã Lưu Thay Đổi!", "Notifications!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                XtraMessageBox.Show("ĐÃ LƯU THAY ĐỔI!", "Notifications!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
             else
             {
-                XtraMessageBox.Show("Đã Có Lỗi Xảy Ra Khi Lưu Thay Đổi!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show("ĐÃ CÓ LỖI XẢY RA KHI LƯU THAY ĐỔI!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

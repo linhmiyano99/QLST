@@ -137,13 +137,37 @@ namespace QLSTDAL
             return table;
         }
 
+
+        public DataTable getDanhSachKhachHangByKey(string sKey)
+        {
+            string query = string.Empty;
+
+            query += " SELECT[MaKH] ,[HoTen], [Diem], [MaHang]";
+            query += " FROM[dbQLST].[dbo].[tblKHACHHANG] ";
+            query += " WHERE(MaKH LIKE CONCAT('%', @sKey,'%'))";
+            query += " OR(HoTen LIKE CONCAT('%', @sKey,'%'))";
+            query += " OR(Diem LIKE CONCAT('%', @sKey,'%'))";
+            query += " OR(MaHang LIKE CONCAT('%', @sKey,'%'))";
+
+            SqlConnection con = new SqlConnection(ConnectionString);
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@sKey", sKey);
+          
+            var table = new DataTable();
+            using (var da = new SqlDataAdapter(cmd))
+              
+            {
+                da.Fill(table);
+            }
+            return table;
+        }
+
         //Get Danh Sach Khach Hang theo List
         public List<KhachHangDTO> getListDanhSachKhachHang()
         {
             string query = string.Empty;
-            query += "SELECT  MaKH, HoTen, Diem, tblHang.TenHang FROM tblKHACHHANG";
-            query += " INNER JOIN tblHANG ON tblKHACHHANG.MaHang = tblHANG.MaHang";
-
+            query += "select * from tblKHACHHANG";
+           // query += " INNER JOIN tblHANG ON tblKHACHHANG.MaHang = tblHANG.MaHang";
 
             List<KhachHangDTO> listKhachHang = new List<KhachHangDTO>();
 
@@ -194,7 +218,6 @@ namespace QLSTDAL
         public List<KhachHangDTO> getListKhachHangByKey(string sKey)
         {
             string query = string.Empty;
-
             query += " SELECT[MaKH] ,[HoTen], [Diem], [MaHang]";
             query += " FROM[dbQLST].[dbo].[tblKHACHHANG] ";
             query += " WHERE(MaKH LIKE CONCAT('%', @sKey,'%'))";
@@ -202,12 +225,10 @@ namespace QLSTDAL
             query += " OR(Diem LIKE CONCAT('%', @sKey,'%'))";
             query += " OR(MaHang LIKE CONCAT('%', @sKey,'%'))";
 
-
             List<KhachHangDTO> listKhachHang = new List<KhachHangDTO>();
 
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
-
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = con;
@@ -249,7 +270,6 @@ namespace QLSTDAL
             return listKhachHang;
         }
 
-        // LIKE CONCAT('%', @sKeyword,'%')
 
     }
 }

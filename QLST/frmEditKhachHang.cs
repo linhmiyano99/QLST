@@ -13,8 +13,12 @@ using QLSTBUS;
 
 namespace QLST
 {
+
+    
     public partial class frmEditKhachHang : DevExpress.XtraEditors.XtraForm
     {
+        public frmKhachHang frmKH;
+
         KhachHangDTO khachHang = new KhachHangDTO();
         KhachHangBUS khachHangBUS = new KhachHangBUS();
         HangDTO hangDTO = new HangDTO();
@@ -85,9 +89,6 @@ namespace QLST
             {
                 cmbTenHang.SelectedIndex = 0;
             }
-
-
-
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -96,12 +97,17 @@ namespace QLST
             bool re = khachHangBUS.suaKhachHang(khachHang);
             if (re)
             {
-                XtraMessageBox.Show("Thông Tin Đã Được Cập Nhật", "Notifications", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                XtraMessageBox.Show("THÔNG TIN ĐÃ ĐƯỢC CẬP NHẬT", "Notifications", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                frmKH.loadDanhSachKhachHang();
+                frmKH.dataGridViewKhachHang.Refresh();
+
                 this.Close();
             }
             else
             {
-                XtraMessageBox.Show("Có lỗi xảy ra, Vui Lòng Thử Lại Sau", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show("CÓ LỖI XẢY RA, VUI LÒNG THỬ LẠI SAU", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
         }
     }
