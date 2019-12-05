@@ -40,14 +40,12 @@ namespace QLST
         public frmKhachHang()
         {
             InitializeComponent();
-
         }
 
         private void frmKhachHang_Load(object sender, EventArgs e)
         {
             loadDanhSachKhachHang();
             getListMaKhachHang();
-
 
             khachHangDataTable = InitKhachHangDataTable("khachHangDataTable");
             dataTableUpdateTemp = InitKhachHangDataTable("dataTableUpdateTemp");
@@ -67,6 +65,7 @@ namespace QLST
             if (khachHangDataTable == null)
             {
                 XtraMessageBox.Show("ĐÃ CÓ LỖI XẢY RA KHI TẢI DỮ LIỆU!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 return;
             }
 
@@ -77,14 +76,11 @@ namespace QLST
             dataGridViewKhachHang.AutoGenerateColumns = false;
             //dataGridViewKhachHang.AllowUserToAddRows = false;
 
+
             dataGridViewKhachHang.DataSource = khachHangDataTable;
             CreateDataGridViewKhachHang();
-
-
-
             CurrencyManager myCurrencyManager = (CurrencyManager)this.BindingContext[dataGridViewKhachHang.DataSource];
             myCurrencyManager.Refresh();
-
 
         }
 
@@ -99,6 +95,7 @@ namespace QLST
             if (khachHang == null)
             {
                 XtraMessageBox.Show("ĐÃ CÓ LỖI XẢY RA KHI TẢI DỮ LIỆU!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 return;
             }
 
@@ -111,7 +108,6 @@ namespace QLST
 
             dataGridViewKhachHang.DataSource = khachHang;
             CreateDataGridViewKhachHang();
-
             // dgvLoadSach.Sort(dgvLoadSach.Columns[0], ListSortDirection.Ascending);
 
             CurrencyManager myCurrencyManager = (CurrencyManager)this.BindingContext[dataGridViewKhachHang.DataSource];
@@ -247,11 +243,13 @@ namespace QLST
              colButtonEdit.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.Image;
            
             colButtonEdit.Image =  ((System.Drawing.Image)(Properties.Resources.edit_16x16 ));
+
             colButtonEdit.ImageTextSpacing = 5;
             colButtonEdit.Name = "colButtonEdit";
             colButtonEdit.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             colButtonEdit.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(2);
             colButtonEdit.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
+
             colButtonEdit.SubItemsExpandWidth = 20;
             colButtonEdit.Text = "Sửa";
             colButtonEdit.ToolTipText = "Cập Nhật Thông Tin";
@@ -271,13 +269,13 @@ namespace QLST
             colButtonEdit.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             colButtonDelete.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(2);
             colButtonDelete.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
+
             colButtonDelete.SubItemsExpandWidth = 20;
             colButtonDelete.Text = "Xóa";
             colButtonDelete.ToolTipText = "Xóa Thông Tin";
             colButtonDelete.Click += btnDeleteClick;
 
             dataGridViewKhachHang.Columns.Add(colButtonDelete);
-
 
         }
 
@@ -304,6 +302,7 @@ namespace QLST
             sKeyword = txtSearch.Text.Trim();
             // List<KhachHangDTO> ListKhachHang = khachHangBUS.getListKhachHangByKey(sKeyword);
             DataTable dataKhachHang = khachHangBUS.getDanhSachKhachKhachByKey(sKeyword);
+
             if (sKeyword == null || sKeyword == string.Empty || sKeyword.Length == 0)
             {
                 this.loadDanhSachKhachHang();
@@ -323,10 +322,16 @@ namespace QLST
         private void txtSearch_EditValueChanged(object sender, EventArgs e)
         {
             timKiemKhachHang();
+
         }
 
         private void dataGridViewKhachHang_AllowUserToAddRowsChanged(object sender, EventArgs e)
         {
+
+            AddNewRowItem(true);
+            int newRowIndex =
+            dataGridViewKhachHang.NewRowIndex;
+            dataGridViewKhachHang.CurrentCell = dataGridViewKhachHang.Rows[newRowIndex].Cells[0];
 
         }
 
@@ -396,8 +401,6 @@ namespace QLST
             }
         }
 
-
-
         #region EventHandle
         /*
          * Đoạn code dưới đây là để thêm 1 row mới khi người dùng nhấn btnThemMoiKhachHang
@@ -433,6 +436,7 @@ namespace QLST
             if (!getDataForTempTable())
             {
                 XtraMessageBox.Show("ĐÃ CÓ LỖI XẢY RA, VUI LÒNG KIỂM TRA LẠI!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 this.Close();
             }
 
@@ -461,8 +465,6 @@ namespace QLST
 
                 //return 1 if successfull
                 flag1 = updateKhachHang(khachHangDTO);
-
-
             }
 
             if (flag == 0)
@@ -522,7 +524,6 @@ namespace QLST
         private DataTable getCurrentlyEditedRowData()
         {
             //Trả về DataTable các rows đã được chỉnh sửa
-
             // Bind dataGridView to DataView.
             // MyView = (DataView)dataGridViewKhachHang.DataSource;
 
@@ -535,8 +536,6 @@ namespace QLST
             //BindingSource bindingSource = (BindingSource)dataGridViewKhachHang.DataSource;
             //DataTable changedRowsDataTable = (DataTable)bindingSource.DataSource;
             // changedRowsDataTable.GetChanges();
-
-
             return dt;
         }
         #endregion
@@ -562,7 +561,6 @@ namespace QLST
                 khachHang_CellClickDTO.StrHoTen = selectedRows.Cells[1].Value.ToString();
                 khachHang_CellClickDTO.DDiem = double.Parse((selectedRows.Cells[2].Value.ToString()));
                 khachHang_CellClickDTO.StrMaHang = (selectedRows.Cells[3].Value.ToString());
-
             }
             catch
             {
@@ -586,8 +584,6 @@ namespace QLST
 
         private void btnEditClick(object sender, EventArgs e)
         {
-
-
         }
 
         private void btnDeleteClick(object sender, EventArgs e)
@@ -610,6 +606,7 @@ namespace QLST
             }
             dataGridViewKhachHang.Refresh();
             dataGridViewKhachHang.Update();
+
         }
 
         private void dataGridViewKhachHang_CellValueChanged(object sender, DataGridViewCellEventArgs e)

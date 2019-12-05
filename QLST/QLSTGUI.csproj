@@ -65,12 +65,14 @@
     <Compile Include="frmDangNhap.designer.cs">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </Compile>
+
     <Compile Include="frmEditKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmEditKhachHang.Designer.cs">
       <DependentUpon>frmEditKhachHang.cs</DependentUpon>
     </Compile>
+
     <Compile Include="frmKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +99,7 @@
     <EmbeddedResource Include="frmEditKhachHang.resx">
       <DependentUpon>frmEditKhachHang.cs</DependentUpon>
     </EmbeddedResource>
+
     <EmbeddedResource Include="frmKhachHang.resx">
       <DependentUpon>frmKhachHang.cs</DependentUpon>
     </EmbeddedResource>
@@ -168,6 +171,7 @@
       <Name>QLSTDTO</Name>
     </ProjectReference>
   </ItemGroup>
+
   <ItemGroup>
     <None Include="Resources\edittask_32x32.png" />
   </ItemGroup>
@@ -183,6 +187,7 @@
   <ItemGroup>
     <None Include="Resources\exporttopdf_16x162.png" />
   </ItemGroup>
+
   <ItemGroup>
     <None Include="Resources\edit_32x32.png" />
   </ItemGroup>
@@ -210,6 +215,7 @@
   <ItemGroup>
     <None Include="Resources\exporttopdf_16x163.png" />
   </ItemGroup>
+
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

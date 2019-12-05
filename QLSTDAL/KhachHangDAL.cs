@@ -161,13 +161,13 @@ namespace QLSTDAL
             }
             return table;
         }
+
         //Get Danh Sach Khach Hang theo List
         public List<KhachHangDTO> getListDanhSachKhachHang()
         {
             string query = string.Empty;
             query += "select * from tblKHACHHANG";
            // query += " INNER JOIN tblHANG ON tblKHACHHANG.MaHang = tblHANG.MaHang";
-
 
             List<KhachHangDTO> listKhachHang = new List<KhachHangDTO>();
 
@@ -225,13 +225,10 @@ namespace QLSTDAL
             query += " OR(Diem LIKE CONCAT('%', @sKey,'%'))";
             query += " OR(MaHang LIKE CONCAT('%', @sKey,'%'))";
 
-
-
             List<KhachHangDTO> listKhachHang = new List<KhachHangDTO>();
 
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
-
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = con;

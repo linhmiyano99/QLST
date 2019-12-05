@@ -47,6 +47,7 @@ namespace QLSTBUS
             return KhachHangDAL.getDanhSachKhachHangByKey(sKey);
         }
 
+
         public List<KhachHangDTO> getListDanhSachKhachHang()
         {
             return KhachHangDAL.getListDanhSachKhachHang();

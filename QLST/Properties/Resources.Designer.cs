@@ -193,6 +193,7 @@ namespace QLST.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+
         internal static System.Drawing.Bitmap edit_16x16 {
             get {
                 object obj = ResourceManager.GetObject("edit_16x16", resourceCulture);
@@ -243,6 +244,7 @@ namespace QLST.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+
         internal static System.Drawing.Bitmap edittask_32x32 {
             get {
                 object obj = ResourceManager.GetObject("edittask_32x32", resourceCulture);
@@ -263,6 +265,7 @@ namespace QLST.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+
         internal static System.Drawing.Bitmap exporttopdf_16x161 {
             get {
                 object obj = ResourceManager.GetObject("exporttopdf_16x161", resourceCulture);
@@ -273,6 +276,7 @@ namespace QLST.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+
         internal static System.Drawing.Bitmap exporttopdf_16x162 {
             get {
                 object obj = ResourceManager.GetObject("exporttopdf_16x162", resourceCulture);
@@ -313,6 +317,7 @@ namespace QLST.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+
         internal static System.Drawing.Bitmap exporttopdf_32x323 {
             get {
                 object obj = ResourceManager.GetObject("exporttopdf_32x323", resourceCulture);
@@ -323,6 +328,7 @@ namespace QLST.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+
         internal static System.Drawing.Bitmap formatastable_16x16 {
             get {
                 object obj = ResourceManager.GetObject("formatastable_16x16", resourceCulture);
@@ -341,6 +347,7 @@ namespace QLST.Properties {
         }
         
         /// <summary>
+
         ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
         /// </summary>
         internal static DevExpress.Utils.Svg.SvgImage pencolor {
@@ -353,6 +360,7 @@ namespace QLST.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+
         internal static System.Drawing.Bitmap save_16x16 {
             get {
                 object obj = ResourceManager.GetObject("save_16x16", resourceCulture);
