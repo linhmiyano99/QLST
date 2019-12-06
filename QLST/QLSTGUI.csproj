@@ -59,25 +59,59 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmEditChucVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditChucVu.Designer.cs">
+      <DependentUpon>frmEditChucVu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmChucVu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChucVu.Designer.cs">
+      <DependentUpon>frmChucVu.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmDangNhap.designer.cs">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </Compile>
-
+    <Compile Include="frmEditHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditHang.Designer.cs">
+      <DependentUpon>frmEditHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEditKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmEditKhachHang.Designer.cs">
       <DependentUpon>frmEditKhachHang.cs</DependentUpon>
     </Compile>
-
+    <Compile Include="frmEditNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditNhanVien.Designer.cs">
+      <DependentUpon>frmEditNhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHoaDonBanHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHoaDonBanHang.designer.cs">
+      <DependentUpon>frmHoaDonBanHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmKhachHang.Designer.cs">
       <DependentUpon>frmKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNhanVien.designer.cs">
+      <DependentUpon>frmNhanVien.cs</DependentUpon>
     </Compile>
     <Compile Include="frmThayDoiQuyDinh.cs">
       <SubType>Form</SubType>
@@ -91,23 +125,49 @@
     <Compile Include="frmQuanLyHang.designer.cs">
       <DependentUpon>frmQuanLyHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmThemNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmThemNhanVien.Designer.cs">
+      <DependentUpon>frmThemNhanVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmEditChucVu.resx">
+      <DependentUpon>frmEditChucVu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChucVu.resx">
+      <DependentUpon>frmChucVu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditHang.resx">
+      <DependentUpon>frmEditHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditKhachHang.resx">
       <DependentUpon>frmEditKhachHang.cs</DependentUpon>
     </EmbeddedResource>
-
+    <EmbeddedResource Include="frmEditNhanVien.resx">
+      <DependentUpon>frmEditNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHoaDonBanHang.resx">
+      <DependentUpon>frmHoaDonBanHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmKhachHang.resx">
       <DependentUpon>frmKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNhanVien.resx">
+      <DependentUpon>frmNhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmQuanLyHang.resx">
       <DependentUpon>frmQuanLyHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmThayDoiQuyDinh.resx">
       <DependentUpon>frmThayDoiQuyDinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmThemNhanVien.resx">
+      <DependentUpon>frmThemNhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -171,7 +231,6 @@
       <Name>QLSTDTO</Name>
     </ProjectReference>
   </ItemGroup>
-
   <ItemGroup>
     <None Include="Resources\edittask_32x32.png" />
   </ItemGroup>
@@ -187,7 +246,6 @@
   <ItemGroup>
     <None Include="Resources\exporttopdf_16x162.png" />
   </ItemGroup>
-
   <ItemGroup>
     <None Include="Resources\edit_32x32.png" />
   </ItemGroup>
@@ -215,7 +273,6 @@
   <ItemGroup>
     <None Include="Resources\exporttopdf_16x163.png" />
   </ItemGroup>
-
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

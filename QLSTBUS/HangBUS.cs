@@ -40,5 +40,15 @@ namespace QLSTBUS
         {
             return HangDAL.Select();
         }
+
+        public DataTable GetDataTableHang()
+        {
+            return HangDAL.getDanhSachHang();
+        }
+
+        public DataTable GetDataTableHangByKey(string sKey)
+        {
+            return HangDAL.getDanhSachHangByKey(sKey);
+        }
     }
 }

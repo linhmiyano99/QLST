@@ -57,7 +57,7 @@ namespace QLSTDAL
                         con.Close();
                         con.Dispose();
                     }
-                    catch (Exception ex)
+                    catch (Exception )
                     {
                         con.Close();
                         return false;
@@ -81,7 +81,7 @@ namespace QLSTDAL
                     con.Close();
                 }
             }
-            catch (SystemException ex)
+            catch (SystemException )
             {
                 return false;
             }
@@ -120,7 +120,7 @@ namespace QLSTDAL
                         con.Close();
                         con.Dispose();
                     }
-                    catch (Exception ex)
+                    catch (Exception )
                     {
                         con.Close();
                         return false;
