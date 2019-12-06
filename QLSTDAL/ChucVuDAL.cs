@@ -10,21 +10,21 @@ using System.Threading.Tasks;
 
 namespace QLSTDAL
 {
-    public class HangDAL
+    public class ChucVuDAL
     {
         private string connectionString;
-        public HangDAL()
+        public ChucVuDAL()
         {
             connectionString = ConfigurationManager.AppSettings["ConnectionString"];
         }
         public string ConnectionString { get => connectionString; set => connectionString = value; }
-        public bool them(HangDTO hangDto)
+        public bool them(ChucVuDTO ChucVuDTO)
         {
 
             // câu lệnh insert sổ vào bảng
             string query = string.Empty;
-            query += "INSERT INTO [tblHANG] ([MaHang], [TenHang], [ChietKhau], [Diem]) ";
-            query += "VALUES (@MaHang, @TenHang, @ChietKhau, @Diem)";
+            query += "INSERT INTO [tblCHUCVU] ([MaCV], [TenChucVu], [LuongCa]) ";
+            query += "VALUES (@MaCV, @TenCV, @LuongCa)";
             //----------------------------
 
             using (SqlConnection con = new SqlConnection(ConnectionString))
@@ -37,10 +37,10 @@ namespace QLSTDAL
                     //---------------------
 
                     //Tham số từ sổ tiết kiệm
-                    cmd.Parameters.AddWithValue("@MaHang", hangDto.StrMaHang);
-                    cmd.Parameters.AddWithValue("@TenHang", hangDto.StrTenHang);
-                    cmd.Parameters.AddWithValue("@ChietKhau", hangDto.FChietKhau);
-                    cmd.Parameters.AddWithValue("@Diem", hangDto.DDiem);
+                    cmd.Parameters.AddWithValue("@MaCV", ChucVuDTO.StrMaCV);
+                    cmd.Parameters.AddWithValue("@TenCV", ChucVuDTO.StrTenCV);
+                    cmd.Parameters.AddWithValue("@LuongCa", ChucVuDTO.FLuongCa);
+                   
 
                     //---------------------------
 
@@ -60,7 +60,7 @@ namespace QLSTDAL
             }
             return true;
         }
-        public bool xoa(HangDTO hangDto)
+        public bool xoa(ChucVuDTO chucVuDTO)
         {
             try
             {
@@ -68,7 +68,7 @@ namespace QLSTDAL
                 using (SqlConnection con = new SqlConnection(connectionString))
                 {
                     con.Open();
-                    using (SqlCommand command = new SqlCommand("DELETE FROM tblHANG WHERE MaHang = '" + hangDto.StrMaHang + "'", con))
+                    using (SqlCommand command = new SqlCommand("DELETE FROM tblCHUCVU WHERE MaCv = '" + chucVuDTO.StrMaCV + "'", con))
                     {
                         command.ExecuteNonQuery();
                     }
@@ -84,10 +84,10 @@ namespace QLSTDAL
 
         }
 
-        public bool sua(HangDTO hangDto)
+        public bool sua(ChucVuDTO chucVuDTO)
         {
             string query = string.Empty;
-            query += "UPDATE tblHANG SET TenHang = @TenHang, ChietKhau = @ChietKhau, Diem = @Diem WHERE MaHang = @MaHang ";
+            query += "UPDATE tblCHUCVU SET TenChucVu = @TenCV, LuongCa = @LuongCa WHERE MaCV = @MaCV ";
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
                 using (SqlCommand cmd = new SqlCommand())
@@ -96,11 +96,11 @@ namespace QLSTDAL
                     cmd.CommandType = System.Data.CommandType.Text;
 
                     cmd.CommandText = query;
-                    cmd.Parameters.AddWithValue("@TenHang", hangDto.StrTenHang);
-                    cmd.Parameters.AddWithValue("@ChietKhau", hangDto.FChietKhau);
-                    cmd.Parameters.AddWithValue("@Diem", hangDto.DDiem);
-                    cmd.Parameters.AddWithValue("@MaHang", hangDto.StrMaHang);
+                    cmd.Parameters.AddWithValue("@TenCV", chucVuDTO.StrTenCV);
+                    cmd.Parameters.AddWithValue("@LuongCa", chucVuDTO.FLuongCa);
+                    cmd.Parameters.AddWithValue("@MaCv", chucVuDTO.StrMaCV);
                     
+
                     try
                     {
                         con.Open();
@@ -119,13 +119,13 @@ namespace QLSTDAL
         }
 
 
-        public List<HangDTO> Select()
+        public List<ChucVuDTO> Select()
         {
             string query = string.Empty;
             query += "SELECT * ";
-            query += "FROM [tblHANG]";
+            query += "FROM [tblCHUCVU]";
 
-            List<HangDTO> listhang = new List<HangDTO>();
+            List<ChucVuDTO> ListChucVu = new List<ChucVuDTO>();
 
             using (SqlConnection con = new SqlConnection(ConnectionString))
             {
@@ -145,14 +145,12 @@ namespace QLSTDAL
                         {
                             while (reader.Read())
                             {
-                                HangDTO hang = new HangDTO();
-                                hang.StrMaHang = (reader["MaHang"].ToString());
-                                hang.StrTenHang = reader["TenHang"].ToString();
-                                double diem = double.Parse( reader["Diem"].ToString());
-                                hang.DDiem = diem;
-                                float chietkhau = float.Parse(reader["ChietKhau"].ToString());
-                                hang.FChietKhau = chietkhau;
-                                listhang.Add(hang);
+                                ChucVuDTO chucVuDTO = new ChucVuDTO();
+                                chucVuDTO.StrMaCV = (reader["MaCV"].ToString());
+                                chucVuDTO.StrTenCV = reader["TenChucVu"].ToString();
+                                float LuongCa = float.Parse(reader["LuongCa"].ToString());
+                                chucVuDTO.FLuongCa = LuongCa;
+                                ListChucVu.Add(chucVuDTO);
                             }
                         }
 
@@ -166,15 +164,15 @@ namespace QLSTDAL
                     }
                 }
             }
-            return listhang;
+            return ListChucVu;
         }
 
-        public DataTable getDanhSachHang()
+        public DataTable getDanhSachCV()
         {
 
             var table = new DataTable();
             using (var da = new SqlDataAdapter(" SELECT * " +
-                "FROM tblHANG "
+                "FROM tblCHUCVU "
                 , connectionString))
 
             // using (var da = new SqlDataAdapter(" SELECT MaKH, HoTen, tblKHACHHANG.Diem, tblHang.TenHang " +
@@ -189,16 +187,16 @@ namespace QLSTDAL
         }
 
 
-        public DataTable getDanhSachHangByKey(string sKey)
+        public DataTable getDanhSachChucVuByKey(string sKey)
         {
             string query = string.Empty;
 
-            query += " SELECT[MaHang] ,[TenHang], [ChietKhau], [Diem]";
-            query += " FROM[dbQLST].[dbo].[tblHANG] ";
-            query += " WHERE(MaHang LIKE CONCAT('%', @sKey,'%'))";
-            query += " OR(TenHang LIKE CONCAT('%', @sKey,'%'))";
-            query += " OR(ChietKhau LIKE CONCAT('%', @sKey,'%'))";
-            query += " OR(Diem LIKE CONCAT('%', @sKey,'%'))";
+            query += " SELECT[MaCV] ,[TenChucVu], [LuongCa]";
+            query += " FROM[dbQLST].[dbo].[tblCHUCVU] ";
+            query += " WHERE(MaCV LIKE CONCAT('%', @sKey,'%'))";
+            query += " OR(TenChucVu LIKE CONCAT('%', @sKey,'%'))";
+            query += " OR(LuongCa LIKE CONCAT('%', @sKey,'%'))";
+          
 
             SqlConnection con = new SqlConnection(ConnectionString);
             SqlCommand cmd = new SqlCommand(query, con);

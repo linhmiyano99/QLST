@@ -18,7 +18,7 @@ namespace QLST
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             BonusSkins.Register();
-            Application.Run(new frmKhachHang());
+            Application.Run(new frmNhanVien());
 
         }
     }

@@ -331,7 +331,10 @@ namespace QLST
             AddNewRowItem(true);
             int newRowIndex =
             dataGridViewKhachHang.NewRowIndex;
+
             dataGridViewKhachHang.CurrentCell = dataGridViewKhachHang.Rows[newRowIndex].Cells[0];
+
+
 
         }
 
@@ -614,5 +617,7 @@ namespace QLST
             AddNewRowItem(false);
 
         }
+
+        
     }
 }
