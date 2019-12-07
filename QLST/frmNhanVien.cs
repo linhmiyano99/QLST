@@ -11,6 +11,7 @@ using DevExpress.XtraBars;
 using QLSTDTO;
 using BUS;
 using DevExpress.XtraEditors;
+using QLSTBUS;
 
 namespace QLST
 {
@@ -19,13 +20,13 @@ namespace QLST
         private NhanVienDTO NhanVienDTO = new NhanVienDTO();
         private NhanVienDTO NhanVien_CellClickDTO = new NhanVienDTO();
         private NhanVienBUS NhanVienBUS = new NhanVienBUS();
-
+        private TaiKhoanBUS taiKhoanBUS = new TaiKhoanBUS();
         private DataTable NhanVienDataTable = new DataTable();
         private List<string> ListMaNV = new List<string>();
         private DataTable dataTableUpdateTemp;
         private DataTable dataTableInsertTemp;
         private string sKeyword = string.Empty;
-
+        private string strMaNV = string.Empty;
         int NhanVienNextID = int.MinValue;
 
 
@@ -77,7 +78,8 @@ namespace QLST
                 txtSDT.Text = selectedRows.Cells[4].Value.ToString();
                 txtLuong.Text = selectedRows.Cells[5].Value.ToString();
                 txtTongCaLam.Text = ((selectedRows.Cells[6].Value.ToString()));
-               ;
+                strMaNV = selectedRows.Cells[0].Value.ToString();
+                LoadTaiKhoanNV();
             }
             catch
             {
@@ -110,6 +112,9 @@ namespace QLST
                 txtSDT.Text = selectedRows.Cells[4].Value.ToString();
                 txtLuong.Text = selectedRows.Cells[5].Value.ToString();
                 txtTongCaLam.Text = ((selectedRows.Cells[6].Value.ToString()));
+
+                strMaNV = selectedRows.Cells[0].Value.ToString();
+                LoadTaiKhoanNV();
             }
             catch
             {
@@ -170,6 +175,21 @@ namespace QLST
             return dataTable;
         }
 
+
+        private void LoadTaiKhoanNV()
+        {
+            try
+            {
+                List<TaiKhoanDTO> ListTaiKhoan = taiKhoanBUS.SelectByKeyWord(strMaNV);
+                txtTenTK.Text = ListTaiKhoan[0].StrTenTk.ToString();
+                txtMatKhau.Text = "****";
+            }
+            catch
+            {
+                Console.WriteLine("TAIKHOAN cannot be bound to list");
+            }
+
+        }
 
 
         #endregion
@@ -417,6 +437,7 @@ namespace QLST
 
             }
         }
+
         #endregion
     }
 }
