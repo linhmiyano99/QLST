@@ -7,39 +7,43 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace QLSTBUS
 {
     public class MatHangBUS
     {
-        private MatHangDAL matHangDAL;
+        private MatHangDAL MatHangDAL;
         public MatHangBUS()
         {
-            this.matHangDAL = new MatHangDAL();
+            this.MatHangDAL = new MatHangDAL();
         }
 
         public bool sua(MatHangDTO ts)
         {
-            bool re = this.matHangDAL.sua(ts);
+            bool re = this.MatHangDAL.sua(ts);
             return re;
         }
 
         public bool them(MatHangDTO ts)
         {
-            bool re = this.matHangDAL.them(ts);
+            bool re = this.MatHangDAL.them(ts);
             return re;
         }
 
         public bool xoa(MatHangDTO ts)
         {
-            bool re = this.matHangDAL.xoa(ts);
+            bool re = this.MatHangDAL.xoa(ts);
             return re;
 
         }
 
-        public DataTable GetDataTableHang()
+        public DataTable GetDataTableMatHang()
         {
-            return matHangDAL.getDanhSachMatHang();
+            return MatHangDAL.getDanhSachMatHang();
+        }
+
+        public DataTable GetMatHangByMaMH(string sKey)
+        {
+            return MatHangDAL.GetMatHangByKey(sKey);
         }
 
     }

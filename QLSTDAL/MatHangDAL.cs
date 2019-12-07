@@ -1,4 +1,4 @@
-﻿using QLSTDTO;
+using QLSTDTO;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -10,7 +10,8 @@ using System.Threading.Tasks;
 
 namespace QLSTDAL
 {
-    public class MatHangDAL
+
+   public class MatHangDAL
     {
         private string connectionString;
         public MatHangDAL()
@@ -18,10 +19,9 @@ namespace QLSTDAL
             connectionString = ConfigurationManager.AppSettings["ConnectionString"];
         }
         public string ConnectionString { get => connectionString; set => connectionString = value; }
+
         public bool them(MatHangDTO matHangDto)
         {
-
-            // câu lệnh insert sổ vào bảng
             string query = string.Empty;
             query += "INSERT INTO [tblMATHANG] ([MaMH],[Barcode] [TenMH], [GiaNhap], [GiaBan], [TonToiDa], [TonToiThieu]) ";
             query += "VALUES (@MaMH, @Barcode, @TenMH, @GiaNhap, @GiaBan, @TonToiDa, @TonToiThieu)";
@@ -34,9 +34,6 @@ namespace QLSTDAL
                     cmd.Connection = con;
                     cmd.CommandType = System.Data.CommandType.Text;
                     cmd.CommandText = query;
-                    //---------------------
-
-                    //Tham số từ sổ tiết kiệm
                     cmd.Parameters.AddWithValue("@MaMH", matHangDto.StrMaMH);
                     cmd.Parameters.AddWithValue("@Barcode", matHangDto.StrBarcode);
                     cmd.Parameters.AddWithValue("@TenMH", matHangDto.StrTenMatHang);
@@ -44,9 +41,6 @@ namespace QLSTDAL
                     cmd.Parameters.AddWithValue("@GiaBan", matHangDto.DGiaBan);
                     cmd.Parameters.AddWithValue("@TonToiDa", matHangDto.ITonToiDa);
                     cmd.Parameters.AddWithValue("@TonToiThieu", matHangDto.ITonToiThieu);
-
-                    //---------------------------
-
                     try
                     {
                         con.Open();
@@ -100,7 +94,6 @@ namespace QLSTDAL
                 {
                     cmd.Connection = con;
                     cmd.CommandType = System.Data.CommandType.Text;
-
                     cmd.CommandText = query;
                     cmd.Parameters.AddWithValue("@MaMH", matHangDto.StrMaMH);
                     cmd.Parameters.AddWithValue("@Barcode", matHangDto.StrBarcode);
@@ -126,22 +119,36 @@ namespace QLSTDAL
             }
             return true;
         }
+
         public DataTable getDanhSachMatHang()
         {
-
             var table = new DataTable();
-            using (var da = new SqlDataAdapter(" SELECT * " +
-                "FROM tblMATHANG "
-                , connectionString))
-
+            using (var da = new SqlDataAdapter(" SELECT * "+"FROM tblMATHANG ", connectionString))
             {
-
-
                 da.Fill(table);
             }
             return table;
         }
 
+        public DataTable GetMatHangByKey(string sKey)
+        {
+            string query = string.Empty;
 
+            query += "SELECT MaMH, TenMH, GiaBan ";
+            query += "FROM tblMATHANG ";
+            query += " WHERE (MaMH = @sKey)";
+        
+
+            SqlConnection con = new SqlConnection(ConnectionString);
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@sKey", sKey);
+
+            var table = new DataTable();
+            using (var da = new SqlDataAdapter(cmd))
+            {
+                da.Fill(table);
+            }
+            return table;
+        }
     }
 }

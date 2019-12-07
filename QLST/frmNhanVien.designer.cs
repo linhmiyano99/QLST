@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnThem = new DevExpress.XtraBars.BarButtonItem();
             this.btnXoa = new DevExpress.XtraBars.BarButtonItem();
@@ -41,7 +41,6 @@
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.grThongtinNhanVien = new DevExpress.XtraEditors.GroupControl();
             this.txtTongCaLam = new DevExpress.XtraEditors.TextEdit();
-            this.txtLuongCa = new DevExpress.XtraEditors.TextEdit();
             this.txtLuong = new DevExpress.XtraEditors.TextEdit();
             this.txtSDT = new DevExpress.XtraEditors.TextEdit();
             this.txtDiaChi = new DevExpress.XtraEditors.TextEdit();
@@ -50,7 +49,6 @@
             this.txtMaNV = new DevExpress.XtraEditors.TextEdit();
             this.lbLuong = new DevExpress.XtraEditors.LabelControl();
             this.lbTongCaLam = new DevExpress.XtraEditors.LabelControl();
-            this.lbLuongCa = new DevExpress.XtraEditors.LabelControl();
             this.lbChucVu = new DevExpress.XtraEditors.LabelControl();
             this.lbSDT = new DevExpress.XtraEditors.LabelControl();
             this.lbDiaChi = new DevExpress.XtraEditors.LabelControl();
@@ -59,11 +57,14 @@
             this.lbSearch = new DevExpress.XtraEditors.LabelControl();
             this.txtSearch = new DevExpress.XtraEditors.TextEdit();
             this.dataGridViewNhanVien = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.txtMatKhau = new DevExpress.XtraEditors.TextEdit();
+            this.txtTenTK = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grThongtinNhanVien)).BeginInit();
             this.grThongtinNhanVien.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTongCaLam.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtLuongCa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLuong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSDT.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).BeginInit();
@@ -72,6 +73,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMaNV.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSearch.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNhanVien)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMatKhau.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTenTK.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -165,7 +168,6 @@
             // grThongtinNhanVien
             // 
             this.grThongtinNhanVien.Controls.Add(this.txtTongCaLam);
-            this.grThongtinNhanVien.Controls.Add(this.txtLuongCa);
             this.grThongtinNhanVien.Controls.Add(this.txtLuong);
             this.grThongtinNhanVien.Controls.Add(this.txtSDT);
             this.grThongtinNhanVien.Controls.Add(this.txtDiaChi);
@@ -174,7 +176,6 @@
             this.grThongtinNhanVien.Controls.Add(this.txtMaNV);
             this.grThongtinNhanVien.Controls.Add(this.lbLuong);
             this.grThongtinNhanVien.Controls.Add(this.lbTongCaLam);
-            this.grThongtinNhanVien.Controls.Add(this.lbLuongCa);
             this.grThongtinNhanVien.Controls.Add(this.lbChucVu);
             this.grThongtinNhanVien.Controls.Add(this.lbSDT);
             this.grThongtinNhanVien.Controls.Add(this.lbDiaChi);
@@ -194,17 +195,9 @@
             this.txtTongCaLam.Size = new System.Drawing.Size(148, 20);
             this.txtTongCaLam.TabIndex = 17;
             // 
-            // txtLuongCa
-            // 
-            this.txtLuongCa.Location = new System.Drawing.Point(863, 83);
-            this.txtLuongCa.MenuManager = this.ribbon;
-            this.txtLuongCa.Name = "txtLuongCa";
-            this.txtLuongCa.Size = new System.Drawing.Size(148, 20);
-            this.txtLuongCa.TabIndex = 16;
-            // 
             // txtLuong
             // 
-            this.txtLuong.Location = new System.Drawing.Point(863, 132);
+            this.txtLuong.Location = new System.Drawing.Point(865, 83);
             this.txtLuong.MenuManager = this.ribbon;
             this.txtLuong.Name = "txtLuong";
             this.txtLuong.Size = new System.Drawing.Size(148, 20);
@@ -248,6 +241,7 @@
             this.txtMaNV.Location = new System.Drawing.Point(126, 33);
             this.txtMaNV.MenuManager = this.ribbon;
             this.txtMaNV.Name = "txtMaNV";
+            this.txtMaNV.Properties.ReadOnly = true;
             this.txtMaNV.Size = new System.Drawing.Size(217, 20);
             this.txtMaNV.TabIndex = 9;
             // 
@@ -258,7 +252,7 @@
             this.lbLuong.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
             this.lbLuong.LineLocation = DevExpress.XtraEditors.LineLocation.Center;
             this.lbLuong.LineStyle = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.lbLuong.Location = new System.Drawing.Point(720, 133);
+            this.lbLuong.Location = new System.Drawing.Point(722, 84);
             this.lbLuong.Name = "lbLuong";
             this.lbLuong.Size = new System.Drawing.Size(49, 16);
             this.lbLuong.TabIndex = 8;
@@ -277,20 +271,6 @@
             this.lbTongCaLam.Size = new System.Drawing.Size(115, 16);
             this.lbTongCaLam.TabIndex = 6;
             this.lbTongCaLam.Text = "Tổng ca làm việc: ";
-            // 
-            // lbLuongCa
-            // 
-            this.lbLuongCa.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbLuongCa.Appearance.Options.UseFont = true;
-            this.lbLuongCa.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
-            this.lbLuongCa.LineLocation = DevExpress.XtraEditors.LineLocation.Center;
-            this.lbLuongCa.LineStyle = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.lbLuongCa.LineVisible = true;
-            this.lbLuongCa.Location = new System.Drawing.Point(720, 87);
-            this.lbLuongCa.Name = "lbLuongCa";
-            this.lbLuongCa.Size = new System.Drawing.Size(68, 16);
-            this.lbLuongCa.TabIndex = 5;
-            this.lbLuongCa.Text = "Lương ca: ";
             // 
             // lbChucVu
             // 
@@ -385,14 +365,14 @@
             // 
             this.dataGridViewNhanVien.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8.25F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewNhanVien.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewNhanVien.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewNhanVien.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridViewNhanVien.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridViewNhanVien.Location = new System.Drawing.Point(18, 325);
@@ -402,11 +382,62 @@
             this.dataGridViewNhanVien.TabIndex = 22;
             this.dataGridViewNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewNhanVien_CellClick);
             // 
+            // txtMatKhau
+            // 
+            this.txtMatKhau.Location = new System.Drawing.Point(814, 102);
+            this.txtMatKhau.MenuManager = this.ribbon;
+            this.txtMatKhau.Name = "txtMatKhau";
+            this.txtMatKhau.Properties.ReadOnly = true;
+            this.txtMatKhau.Size = new System.Drawing.Size(217, 20);
+            this.txtMatKhau.TabIndex = 28;
+            // 
+            // txtTenTK
+            // 
+            this.txtTenTK.Enabled = false;
+            this.txtTenTK.Location = new System.Drawing.Point(814, 76);
+            this.txtTenTK.MenuManager = this.ribbon;
+            this.txtTenTK.Name = "txtTenTK";
+            this.txtTenTK.Properties.ReadOnly = true;
+            this.txtTenTK.Size = new System.Drawing.Size(217, 20);
+            this.txtTenTK.TabIndex = 27;
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
+            this.labelControl1.LineLocation = DevExpress.XtraEditors.LineLocation.Center;
+            this.labelControl1.LineStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+            this.labelControl1.LineVisible = true;
+            this.labelControl1.Location = new System.Drawing.Point(709, 106);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(61, 16);
+            this.labelControl1.TabIndex = 26;
+            this.labelControl1.Text = "Mật Khẩu";
+            // 
+            // labelControl2
+            // 
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl2.Appearance.Options.UseFont = true;
+            this.labelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
+            this.labelControl2.LineLocation = DevExpress.XtraEditors.LineLocation.Center;
+            this.labelControl2.LineStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+            this.labelControl2.LineVisible = true;
+            this.labelControl2.Location = new System.Drawing.Point(711, 77);
+            this.labelControl2.Name = "labelControl2";
+            this.labelControl2.Size = new System.Drawing.Size(89, 16);
+            this.labelControl2.TabIndex = 25;
+            this.labelControl2.Text = "Tên Tài Khoản";
+            // 
             // frmNhanVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1071, 649);
+            this.Controls.Add(this.txtMatKhau);
+            this.Controls.Add(this.txtTenTK);
+            this.Controls.Add(this.labelControl1);
+            this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.dataGridViewNhanVien);
             this.Controls.Add(this.lbSearch);
             this.Controls.Add(this.txtSearch);
@@ -423,7 +454,6 @@
             this.grThongtinNhanVien.ResumeLayout(false);
             this.grThongtinNhanVien.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtTongCaLam.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtLuongCa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLuong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSDT.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).EndInit();
@@ -432,6 +462,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMaNV.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSearch.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNhanVien)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMatKhau.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTenTK.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -452,14 +484,12 @@
         private DevExpress.XtraEditors.GroupControl grThongtinNhanVien;
         private DevExpress.XtraEditors.LabelControl lbLuong;
         private DevExpress.XtraEditors.LabelControl lbTongCaLam;
-        private DevExpress.XtraEditors.LabelControl lbLuongCa;
         private DevExpress.XtraEditors.LabelControl lbChucVu;
         private DevExpress.XtraEditors.LabelControl lbSDT;
         private DevExpress.XtraEditors.LabelControl lbDiaChi;
         private DevExpress.XtraEditors.LabelControl lbHoTen;
         private DevExpress.XtraEditors.LabelControl lbMaNV;
         private DevExpress.XtraEditors.TextEdit txtTongCaLam;
-        private DevExpress.XtraEditors.TextEdit txtLuongCa;
         private DevExpress.XtraEditors.TextEdit txtLuong;
         private DevExpress.XtraEditors.TextEdit txtSDT;
         private DevExpress.XtraEditors.TextEdit txtDiaChi;
@@ -469,5 +499,9 @@
         private DevExpress.XtraEditors.LabelControl lbSearch;
         private DevExpress.XtraEditors.TextEdit txtSearch;
         public DevComponents.DotNetBar.Controls.DataGridViewX dataGridViewNhanVien;
+        private DevExpress.XtraEditors.TextEdit txtMatKhau;
+        private DevExpress.XtraEditors.TextEdit txtTenTK;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.LabelControl labelControl2;
     }
 }

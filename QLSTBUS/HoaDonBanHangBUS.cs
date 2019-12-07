@@ -34,5 +34,10 @@ namespace QLSTBUS
             return re;
         }
 
+        public List<string> GetHoaDonID()
+        {
+            return hdDAL.GetHoaDonID();
+        }
+
     }
 }
