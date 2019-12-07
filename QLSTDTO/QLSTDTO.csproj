@@ -44,12 +44,15 @@
     <Compile Include="BaoCaoDoanhSoDTO.cs" />
     <Compile Include="BaoCaoTonDTO.cs" />
     <Compile Include="ChiTietHoaDonBanHangDTO.cs" />
+    <Compile Include="ChiTietPhieuNhapKhoDTO.cs" />
     <Compile Include="ChucVuDTO.cs" />
     <Compile Include="HangDTO.cs" />
     <Compile Include="HoaDonBanHangDTO.cs" />
     <Compile Include="HoaDonTraHangDTO.cs" />
     <Compile Include="KhachHangDTO.cs" />
+    <Compile Include="MatHangDTO.cs" />
     <Compile Include="NhanVienDTO.cs" />
+    <Compile Include="PhieuNhapKhoDTO.cs" />
     <Compile Include="ThamSoDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

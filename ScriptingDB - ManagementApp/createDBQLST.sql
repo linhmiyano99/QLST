@@ -79,6 +79,17 @@ CREATE TABLE [dbo].[tblPHIEUNHAPKHO](
 ) ON [PRIMARY]
 GO
 
+CREATE TABLE [dbo].[tblCHITIETPHIEUNHAPKHO](
+	[MaSoPhieu] [int] NOT NULL FOREIGN KEY REFERENCES tblPHIEUNHAPKHO(MaSoPhieu),
+	[MaMH] [int] NOT NULL FOREIGN KEY REFERENCES tblMATHANG(MaMH),
+	[SoLuongTheoChungTu] [int] NULL,
+	[SoLuongThucNhap] [int] NOT NULL,
+	[DonGia] [money] NOT NULL,
+	[ThanhTien] [money] NOT NULL,
+	PRIMARY KEY ([MaSoPhieu], [MaMH])
+) ON [PRIMARY]
+GO
+
 CREATE TABLE [dbo].[tblPHIEUXUATKHO](
 	[MaSoPhieu] [int] NOT NULL PRIMARY KEY,
 	[Ngay] [datetime2](7) NOT NULL,
