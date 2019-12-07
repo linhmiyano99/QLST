@@ -31,7 +31,6 @@
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.comboBoxCV = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.txtTongCaLam = new DevExpress.XtraEditors.TextEdit();
-            this.txtLuongCa = new DevExpress.XtraEditors.TextEdit();
             this.txtLuong = new DevExpress.XtraEditors.TextEdit();
             this.txtSDT = new DevExpress.XtraEditors.TextEdit();
             this.txtDiaChi = new DevExpress.XtraEditors.TextEdit();
@@ -39,7 +38,6 @@
             this.txtMaNV = new DevExpress.XtraEditors.TextEdit();
             this.lbLuong = new DevExpress.XtraEditors.LabelControl();
             this.lbTongCaLam = new DevExpress.XtraEditors.LabelControl();
-            this.lbLuongCa = new DevExpress.XtraEditors.LabelControl();
             this.lbChucVu = new DevExpress.XtraEditors.LabelControl();
             this.lbSDT = new DevExpress.XtraEditors.LabelControl();
             this.lbDiaChi = new DevExpress.XtraEditors.LabelControl();
@@ -48,7 +46,6 @@
             this.btnLuu = new DevExpress.XtraEditors.SimpleButton();
             this.grThongtinNhanVien = new DevExpress.XtraEditors.GroupControl();
             ((System.ComponentModel.ISupportInitialize)(this.txtTongCaLam.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtLuongCa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLuong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSDT.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).BeginInit();
@@ -88,18 +85,9 @@
             this.txtTongCaLam.Size = new System.Drawing.Size(148, 20);
             this.txtTongCaLam.TabIndex = 17;
             // 
-            // txtLuongCa
-            // 
-            this.txtLuongCa.Location = new System.Drawing.Point(863, 83);
-            this.txtLuongCa.Name = "txtLuongCa";
-            this.txtLuongCa.Properties.Mask.EditMask = "n";
-            this.txtLuongCa.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtLuongCa.Size = new System.Drawing.Size(148, 20);
-            this.txtLuongCa.TabIndex = 16;
-            // 
             // txtLuong
             // 
-            this.txtLuong.Location = new System.Drawing.Point(863, 132);
+            this.txtLuong.Location = new System.Drawing.Point(863, 82);
             this.txtLuong.Name = "txtLuong";
             this.txtLuong.Size = new System.Drawing.Size(148, 20);
             this.txtLuong.TabIndex = 15;
@@ -144,7 +132,7 @@
             this.lbLuong.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
             this.lbLuong.LineLocation = DevExpress.XtraEditors.LineLocation.Center;
             this.lbLuong.LineStyle = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.lbLuong.Location = new System.Drawing.Point(720, 133);
+            this.lbLuong.Location = new System.Drawing.Point(720, 83);
             this.lbLuong.Name = "lbLuong";
             this.lbLuong.Size = new System.Drawing.Size(49, 16);
             this.lbLuong.TabIndex = 8;
@@ -163,20 +151,6 @@
             this.lbTongCaLam.Size = new System.Drawing.Size(115, 16);
             this.lbTongCaLam.TabIndex = 6;
             this.lbTongCaLam.Text = "Tổng ca làm việc: ";
-            // 
-            // lbLuongCa
-            // 
-            this.lbLuongCa.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbLuongCa.Appearance.Options.UseFont = true;
-            this.lbLuongCa.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
-            this.lbLuongCa.LineLocation = DevExpress.XtraEditors.LineLocation.Center;
-            this.lbLuongCa.LineStyle = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.lbLuongCa.LineVisible = true;
-            this.lbLuongCa.Location = new System.Drawing.Point(720, 87);
-            this.lbLuongCa.Name = "lbLuongCa";
-            this.lbLuongCa.Size = new System.Drawing.Size(68, 16);
-            this.lbLuongCa.TabIndex = 5;
-            this.lbLuongCa.Text = "Lương ca: ";
             // 
             // lbChucVu
             // 
@@ -261,7 +235,6 @@
             // 
             this.grThongtinNhanVien.Controls.Add(this.comboBoxCV);
             this.grThongtinNhanVien.Controls.Add(this.txtTongCaLam);
-            this.grThongtinNhanVien.Controls.Add(this.txtLuongCa);
             this.grThongtinNhanVien.Controls.Add(this.txtLuong);
             this.grThongtinNhanVien.Controls.Add(this.txtSDT);
             this.grThongtinNhanVien.Controls.Add(this.txtDiaChi);
@@ -269,7 +242,6 @@
             this.grThongtinNhanVien.Controls.Add(this.txtMaNV);
             this.grThongtinNhanVien.Controls.Add(this.lbLuong);
             this.grThongtinNhanVien.Controls.Add(this.lbTongCaLam);
-            this.grThongtinNhanVien.Controls.Add(this.lbLuongCa);
             this.grThongtinNhanVien.Controls.Add(this.lbChucVu);
             this.grThongtinNhanVien.Controls.Add(this.lbSDT);
             this.grThongtinNhanVien.Controls.Add(this.lbDiaChi);
@@ -292,7 +264,6 @@
             this.Name = "frmEditNhanVien";
             this.Text = "Edit Nhân Viên";
             ((System.ComponentModel.ISupportInitialize)(this.txtTongCaLam.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtLuongCa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLuong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSDT.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiaChi.Properties)).EndInit();
@@ -310,7 +281,6 @@
         private DevExpress.XtraEditors.SimpleButton btnCancel;
         private DevComponents.DotNetBar.Controls.ComboBoxEx comboBoxCV;
         private DevExpress.XtraEditors.TextEdit txtTongCaLam;
-        private DevExpress.XtraEditors.TextEdit txtLuongCa;
         private DevExpress.XtraEditors.TextEdit txtLuong;
         private DevExpress.XtraEditors.TextEdit txtSDT;
         private DevExpress.XtraEditors.TextEdit txtDiaChi;
@@ -318,7 +288,6 @@
         private DevExpress.XtraEditors.TextEdit txtMaNV;
         private DevExpress.XtraEditors.LabelControl lbLuong;
         private DevExpress.XtraEditors.LabelControl lbTongCaLam;
-        private DevExpress.XtraEditors.LabelControl lbLuongCa;
         private DevExpress.XtraEditors.LabelControl lbChucVu;
         private DevExpress.XtraEditors.LabelControl lbSDT;
         private DevExpress.XtraEditors.LabelControl lbDiaChi;

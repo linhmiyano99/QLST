@@ -25,6 +25,11 @@ namespace QLST
         ChucVuDTO chucVuDTO = new ChucVuDTO();
         ChucVuBUS chucVuBUS = new ChucVuBUS();
 
+        TaiKhoanDTO taiKhoanDTO = new TaiKhoanDTO();
+        TaiKhoanBUS taiKhoanBUS = new TaiKhoanBUS();
+        private List<string> ListMaTK;
+        private int TaiKhoanNextID;
+
         public frmThemNhanVien()
         {
             InitializeComponent();
@@ -72,12 +77,24 @@ namespace QLST
 
         }
 
+        public string CreatePassword(int length)
+        {
+            const string valid = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+            StringBuilder res = new StringBuilder();
+            Random rnd = new Random();
+            while (0 < length--)
+            {
+                res.Append(valid[rnd.Next(valid.Length)]);
+            }
+            return res.ToString();
+        }
+
         private void setTextToControls()
         {
             try
             {
                 txtMaNV.Text = NhanVienNextID.ToString();
-              
+                
             }
 
             catch (Exception)
@@ -87,16 +104,41 @@ namespace QLST
             }
         }
 
+        private void CreateTaiKhoan()
+        {
+            taiKhoanDTO.IntMaTk = TaiKhoanNextID;
+            taiKhoanDTO.IntMaNV = int.Parse(newNhanVienDTO.StrMaNhanVien);
+            taiKhoanDTO.StrMatKhau = CreatePassword(4);
+            taiKhoanDTO.StrTenTk = CreatePassword(4);
+            taiKhoanDTO.IntMaChucVu = int.Parse(newNhanVienDTO.StrMaChucVu);
+        }
+
+        private void GetListMaTK()
+        {
+            ListMaTK = taiKhoanBUS.GetTaiKhoanID();
+            if (ListMaTK == null)
+                TaiKhoanNextID = 1;
+            else
+            {
+                int temp = Int32.Parse(ListMaTK[ListMaTK.Count - 1].ToString());
+                TaiKhoanNextID = temp + 1;
+            }
+
+        }
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        
         private void btnLuu_Click(object sender, EventArgs e)
         {
             getNewNhanVienInfo();
+            CreateTaiKhoan();
+
             bool re = newNhanVienBUS.ThemNV(newNhanVienDTO);
-            if (re)
+            bool result = taiKhoanBUS.ThemTK(taiKhoanDTO);
+            if (re && result)
             {
 
                 XtraMessageBox.Show("THÔNG TIN ĐÃ ĐƯỢC CẬP NHẬT", "Notifications", MessageBoxButtons.OK, MessageBoxIcon.Information);

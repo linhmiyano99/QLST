@@ -129,5 +129,51 @@ namespace QLSTDAL
             }
             return true;
         }
+
+        public List<String> GetHoaDonID()
+        {
+
+            string query = string.Empty;
+            query += "SELECT SoHoaDon FROM [tblHOADONBANHANG]";
+
+            List<String> ListHD = new List<string>();
+            string ID = string.Empty;
+
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = con;
+                    cmd.CommandType = System.Data.CommandType.Text;
+                    cmd.CommandText = query;
+
+                    try
+                    {
+                        con.Open();
+                        SqlDataReader reader = null;
+                        reader = cmd.ExecuteReader();
+                        if (reader.HasRows == true)
+                        {
+                            while (reader.Read())
+                            {
+                                ID = (reader["SoHoaDon"].ToString());
+                                ListHD.Add(ID);
+                            }
+                        }
+
+                        con.Close();
+                        con.Dispose();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("SELECT ID ERROR -> " + ex.ToString());
+                        con.Close();
+                        return null;
+                    }
+                }
+            }
+
+            return ListHD;
+        }
     }
 }
