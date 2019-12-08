@@ -58,11 +58,5 @@
     <Compile Include="ThamSoDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\QLSTDTO\QLSTDTO.csproj">
-      <Project>{c529f84e-3a94-4f30-af38-269d0b970513}</Project>
-      <Name>QLSTDTO</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
