@@ -14,6 +14,9 @@ using DevExpress.XtraEditors;
 using DevExpress.Utils.CommonDialogs;
 using DevExpress.XtraEditors.UI;
 using System.IO;
+using AForge.Video;
+using AForge.Video.DirectShow;
+using ZXing;
 
 namespace QLST
 {
@@ -37,13 +40,20 @@ namespace QLST
 
         private string PathForInvoicePrinting = string.Empty;
 
-
+        FilterInfoCollection filterInfoCollection;
+        VideoCaptureDevice videoCaptureDevice;
         public frmHoaDonBanHang()
         {
             InitializeComponent();
             GetListSoHoaDon();
             txtSoHoaDon.Text = SoHDNextID.ToString();
             txtMaKH.Text = "8";
+
+            filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            foreach (FilterInfo Device in filterInfoCollection)
+                cmbCamera.Items.Add(Device.Name);
+            cmbCamera.SelectedIndex = 0;
+            videoCaptureDevice = new VideoCaptureDevice();
         }
 
         public frmHoaDonBanHang(NhanVienDTO nhanVienDTO)
@@ -52,6 +62,12 @@ namespace QLST
             GetNhanVienInfo(nhanVienDTO);
             txtSoHoaDon.Text = SoHDNextID.ToString();
             txtMaKH.Text = "8";
+
+            filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            foreach (FilterInfo Device in filterInfoCollection)
+                cmbCamera.Items.Add(Device.Name);
+            cmbCamera.SelectedIndex = 0;
+            videoCaptureDevice = new VideoCaptureDevice();
         }
 
 
@@ -532,6 +548,56 @@ namespace QLST
             {
                  outputFile.WriteAsync(content);
             }
+        }
+
+        private void FinalFrame_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        {
+            try
+            {
+                pictureBox.Image = (Bitmap)eventArgs.Frame.Clone();
+            }
+            catch (Exception) {
+                timer1.Stop();
+            }
+        }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (pictureBox.Image != null)
+            {
+                try
+                {
+                    BarcodeReader Reader = new BarcodeReader();
+                    Result result = Reader.Decode((Bitmap)pictureBox.Image);
+                    if (result != null)
+                    {
+                        cmbMaMH.Text = result.ToString();
+                        timer1.Stop();
+                        if (videoCaptureDevice.IsRunning)
+                        {
+                            videoCaptureDevice.Stop();
+                        }
+                    }
+                }
+                catch(Exception)
+                { }
+            }
+        }
+        private void btnDecode_Click(object sender, EventArgs e)
+        {
+            timer1.Start();
+        }
+        private void Form24_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (videoCaptureDevice.IsRunning == true)
+                videoCaptureDevice.Stop();
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            videoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[cmbCamera.SelectedIndex].MonikerString);
+            videoCaptureDevice.NewFrame += FinalFrame_NewFrame;
+            videoCaptureDevice.Start();
+            timer1.Start();
         }
     }
 

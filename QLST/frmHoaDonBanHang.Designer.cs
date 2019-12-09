@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHoaDonBanHang));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
@@ -77,6 +78,10 @@
             this.txtTienKhachDua = new DevExpress.XtraEditors.TextEdit();
             this.txtTienTraLai = new DevExpress.XtraEditors.TextEdit();
             this.txtTienTongCong = new DevExpress.XtraEditors.TextEdit();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.btnCheckBarcode = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.cmbCamera = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
@@ -96,6 +101,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTienKhachDua.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTienTraLai.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTienTongCong.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -572,12 +578,12 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewChiTietHoaDon.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewChiTietHoaDon.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dataGridViewChiTietHoaDon.Location = new System.Drawing.Point(15, 364);
+            this.dataGridViewChiTietHoaDon.Location = new System.Drawing.Point(15, 479);
             this.dataGridViewChiTietHoaDon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridViewChiTietHoaDon.Name = "dataGridViewChiTietHoaDon";
             this.dataGridViewChiTietHoaDon.RowHeadersWidth = 51;
             this.dataGridViewChiTietHoaDon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewChiTietHoaDon.Size = new System.Drawing.Size(1428, 351);
+            this.dataGridViewChiTietHoaDon.Size = new System.Drawing.Size(1428, 236);
             this.dataGridViewChiTietHoaDon.TabIndex = 14;
             this.dataGridViewChiTietHoaDon.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewChiTietHoaDon_CellValidated);
             // 
@@ -624,11 +630,51 @@
             this.txtTienTongCong.Size = new System.Drawing.Size(253, 30);
             this.txtTienTongCong.TabIndex = 26;
             // 
+            // pictureBox
+            // 
+            this.pictureBox.Location = new System.Drawing.Point(15, 363);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(358, 109);
+            this.pictureBox.TabIndex = 29;
+            this.pictureBox.TabStop = false;
+            // 
+            // btnCheckBarcode
+            // 
+            this.btnCheckBarcode.Location = new System.Drawing.Point(406, 387);
+            this.btnCheckBarcode.Name = "btnCheckBarcode";
+            this.btnCheckBarcode.Size = new System.Drawing.Size(75, 32);
+            this.btnCheckBarcode.TabIndex = 30;
+            this.btnCheckBarcode.Text = "check";
+            this.btnCheckBarcode.UseVisualStyleBackColor = true;
+            this.btnCheckBarcode.Click += new System.EventHandler(this.btnStart_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // cmbCamera
+            // 
+            this.cmbCamera.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbCamera.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbCamera.DisplayMember = "Text";
+            this.cmbCamera.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbCamera.FormattingEnabled = true;
+            this.cmbCamera.ItemHeight = 18;
+            this.cmbCamera.Location = new System.Drawing.Point(505, 386);
+            this.cmbCamera.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.cmbCamera.Name = "cmbCamera";
+            this.cmbCamera.Size = new System.Drawing.Size(192, 24);
+            this.cmbCamera.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cmbCamera.TabIndex = 17;
+            // 
             // frmHoaDonBanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1457, 761);
+            this.Controls.Add(this.cmbCamera);
+            this.Controls.Add(this.btnCheckBarcode);
+            this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.txtTienTongCong);
             this.Controls.Add(this.txtTienTraLai);
             this.Controls.Add(this.txtTienKhachDua);
@@ -665,6 +711,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTienKhachDua.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTienTraLai.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTienTongCong.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -719,5 +766,9 @@
         private DevExpress.XtraEditors.TextEdit txtTienTongCong;
         private DevExpress.XtraBars.BarButtonItem btnSelectPath;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup PrintPath;
+        private System.Windows.Forms.PictureBox pictureBox;
+        private System.Windows.Forms.Button btnCheckBarcode;
+        private System.Windows.Forms.Timer timer1;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx cmbCamera;
     }
 }

@@ -37,5 +37,27 @@ namespace QLSTDAL
             }
             return table;
         }
+        public DataTable getDanhSachChiTietByKey(string MaMH)
+        {
+            string query = string.Empty;
+
+            query += " SELECT [MaMH] ,[Ton], [GiaVon], [GiaBan]";
+            query += " FROM [dbQLST].[dbo].[tblCHITIETBAOCAOTON]";
+            query += " WHERE MaMH = @sKey";
+
+
+            SqlConnection con = new SqlConnection(ConnectionString);
+            SqlCommand cmd = new SqlCommand(query, con);
+
+            cmd.Parameters.AddWithValue("@sKey", MaMH);
+
+            var table = new DataTable();
+            using (var da = new SqlDataAdapter(cmd))
+
+            {
+                da.Fill(table);
+            }
+            return table;
+        }
     }
 }

@@ -27,6 +27,8 @@ namespace QLST
     {
         private DataTable tonDataTable = new DataTable();
         private BaoCaoTonBUS baoCaoTonBUS = new BaoCaoTonBUS();
+        private string sKeyword = string.Empty;
+
         public frmBaoCaoTon()
         {
             InitializeComponent();
@@ -91,6 +93,13 @@ namespace QLST
             //MaDG.Width = ((dgvThemSach_frmMuon.Width - 3 * (MaSach.Width)) - 25);
             dataGridViewMatHang.Columns.Add(GiaBan);
 
+            DataGridViewTextBoxColumn Ton = new DataGridViewTextBoxColumn();
+            Ton.Name = "Ton";
+            Ton.HeaderText = "Tồn";
+            Ton.DataPropertyName = "Ton";
+            //MaDG.Width = ((dgvThemSach_frmMuon.Width - 3 * (MaSach.Width)) - 25);
+            dataGridViewMatHang.Columns.Add(Ton);
+
             DataGridViewTextBoxColumn TonToiThieu = new DataGridViewTextBoxColumn();
             TonToiThieu.Name = "TonToiThieu";
             TonToiThieu.HeaderText = "Tồn Tối Thiểu";
@@ -105,51 +114,35 @@ namespace QLST
             //MaDG.Width = ((dgvThemSach_frmMuon.Width - 3 * (MaSach.Width)) - 25);
             dataGridViewMatHang.Columns.Add(TonToiDa);
 
-            // 
-            // colButtonEdit
-            // 
-            DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn colButtonEdit = new DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn();
-
-            colButtonEdit.ColorTable = DevComponents.DotNetBar.eButtonColor.Flat;
-            colButtonEdit.DataPropertyName = "ButtonEdit";
-            colButtonEdit.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            colButtonEdit.HeaderText = "Button Edit";
-            colButtonEdit.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.Image;
-
-            colButtonEdit.Image = ((System.Drawing.Image)(Properties.Resources.edit_16x16));
-
-            colButtonEdit.ImageTextSpacing = 5;
-            colButtonEdit.Name = "colButtonEdit";
-            colButtonEdit.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            colButtonEdit.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(2);
-            colButtonEdit.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
-
-            colButtonEdit.SubItemsExpandWidth = 20;
-            colButtonEdit.Text = "Sửa";
-            colButtonEdit.ToolTipText = "Cập Nhật Thông Tin";
-            dataGridViewMatHang.Columns.Add(colButtonEdit);
-
-            DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn colButtonDelete = new DevComponents.DotNetBar.Controls.DataGridViewButtonXColumn();
-
-            colButtonDelete.ColorTable = DevComponents.DotNetBar.eButtonColor.Flat;
-            colButtonDelete.DataPropertyName = "ButtonEdit";
-            colButtonDelete.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            colButtonDelete.HeaderText = "Button Xóa";
-            colButtonDelete.HotTrackingStyle = DevComponents.DotNetBar.eHotTrackingStyle.Image;
-            colButtonDelete.Image = Properties.Resources.delete_16x16;
-            colButtonDelete.ImageTextSpacing = 5;
-            colButtonDelete.Name = "colButtonDelete";
-            colButtonEdit.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            colButtonDelete.Shape = new DevComponents.DotNetBar.RoundRectangleShapeDescriptor(2);
-            colButtonDelete.Style = DevComponents.DotNetBar.eDotNetBarStyle.Metro;
-
-            colButtonDelete.SubItemsExpandWidth = 20;
-            colButtonDelete.Text = "Xóa";
-            colButtonDelete.ToolTipText = "Xóa Thông Tin";
-
-            dataGridViewMatHang.Columns.Add(colButtonDelete);
+            
+            
+            
 
         }
 
+        private void txtSoHoaDon_EditValueChanged(object sender, EventArgs e)
+        {
+              timKiemMatHang();
+        }
+        private void timKiemMatHang()
+        {
+            sKeyword = txtMaMH.Text.Trim();
+            // List<KhachHangDTO> ListKhachHang = khachHangBUS.getListKhachHangByKey(sKeyword);
+            DataTable dataMatHang = baoCaoTonBUS.GetDataTableBaoCaoTon(sKeyword);
+
+            if (sKeyword == null || sKeyword == string.Empty || sKeyword.Length == 0)
+            {
+                this.loadDanhSachMatHang();
+
+            }
+            else
+            {
+
+                dataGridViewMatHang.DataSource = dataMatHang;
+                dataGridViewMatHang.Refresh();
+                dataGridViewMatHang.Update();
+
+            }
+        }
     }
 }

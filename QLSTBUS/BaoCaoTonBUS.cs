@@ -21,5 +21,9 @@ namespace QLSTBUS
         {
             return baoCaoTonDAL.getDanhSachChiTietByKey();
         }
+        public DataTable GetDataTableBaoCaoTon(string MaMH)
+        {
+            return baoCaoTonDAL.getDanhSachChiTietByKey(MaMH);
+        }
     }
 }
