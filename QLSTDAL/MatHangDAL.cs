@@ -36,9 +36,9 @@ namespace QLSTDAL
                     cmd.CommandText = query;
                     cmd.Parameters.AddWithValue("@MaMH", matHangDto.StrMaMH);
                     cmd.Parameters.AddWithValue("@Barcode", matHangDto.StrBarcode);
-                    cmd.Parameters.AddWithValue("@TenMH", matHangDto.StrTenMatHang);
+                    cmd.Parameters.AddWithValue("@TenMH", matHangDto.StrTenMH);
                     cmd.Parameters.AddWithValue("@GiaNhap", matHangDto.DGiaNhap);
-                    cmd.Parameters.AddWithValue("@GiaBan", matHangDto.DGiaBan);
+                    cmd.Parameters.AddWithValue("@GiaBan", matHangDto.StrDonGia);
                     cmd.Parameters.AddWithValue("@TonToiDa", matHangDto.ITonToiDa);
                     cmd.Parameters.AddWithValue("@TonToiThieu", matHangDto.ITonToiThieu);
                     try
@@ -97,9 +97,9 @@ namespace QLSTDAL
                     cmd.CommandText = query;
                     cmd.Parameters.AddWithValue("@MaMH", matHangDto.StrMaMH);
                     cmd.Parameters.AddWithValue("@Barcode", matHangDto.StrBarcode);
-                    cmd.Parameters.AddWithValue("@TenMH", matHangDto.StrTenMatHang);
+                    cmd.Parameters.AddWithValue("@TenMH", matHangDto.StrTenMH);
                     cmd.Parameters.AddWithValue("@GiaNhap", matHangDto.DGiaNhap);
-                    cmd.Parameters.AddWithValue("@GiaBan", matHangDto.DGiaBan);
+                    cmd.Parameters.AddWithValue("@GiaBan", matHangDto.StrDonGia);
                     cmd.Parameters.AddWithValue("@TonToiDa", matHangDto.ITonToiDa);
                     cmd.Parameters.AddWithValue("@TonToiThieu", matHangDto.ITonToiThieu);
 

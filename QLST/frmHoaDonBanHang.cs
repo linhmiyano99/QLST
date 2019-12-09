@@ -11,6 +11,9 @@ using DevExpress.XtraBars;
 using QLSTBUS;
 using QLSTDTO;
 using DevExpress.XtraEditors;
+using DevExpress.Utils.CommonDialogs;
+using DevExpress.XtraEditors.UI;
+using System.IO;
 
 namespace QLST
 {
@@ -29,7 +32,10 @@ namespace QLST
         DataTable dataHoaDonBanHang = new DataTable();
         private int TongSo = new int();
         private float tongTien = 0;
+        private float tienTraLai = 0;
         NhanVienDTO nhanVienHoaDon = new NhanVienDTO();
+
+        private string PathForInvoicePrinting = string.Empty;
 
 
         public frmHoaDonBanHang()
@@ -51,6 +57,7 @@ namespace QLST
 
         private void frmHoaDonBanHang_Load(object sender, EventArgs e)
         {
+            ReadPathAddress();
             setDefaultValueToControls();
             LoadMaMH();
             CreateDataGridViewBanHang();
@@ -235,9 +242,11 @@ namespace QLST
             txtBarcode.Text = string.Empty;
             txtMaKH.Text = string.Empty;
             cmbMaMH.Text = string.Empty;
-            lbTongCong.Text = "Tổng Cộng: ";
-            lbTienTraLai.Text = "Tiền Trả Lại:";
-            lbTienKhachDua.Text = "Tiền Khách Đưa:";
+           
+            txtTienTongCong.Text = string.Empty;
+            txtTienTraLai.Text = string.Empty;
+            txtTienKhachDua.Text = string.Empty;
+           
         }
         #endregion
 
@@ -252,12 +261,17 @@ namespace QLST
             }
             dataGridViewChiTietHoaDon.Refresh();
             TinhTongTien();
+            TinhTienTraLai();
         }
 
         private void btnLuu_ItemClick(object sender, ItemClickEventArgs e)
         {
             bool re = LuuHoaDon();
             bool res = LuuChiTietHoaDon();
+
+            frmPrintInvoice frm = new frmPrintInvoice(dataGridViewChiTietHoaDon, nhanVienHoaDon, tongTien.ToString(),
+              txtTienKhachDua.Text.ToString(), tienTraLai.ToString(), TongSo.ToString(), PathForInvoicePrinting.ToString(), txtSoHoaDon.Text.ToString());
+            frm.ShowDialog();
 
             if(re && res)
             {
@@ -277,6 +291,7 @@ namespace QLST
                 dataGridViewChiTietHoaDon.Rows[e.RowIndex].Cells[6].Value = temp;
 
                 TinhTongTien();
+                TinhTienTraLai();
             }
             catch (Exception)
             {
@@ -293,6 +308,7 @@ namespace QLST
             }
             dataGridViewChiTietHoaDon.Refresh();
             TinhTongTien();
+            TinhTienTraLai();
 
         }
 
@@ -393,7 +409,7 @@ namespace QLST
             DataTable dt = (DataTable)(dataGridViewChiTietHoaDon.DataSource);
             if (dt == null)
             {
-                XtraMessageBox.Show("ĐÃ CÓ LỖI XẢY RA, VUI LÒNG KIỂM TRA LẠI!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                XtraMessageBox.Show("ĐÃ CÓ LỖI XẢY RA KHI XUẤT CHI TIẾT HÓA ĐƠN, VUI LÒNG KIỂM TRA LẠI!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             else
@@ -410,7 +426,7 @@ namespace QLST
                     bool re = chiTietHDBUS.themChiTietHoaDonBanHang(chiTietHDDTO);
                     if (!re)
                     {
-                        XtraMessageBox.Show("ĐÃ CÓ LỖI XẢY RA, VUI LÒNG KIỂM TRA LẠI!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        XtraMessageBox.Show("ĐÃ CÓ LỖI XẢY RA KHI XUẤT CHI TIẾT HÓA ĐƠN, VUI LÒNG KIỂM TRA LẠI!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
 
@@ -440,10 +456,76 @@ namespace QLST
                 TongSo += int.Parse(row.Cells[5].Value.ToString());
             }
 
-            lbTongCong.Text = "Tổng Cộng:  " + tongTien.ToString() + "   VND";
+            txtTienTongCong.Text = tongTien.ToString();
         }
 
+        private void TinhTienTraLai()
+        {
+            if(!string.IsNullOrEmpty(txtTienKhachDua.Text.ToString()))
+            {
+                if (float.Parse(txtTienKhachDua.Text.ToString()) > float.Parse(txtTienTongCong.Text.ToString()))
+                {
+                    tienTraLai = float.Parse(txtTienKhachDua.Text.ToString()) - float.Parse(txtTienTongCong.Text.ToString());
+                    txtTienTraLai.Text = tienTraLai.ToString();
+                }
+                else
+                {
+                    txtTienKhachDua.ForeColor = Color.Red;
+                }
+            }
+            
+        }
         #endregion
+
+        private void txtTienKhachDua_Validated(object sender, EventArgs e)
+        {
+
+            TinhTienTraLai();
+        }
+
+        private void btnXuatHoaDon_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            bool re = LuuHoaDon();
+            bool res = LuuChiTietHoaDon();
+
+            frmPrintInvoice frm = new frmPrintInvoice(dataGridViewChiTietHoaDon, nhanVienHoaDon, tongTien.ToString(),
+              txtTienKhachDua.Text.ToString(), tienTraLai.ToString(), TongSo.ToString(), PathForInvoicePrinting.ToString(), txtSoHoaDon.Text.ToString());
+            frm.ShowDialog();
+
+            if (re && res)
+            {
+                XtraMessageBox.Show("HÓA ĐƠN ĐÃ ĐƯỢC LẬP!", "Notifications!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnSelectPath_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            XtraFolderBrowserDialog folderBrowserDialog = new XtraFolderBrowserDialog();
+            folderBrowserDialog.DialogStyle = FolderBrowserDialogStyle.Wide;
+
+
+            folderBrowserDialog.SelectedPath = PathForInvoicePrinting;
+            if (folderBrowserDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                WritePathToFile(folderBrowserDialog.SelectedPath);
+            
+        }
+
+        private void ReadPathAddress()
+        {
+            
+            string fullpath =  System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName;
+            PathForInvoicePrinting = System.IO.File.ReadAllText(fullpath+"\\printPath.txt");
+
+        }
+
+        private void WritePathToFile(string content)
+        {
+            string fullpath = System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName;
+            using (StreamWriter outputFile = new StreamWriter(Path.Combine(fullpath, "printPath.txt")))
+            {
+                 outputFile.WriteAsync(content);
+            }
+        }
     }
 
 }
