@@ -1,4 +1,5 @@
 ﻿using QLSTDAL;
+using QLSTDTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -15,6 +16,26 @@ namespace QLSTBUS
         {
             this.MatHangDAL = new MatHangDAL();
         }
+
+        public bool sua(MatHangDTO ts)
+        {
+            bool re = this.MatHangDAL.sua(ts);
+            return re;
+        }
+
+        public bool them(MatHangDTO ts)
+        {
+            bool re = this.MatHangDAL.them(ts);
+            return re;
+        }
+
+        public bool xoa(MatHangDTO ts)
+        {
+            bool re = this.MatHangDAL.xoa(ts);
+            return re;
+
+        }
+
         public DataTable GetDataTableMatHang()
         {
             return MatHangDAL.getDanhSachMatHang();
@@ -24,5 +45,6 @@ namespace QLSTBUS
         {
             return MatHangDAL.GetMatHangByKey(sKey);
         }
+
     }
 }

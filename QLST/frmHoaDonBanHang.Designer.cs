@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHoaDonBanHang));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnLuu = new DevExpress.XtraBars.BarButtonItem();
             this.btnXuatHoaDon = new DevExpress.XtraBars.BarButtonItem();
@@ -48,12 +48,15 @@
             this.txtHangHienTai = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemTextEdit6 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.btnThem = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSelectPath = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.PrintPath = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.grThongTinHoaDon = new DevExpress.XtraEditors.GroupControl();
+            this.txtMaKH = new DevExpress.XtraEditors.TextEdit();
             this.cmbMaMH = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.txtNgay = new DevExpress.XtraEditors.TextEdit();
@@ -71,8 +74,9 @@
             this.lbTienKhachDua = new DevComponents.DotNetBar.LabelX();
             this.lbTienTraLai = new DevComponents.DotNetBar.LabelX();
             this.dataGridViewChiTietHoaDon = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.txtMaKH = new DevExpress.XtraEditors.TextEdit();
             this.txtTienKhachDua = new DevExpress.XtraEditors.TextEdit();
+            this.txtTienTraLai = new DevExpress.XtraEditors.TextEdit();
+            this.txtTienTongCong = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
@@ -82,14 +86,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grThongTinHoaDon)).BeginInit();
             this.grThongTinHoaDon.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaKH.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNgay.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGio.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBarcode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtThuNgan.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoHoaDon.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewChiTietHoaDon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaKH.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTienKhachDua.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTienTraLai.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTienTongCong.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -108,9 +114,10 @@
             this.txtDiemMuaHang,
             this.txtDiemSauMuaHang,
             this.txtHangHienTai,
-            this.btnThem});
+            this.btnThem,
+            this.btnSelectPath});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 13;
+            this.ribbon.MaxItemId = 14;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
@@ -140,6 +147,7 @@
             this.btnXuatHoaDon.ImageOptions.Image = global::QLST.Properties.Resources.exporttopdf_16x16;
             this.btnXuatHoaDon.ImageOptions.LargeImage = global::QLST.Properties.Resources.exporttopdf_32x321;
             this.btnXuatHoaDon.Name = "btnXuatHoaDon";
+            this.btnXuatHoaDon.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnXuatHoaDon_ItemClick);
             // 
             // btnXoa
             // 
@@ -238,12 +246,21 @@
             this.btnThem.Name = "btnThem";
             this.btnThem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThem_ItemClick);
             // 
+            // btnSelectPath
+            // 
+            this.btnSelectPath.Caption = "Chọn Thư Mục";
+            this.btnSelectPath.Id = 13;
+            this.btnSelectPath.ImageOptions.SvgImage = global::QLST.Properties.Resources.open;
+            this.btnSelectPath.Name = "btnSelectPath";
+            this.btnSelectPath.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSelectPath_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup3,
             this.ribbonPageGroup1,
-            this.ribbonPageGroup2});
+            this.ribbonPageGroup2,
+            this.PrintPath});
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "Thao tác";
             // 
@@ -266,6 +283,12 @@
             this.ribbonPageGroup2.ItemLinks.Add(this.btnXuatHoaDon, true);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "Xuất file";
+            // 
+            // PrintPath
+            // 
+            this.PrintPath.ItemLinks.Add(this.btnSelectPath);
+            this.PrintPath.Name = "PrintPath";
+            this.PrintPath.Text = "Nơi Lưu Trữ Hóa Đơn";
             // 
             // ribbonStatusBar
             // 
@@ -301,6 +324,14 @@
             this.grThongTinHoaDon.Size = new System.Drawing.Size(860, 146);
             this.grThongTinHoaDon.TabIndex = 2;
             this.grThongTinHoaDon.Text = "Thông tin hóa đơn";
+            // 
+            // txtMaKH
+            // 
+            this.txtMaKH.Location = new System.Drawing.Point(411, 88);
+            this.txtMaKH.MenuManager = this.ribbon;
+            this.txtMaKH.Name = "txtMaKH";
+            this.txtMaKH.Size = new System.Drawing.Size(147, 20);
+            this.txtMaKH.TabIndex = 16;
             // 
             // cmbMaMH
             // 
@@ -471,7 +502,7 @@
             this.lbTongCong.Location = new System.Drawing.Point(909, 143);
             this.lbTongCong.Name = "lbTongCong";
             this.lbTongCong.SingleLineColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lbTongCong.Size = new System.Drawing.Size(273, 41);
+            this.lbTongCong.Size = new System.Drawing.Size(104, 41);
             this.lbTongCong.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2010;
             this.lbTongCong.TabIndex = 17;
             this.lbTongCong.Text = "Tổng Cộng:";
@@ -502,7 +533,7 @@
             this.lbTienTraLai.Location = new System.Drawing.Point(909, 234);
             this.lbTienTraLai.Name = "lbTienTraLai";
             this.lbTienTraLai.SingleLineColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lbTienTraLai.Size = new System.Drawing.Size(273, 35);
+            this.lbTienTraLai.Size = new System.Drawing.Size(104, 35);
             this.lbTienTraLai.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2010;
             this.lbTienTraLai.TabIndex = 19;
             this.lbTienTraLai.Text = "Trả Lại:";
@@ -512,14 +543,14 @@
             this.dataGridViewChiTietHoaDon.AllowUserToAddRows = false;
             this.dataGridViewChiTietHoaDon.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewChiTietHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 8.25F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewChiTietHoaDon.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewChiTietHoaDon.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewChiTietHoaDon.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridViewChiTietHoaDon.Location = new System.Drawing.Point(13, 296);
             this.dataGridViewChiTietHoaDon.Name = "dataGridViewChiTietHoaDon";
@@ -528,31 +559,53 @@
             this.dataGridViewChiTietHoaDon.TabIndex = 14;
             this.dataGridViewChiTietHoaDon.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewChiTietHoaDon_CellValidated);
             // 
-            // txtMaKH
-            // 
-            this.txtMaKH.Enabled = false;
-            this.txtMaKH.Location = new System.Drawing.Point(411, 88);
-            this.txtMaKH.MenuManager = this.ribbon;
-            this.txtMaKH.Name = "txtMaKH";
-            this.txtMaKH.Size = new System.Drawing.Size(147, 20);
-            this.txtMaKH.TabIndex = 16;
-            // 
             // txtTienKhachDua
             // 
             this.txtTienKhachDua.Location = new System.Drawing.Point(1020, 193);
             this.txtTienKhachDua.MenuManager = this.ribbon;
             this.txtTienKhachDua.Name = "txtTienKhachDua";
             this.txtTienKhachDua.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTienKhachDua.Properties.Appearance.ForeColor = System.Drawing.Color.Green;
             this.txtTienKhachDua.Properties.Appearance.Options.UseFont = true;
+            this.txtTienKhachDua.Properties.Appearance.Options.UseForeColor = true;
             this.txtTienKhachDua.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtTienKhachDua.Size = new System.Drawing.Size(217, 26);
             this.txtTienKhachDua.TabIndex = 22;
+            this.txtTienKhachDua.Validated += new System.EventHandler(this.txtTienKhachDua_Validated);
+            // 
+            // txtTienTraLai
+            // 
+            this.txtTienTraLai.Location = new System.Drawing.Point(1019, 239);
+            this.txtTienTraLai.MenuManager = this.ribbon;
+            this.txtTienTraLai.Name = "txtTienTraLai";
+            this.txtTienTraLai.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTienTraLai.Properties.Appearance.Options.UseFont = true;
+            this.txtTienTraLai.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtTienTraLai.Properties.ReadOnly = true;
+            this.txtTienTraLai.Size = new System.Drawing.Size(217, 26);
+            this.txtTienTraLai.TabIndex = 25;
+            // 
+            // txtTienTongCong
+            // 
+            this.txtTienTongCong.Location = new System.Drawing.Point(1019, 151);
+            this.txtTienTongCong.MenuManager = this.ribbon;
+            this.txtTienTongCong.Name = "txtTienTongCong";
+            this.txtTienTongCong.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTienTongCong.Properties.Appearance.ForeColor = System.Drawing.Color.Red;
+            this.txtTienTongCong.Properties.Appearance.Options.UseFont = true;
+            this.txtTienTongCong.Properties.Appearance.Options.UseForeColor = true;
+            this.txtTienTongCong.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtTienTongCong.Properties.ReadOnly = true;
+            this.txtTienTongCong.Size = new System.Drawing.Size(217, 26);
+            this.txtTienTongCong.TabIndex = 26;
             // 
             // frmHoaDonBanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1249, 618);
+            this.Controls.Add(this.txtTienTongCong);
+            this.Controls.Add(this.txtTienTraLai);
             this.Controls.Add(this.txtTienKhachDua);
             this.Controls.Add(this.lbTienTraLai);
             this.Controls.Add(this.lbTienKhachDua);
@@ -576,14 +629,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.grThongTinHoaDon)).EndInit();
             this.grThongTinHoaDon.ResumeLayout(false);
             this.grThongTinHoaDon.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaKH.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNgay.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGio.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBarcode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtThuNgan.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoHoaDon.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewChiTietHoaDon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaKH.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTienKhachDua.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTienTraLai.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtTienTongCong.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -634,5 +689,9 @@
         private DevComponents.DotNetBar.Controls.DataGridViewX dataGridViewChiTietHoaDon;
         private DevExpress.XtraEditors.TextEdit txtMaKH;
         private DevExpress.XtraEditors.TextEdit txtTienKhachDua;
+        private DevExpress.XtraEditors.TextEdit txtTienTraLai;
+        private DevExpress.XtraEditors.TextEdit txtTienTongCong;
+        private DevExpress.XtraBars.BarButtonItem btnSelectPath;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup PrintPath;
     }
 }
