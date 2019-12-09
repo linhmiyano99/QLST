@@ -18,20 +18,16 @@ namespace QLSTDAL
             connectionString = ConfigurationManager.AppSettings["ConnectionString"];
         }
         public string ConnectionString { get => connectionString; set => connectionString = value; }
-        public DataTable getDanhSachChiTietByKey(int iThang, int iNam)
+        public DataTable getDanhSachChiTietByKey()
         {
             string query = string.Empty;
 
             query += " SELECT [SoHoaDon] ,[TongCong], [MaKH]";
             query += " FROM [dbQLST].[dbo].[tblHOADONBANHANG]";
-            query += " WHERE MONTH(NgayGio) = @Thang";
-            query += " AND YEAR(NgayGio) = @Nam";
 
 
             SqlConnection con = new SqlConnection(ConnectionString);
             SqlCommand cmd = new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@Thang", iThang);
-            cmd.Parameters.AddWithValue("@Nam", iNam);
 
             var table = new DataTable();
             using (var da = new SqlDataAdapter(cmd))

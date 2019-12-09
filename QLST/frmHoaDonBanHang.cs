@@ -108,8 +108,15 @@ namespace QLST
                 SoHDNextID = 1;
             else
             {
-                int temp = Int32.Parse(ListSoHD[ListSoHD.Count - 1].ToString());
-                SoHDNextID = temp + 1;
+                try
+                {
+                    int temp = Int32.Parse(ListSoHD[ListSoHD.Count - 1].ToString());
+                    SoHDNextID = temp + 1;
+                }
+                catch (Exception)
+                {
+
+                }
             }
 
         }

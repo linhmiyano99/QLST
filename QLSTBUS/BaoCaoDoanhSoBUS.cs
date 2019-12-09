@@ -17,9 +17,9 @@ namespace QLSTBUS
             this.baoCaoDoanhSoDAL = new BaoCaoDoanhSoDAL();
         }
 
-        public DataTable GetDataTableBaoCaoDoanhSo(int iThang, int iNam)
+        public DataTable GetDataTableBaoCaoDoanhSo()
         {
-            return baoCaoDoanhSoDAL.getDanhSachChiTietByKey(iThang, iNam);
+            return baoCaoDoanhSoDAL.getDanhSachChiTietByKey();
         }
         public DataTable GetTongDoanhSo(int iThang, int iNam)
         {
