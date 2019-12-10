@@ -21,9 +21,14 @@ namespace QLSTBUS
         {
             return baoCaoDoanhSoDAL.getDanhSachChiTietByKey();
         }
-        public DataTable GetTongDoanhSo(int iThang, int iNam)
+        public DataTable GetDataTableBaoCaoDoanhSo(DateTime dt1, DateTime dt2)
         {
-            return baoCaoDoanhSoDAL.GetTongDoanhSo(iThang, iNam);
+            return baoCaoDoanhSoDAL.getDanhSachChiTietByKey(dt1, dt2);
+        }
+
+        public DataTable GetTongDoanhSo(DateTime dt1, DateTime dt2)
+        {
+            return baoCaoDoanhSoDAL.GetTongDoanhSo(dt1, dt2);
         }
     }
 }

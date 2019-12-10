@@ -303,8 +303,14 @@ namespace QLST
             {
                 DrawControl(control, bmp);
             }
-
-            bmp.Save(PathName+"\\HD"+soHoaDon+".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+            try
+            {
+                bmp.Save(PathName + "\\HD" + soHoaDon + ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+            }
+            catch (Exception)
+            {
+                bmp.Save(@"C:\Users\17520\Desktop\hoadon.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+            }
         }
 
     }

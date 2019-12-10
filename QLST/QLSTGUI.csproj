@@ -43,6 +43,7 @@
       <HintPath>..\packages\AForge.Video.DirectShow.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
     </Reference>
     <Reference Include="DevComponents.DotNetBar.Keyboard, Version=14.1.0.35, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL" />
+    <Reference Include="DevComponents.DotNetBar.Schedule, Version=14.1.0.35, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL" />
     <Reference Include="DevComponents.DotNetBar.SuperGrid, Version=14.1.0.35, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL" />
     <Reference Include="DevComponents.DotNetBar2, Version=14.1.0.35, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL" />
     <Reference Include="DevComponents.Instrumentation, Version=14.1.0.35, Culture=neutral, PublicKeyToken=f90dc37c26666a67, processorArchitecture=MSIL" />
@@ -75,6 +76,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmEditChiTietHoaDonBanHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditChiTietHoaDonBanHang.Designer.cs">
+      <DependentUpon>frmEditChiTietHoaDonBanHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmBaoCaoDoanhSo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +93,12 @@
     </Compile>
     <Compile Include="frmBaoCaoTon.Designer.cs">
       <DependentUpon>frmBaoCaoTon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmChiTietHoaDonBanHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChiTietHoaDonBanHang.Designer.cs">
+      <DependentUpon>frmChiTietHoaDonBanHang.cs</DependentUpon>
     </Compile>
     <Compile Include="frmEditChucVu.cs">
       <SubType>Form</SubType>
@@ -179,11 +192,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmEditChiTietHoaDonBanHang.resx">
+      <DependentUpon>frmEditChiTietHoaDonBanHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmBaoCaoDoanhSo.resx">
       <DependentUpon>frmBaoCaoDoanhSo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmBaoCaoTon.resx">
       <DependentUpon>frmBaoCaoTon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChiTietHoaDonBanHang.resx">
+      <DependentUpon>frmChiTietHoaDonBanHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditChucVu.resx">
       <DependentUpon>frmEditChucVu.cs</DependentUpon>

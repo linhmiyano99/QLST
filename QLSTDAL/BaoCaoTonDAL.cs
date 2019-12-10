@@ -22,8 +22,8 @@ namespace QLSTDAL
         {
             string query = string.Empty;
 
-            query += " SELECT [MaMH] ,[Ton], [GiaVon], [GiaBan]";
-            query += " FROM [dbQLST].[dbo].[tblCHITIETBAOCAOTON]";
+            query += " SELECT [MaMH] ,[TenMH], [GiaNhap], [GiaBan], [TonToiDa], [TonToiThieu] ";
+            query += " FROM [dbQLST].[dbo].[tblMatHang]";
 
 
             SqlConnection con = new SqlConnection(ConnectionString);
@@ -41,8 +41,8 @@ namespace QLSTDAL
         {
             string query = string.Empty;
 
-            query += " SELECT [MaMH] ,[Ton], [GiaVon], [GiaBan]";
-            query += " FROM [dbQLST].[dbo].[tblCHITIETBAOCAOTON]";
+            query += " SELECT [MaMH] ,[TenMH], [GiaNhap], [GiaBan], [TonToiDa], [TonToiThieu] ";
+            query += " FROM [dbQLST].[dbo].[tblMatHang]";
             query += " WHERE MaMH = @sKey";
 
 

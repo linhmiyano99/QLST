@@ -23,7 +23,7 @@ using System.Resources;
 
 namespace QLST
 {
-    public partial class frmBaoCaoTon : Form
+    public partial class frmBaoCaoTon : DevExpress.XtraEditors.XtraForm
     {
         private DataTable tonDataTable = new DataTable();
         private BaoCaoTonBUS baoCaoTonBUS = new BaoCaoTonBUS();
@@ -93,13 +93,6 @@ namespace QLST
             //MaDG.Width = ((dgvThemSach_frmMuon.Width - 3 * (MaSach.Width)) - 25);
             dataGridViewMatHang.Columns.Add(GiaBan);
 
-            DataGridViewTextBoxColumn Ton = new DataGridViewTextBoxColumn();
-            Ton.Name = "Ton";
-            Ton.HeaderText = "Tồn";
-            Ton.DataPropertyName = "Ton";
-            //MaDG.Width = ((dgvThemSach_frmMuon.Width - 3 * (MaSach.Width)) - 25);
-            dataGridViewMatHang.Columns.Add(Ton);
-
             DataGridViewTextBoxColumn TonToiThieu = new DataGridViewTextBoxColumn();
             TonToiThieu.Name = "TonToiThieu";
             TonToiThieu.HeaderText = "Tồn Tối Thiểu";
@@ -128,7 +121,6 @@ namespace QLST
         {
             sKeyword = txtMaMH.Text.Trim();
             // List<KhachHangDTO> ListKhachHang = khachHangBUS.getListKhachHangByKey(sKeyword);
-            DataTable dataMatHang = baoCaoTonBUS.GetDataTableBaoCaoTon(sKeyword);
 
             if (sKeyword == null || sKeyword == string.Empty || sKeyword.Length == 0)
             {
@@ -137,7 +129,7 @@ namespace QLST
             }
             else
             {
-
+                DataTable dataMatHang = baoCaoTonBUS.GetDataTableBaoCaoTon(sKeyword);
                 dataGridViewMatHang.DataSource = dataMatHang;
                 dataGridViewMatHang.Refresh();
                 dataGridViewMatHang.Update();

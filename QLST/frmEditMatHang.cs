@@ -13,7 +13,7 @@ using QLSTBUS;
 
 namespace QLST
 {
-    public partial class frmEditMatHang : Form
+    public partial class frmEditMatHang : DevExpress.XtraEditors.XtraForm
     {
         public frmMatHang frmMH;
 

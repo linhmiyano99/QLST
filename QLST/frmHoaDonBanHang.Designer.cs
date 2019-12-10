@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHoaDonBanHang));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnLuu = new DevExpress.XtraBars.BarButtonItem();
             this.btnXuatHoaDon = new DevExpress.XtraBars.BarButtonItem();
@@ -142,8 +142,6 @@
             // 
             this.btnLuu.Caption = "Lưu thông tin";
             this.btnLuu.Id = 1;
-            this.btnLuu.ImageOptions.Image = global::QLST.Properties.Resources.save_16x16;
-            this.btnLuu.ImageOptions.LargeImage = global::QLST.Properties.Resources.save_32x32;
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLuu_ItemClick);
             // 
@@ -151,8 +149,6 @@
             // 
             this.btnXuatHoaDon.Caption = "Xuất hóa đơn";
             this.btnXuatHoaDon.Id = 2;
-            this.btnXuatHoaDon.ImageOptions.Image = global::QLST.Properties.Resources.exporttopdf_16x16;
-            this.btnXuatHoaDon.ImageOptions.LargeImage = global::QLST.Properties.Resources.exporttopdf_32x321;
             this.btnXuatHoaDon.Name = "btnXuatHoaDon";
             this.btnXuatHoaDon.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnXuatHoaDon_ItemClick);
             // 
@@ -160,8 +156,6 @@
             // 
             this.btnXoa.Caption = "Xóa Hóa Đơn";
             this.btnXoa.Id = 3;
-            this.btnXoa.ImageOptions.Image = global::QLST.Properties.Resources.delete_16x16;
-            this.btnXoa.ImageOptions.LargeImage = global::QLST.Properties.Resources.delete_32x32;
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnXoa_ItemClick);
             // 
@@ -248,8 +242,6 @@
             // 
             this.btnThem.Caption = "Thêm Mới";
             this.btnThem.Id = 12;
-            this.btnThem.ImageOptions.Image = global::QLST.Properties.Resources.addfile_16x16;
-            this.btnThem.ImageOptions.LargeImage = global::QLST.Properties.Resources.addfile_32x321;
             this.btnThem.Name = "btnThem";
             this.btnThem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThem_ItemClick);
             // 
@@ -257,7 +249,6 @@
             // 
             this.btnSelectPath.Caption = "Chọn Thư Mục";
             this.btnSelectPath.Id = 13;
-            this.btnSelectPath.ImageOptions.SvgImage = global::QLST.Properties.Resources.open;
             this.btnSelectPath.Name = "btnSelectPath";
             this.btnSelectPath.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSelectPath_ItemClick);
             // 
@@ -569,14 +560,14 @@
             this.dataGridViewChiTietHoaDon.AllowUserToAddRows = false;
             this.dataGridViewChiTietHoaDon.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewChiTietHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 7.8F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewChiTietHoaDon.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 7.8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewChiTietHoaDon.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewChiTietHoaDon.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridViewChiTietHoaDon.Location = new System.Drawing.Point(15, 479);
             this.dataGridViewChiTietHoaDon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -634,13 +625,13 @@
             // 
             this.pictureBox.Location = new System.Drawing.Point(15, 363);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(358, 109);
+            this.pictureBox.Size = new System.Drawing.Size(486, 109);
             this.pictureBox.TabIndex = 29;
             this.pictureBox.TabStop = false;
             // 
             // btnCheckBarcode
             // 
-            this.btnCheckBarcode.Location = new System.Drawing.Point(406, 387);
+            this.btnCheckBarcode.Location = new System.Drawing.Point(507, 389);
             this.btnCheckBarcode.Name = "btnCheckBarcode";
             this.btnCheckBarcode.Size = new System.Drawing.Size(75, 32);
             this.btnCheckBarcode.TabIndex = 30;
@@ -660,7 +651,7 @@
             this.cmbCamera.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cmbCamera.FormattingEnabled = true;
             this.cmbCamera.ItemHeight = 18;
-            this.cmbCamera.Location = new System.Drawing.Point(505, 386);
+            this.cmbCamera.Location = new System.Drawing.Point(651, 389);
             this.cmbCamera.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmbCamera.Name = "cmbCamera";
             this.cmbCamera.Size = new System.Drawing.Size(192, 24);
