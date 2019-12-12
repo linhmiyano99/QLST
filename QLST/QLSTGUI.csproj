@@ -61,6 +61,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmBaoCaoDoanhSo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBaoCaoDoanhSo.designer.cs">
+      <DependentUpon>frmBaoCaoDoanhSo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBaoCaoTon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBaoCaoTon.Designer.cs">
+      <DependentUpon>frmBaoCaoTon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmChiTietHoaDonBanHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChiTietHoaDonBanHang.designer.cs">
+      <DependentUpon>frmChiTietHoaDonBanHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditChiTietHoaDonBanHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditChiTietHoaDonBanHang.designer.cs">
+      <DependentUpon>frmEditChiTietHoaDonBanHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEditChucVu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +115,12 @@
     <Compile Include="frmEditKhachHang.Designer.cs">
       <DependentUpon>frmEditKhachHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEditMatHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditMatHang.designer.cs">
+      <DependentUpon>frmEditMatHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEditNhaCungCap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +150,12 @@
     </Compile>
     <Compile Include="frmMainForm.Designer.cs">
       <DependentUpon>frmMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMatHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMatHang.Designer.cs">
+      <DependentUpon>frmMatHang.cs</DependentUpon>
     </Compile>
     <Compile Include="frmNhaCungCap.cs">
       <SubType>Form</SubType>
@@ -171,6 +207,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmBaoCaoDoanhSo.resx">
+      <DependentUpon>frmBaoCaoDoanhSo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBaoCaoTon.resx">
+      <DependentUpon>frmBaoCaoTon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChiTietHoaDonBanHang.resx">
+      <DependentUpon>frmChiTietHoaDonBanHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditChiTietHoaDonBanHang.resx">
+      <DependentUpon>frmEditChiTietHoaDonBanHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmEditChucVu.resx">
       <DependentUpon>frmEditChucVu.cs</DependentUpon>
     </EmbeddedResource>
@@ -186,6 +234,9 @@
     <EmbeddedResource Include="frmEditKhachHang.resx">
       <DependentUpon>frmEditKhachHang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmEditMatHang.resx">
+      <DependentUpon>frmEditMatHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmEditNhaCungCap.resx">
       <DependentUpon>frmEditNhaCungCap.cs</DependentUpon>
     </EmbeddedResource>
@@ -200,6 +251,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMainForm.resx">
       <DependentUpon>frmMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMatHang.resx">
+      <DependentUpon>frmMatHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNhaCungCap.resx">
       <DependentUpon>frmNhaCungCap.cs</DependentUpon>

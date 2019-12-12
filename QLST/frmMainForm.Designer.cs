@@ -42,6 +42,10 @@
             this.ctrlEl_MatHang = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ctrlEl_NhapHang = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.accordionControlSeparator4 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
+            this.CtrlEl_BaoCao = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ctrlEl_BaoCaoDS = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.ctrlEl_BaoCaoTonKho = new DevExpress.XtraBars.Navigation.AccordionControlElement();
+            this.accordionControlSeparator8 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
             this.ctrlNhanVien = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ctrlEl_ThongTinNhanVien = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.ctrlEl_ChucVuNhanVien = new DevExpress.XtraBars.Navigation.AccordionControlElement();
@@ -50,9 +54,7 @@
             this.accordionControlSeparator7 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
             this.accordionControlSeparator6 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
             this.ctrlEl_QuyDinh = new DevExpress.XtraBars.Navigation.AccordionControlElement();
-            this.CtrlEl_BaoCaoDS = new DevExpress.XtraBars.Navigation.AccordionControlElement();
             this.fluentDesignFormControl1 = new DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormControl();
-            this.accordionControlSeparator8 = new DevExpress.XtraBars.Navigation.AccordionControlSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.accordionCtrlMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fluentDesignFormControl1)).BeginInit();
             this.SuspendLayout();
@@ -78,7 +80,7 @@
             this.accordionControlSeparator3,
             this.ctrlKhoHang,
             this.accordionControlSeparator4,
-            this.CtrlEl_BaoCaoDS,
+            this.CtrlEl_BaoCao,
             this.accordionControlSeparator8,
             this.ctrlNhanVien,
             this.accordionControlSeparator5,
@@ -292,6 +294,81 @@
             // 
             this.accordionControlSeparator4.Name = "accordionControlSeparator4";
             // 
+            // CtrlEl_BaoCao
+            // 
+            this.CtrlEl_BaoCao.Appearance.Disabled.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CtrlEl_BaoCao.Appearance.Disabled.Options.UseFont = true;
+            this.CtrlEl_BaoCao.Appearance.Hovered.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CtrlEl_BaoCao.Appearance.Hovered.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.CtrlEl_BaoCao.Appearance.Hovered.Options.UseFont = true;
+            this.CtrlEl_BaoCao.Appearance.Hovered.Options.UseForeColor = true;
+            this.CtrlEl_BaoCao.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CtrlEl_BaoCao.Appearance.Normal.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            this.CtrlEl_BaoCao.Appearance.Normal.Options.UseFont = true;
+            this.CtrlEl_BaoCao.Appearance.Pressed.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.CtrlEl_BaoCao.Appearance.Pressed.BorderColor = System.Drawing.SystemColors.ActiveCaption;
+            this.CtrlEl_BaoCao.Appearance.Pressed.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CtrlEl_BaoCao.Appearance.Pressed.Options.UseBackColor = true;
+            this.CtrlEl_BaoCao.Appearance.Pressed.Options.UseBorderColor = true;
+            this.CtrlEl_BaoCao.Appearance.Pressed.Options.UseFont = true;
+            this.CtrlEl_BaoCao.Elements.AddRange(new DevExpress.XtraBars.Navigation.AccordionControlElement[] {
+            this.ctrlEl_BaoCaoDS,
+            this.ctrlEl_BaoCaoTonKho});
+            this.CtrlEl_BaoCao.Expanded = true;
+            this.CtrlEl_BaoCao.ImageOptions.Image = global::QLST.Properties.Resources.pie_chart__2_;
+            this.CtrlEl_BaoCao.Name = "CtrlEl_BaoCao";
+            this.CtrlEl_BaoCao.Text = "Báo Cáo";
+            // 
+            // ctrlEl_BaoCaoDS
+            // 
+            this.ctrlEl_BaoCaoDS.Appearance.Disabled.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlEl_BaoCaoDS.Appearance.Disabled.Options.UseFont = true;
+            this.ctrlEl_BaoCaoDS.Appearance.Hovered.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlEl_BaoCaoDS.Appearance.Hovered.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.ctrlEl_BaoCaoDS.Appearance.Hovered.Options.UseFont = true;
+            this.ctrlEl_BaoCaoDS.Appearance.Hovered.Options.UseForeColor = true;
+            this.ctrlEl_BaoCaoDS.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlEl_BaoCaoDS.Appearance.Normal.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            this.ctrlEl_BaoCaoDS.Appearance.Normal.Options.UseFont = true;
+            this.ctrlEl_BaoCaoDS.Appearance.Pressed.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.ctrlEl_BaoCaoDS.Appearance.Pressed.BorderColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ctrlEl_BaoCaoDS.Appearance.Pressed.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlEl_BaoCaoDS.Appearance.Pressed.Options.UseBackColor = true;
+            this.ctrlEl_BaoCaoDS.Appearance.Pressed.Options.UseBorderColor = true;
+            this.ctrlEl_BaoCaoDS.Appearance.Pressed.Options.UseFont = true;
+            this.ctrlEl_BaoCaoDS.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ctrlEl_BaoCaoDS.ImageOptions.Image")));
+            this.ctrlEl_BaoCaoDS.Name = "ctrlEl_BaoCaoDS";
+            this.ctrlEl_BaoCaoDS.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ctrlEl_BaoCaoDS.Text = "Báo Cáo Doanh Số";
+            this.ctrlEl_BaoCaoDS.Click += new System.EventHandler(this.ctrlEl_BaoCaoDS_Click);
+            // 
+            // ctrlEl_BaoCaoTonKho
+            // 
+            this.ctrlEl_BaoCaoTonKho.Appearance.Disabled.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlEl_BaoCaoTonKho.Appearance.Disabled.Options.UseFont = true;
+            this.ctrlEl_BaoCaoTonKho.Appearance.Hovered.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlEl_BaoCaoTonKho.Appearance.Hovered.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.ctrlEl_BaoCaoTonKho.Appearance.Hovered.Options.UseFont = true;
+            this.ctrlEl_BaoCaoTonKho.Appearance.Hovered.Options.UseForeColor = true;
+            this.ctrlEl_BaoCaoTonKho.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlEl_BaoCaoTonKho.Appearance.Normal.FontStyleDelta = System.Drawing.FontStyle.Bold;
+            this.ctrlEl_BaoCaoTonKho.Appearance.Normal.Options.UseFont = true;
+            this.ctrlEl_BaoCaoTonKho.Appearance.Pressed.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.ctrlEl_BaoCaoTonKho.Appearance.Pressed.BorderColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ctrlEl_BaoCaoTonKho.Appearance.Pressed.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctrlEl_BaoCaoTonKho.Appearance.Pressed.Options.UseBackColor = true;
+            this.ctrlEl_BaoCaoTonKho.Appearance.Pressed.Options.UseBorderColor = true;
+            this.ctrlEl_BaoCaoTonKho.Appearance.Pressed.Options.UseFont = true;
+            this.ctrlEl_BaoCaoTonKho.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ctrlEl_BaoCaoTonKho.ImageOptions.Image")));
+            this.ctrlEl_BaoCaoTonKho.Name = "ctrlEl_BaoCaoTonKho";
+            this.ctrlEl_BaoCaoTonKho.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
+            this.ctrlEl_BaoCaoTonKho.Text = "Báo Cáo Hàng Tồn";
+            this.ctrlEl_BaoCaoTonKho.Click += new System.EventHandler(this.ctrlEl_BaoCaoTonKho_Click);
+            // 
+            // accordionControlSeparator8
+            // 
+            this.accordionControlSeparator8.Name = "accordionControlSeparator8";
+            // 
             // ctrlNhanVien
             // 
             this.ctrlNhanVien.Appearance.Disabled.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -435,28 +512,6 @@
             this.ctrlEl_QuyDinh.Text = "Thay Đổi Quy Định";
             this.ctrlEl_QuyDinh.Click += new System.EventHandler(this.ctrlEl_QuyDinh_Click);
             // 
-            // CtrlEl_BaoCaoDS
-            // 
-            this.CtrlEl_BaoCaoDS.Appearance.Disabled.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CtrlEl_BaoCaoDS.Appearance.Disabled.Options.UseFont = true;
-            this.CtrlEl_BaoCaoDS.Appearance.Hovered.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CtrlEl_BaoCaoDS.Appearance.Hovered.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.CtrlEl_BaoCaoDS.Appearance.Hovered.Options.UseFont = true;
-            this.CtrlEl_BaoCaoDS.Appearance.Hovered.Options.UseForeColor = true;
-            this.CtrlEl_BaoCaoDS.Appearance.Normal.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CtrlEl_BaoCaoDS.Appearance.Normal.FontStyleDelta = System.Drawing.FontStyle.Bold;
-            this.CtrlEl_BaoCaoDS.Appearance.Normal.Options.UseFont = true;
-            this.CtrlEl_BaoCaoDS.Appearance.Pressed.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.CtrlEl_BaoCaoDS.Appearance.Pressed.BorderColor = System.Drawing.SystemColors.ActiveCaption;
-            this.CtrlEl_BaoCaoDS.Appearance.Pressed.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CtrlEl_BaoCaoDS.Appearance.Pressed.Options.UseBackColor = true;
-            this.CtrlEl_BaoCaoDS.Appearance.Pressed.Options.UseBorderColor = true;
-            this.CtrlEl_BaoCaoDS.Appearance.Pressed.Options.UseFont = true;
-            this.CtrlEl_BaoCaoDS.ImageOptions.Image = global::QLST.Properties.Resources.pie_chart__2_;
-            this.CtrlEl_BaoCaoDS.Name = "CtrlEl_BaoCaoDS";
-            this.CtrlEl_BaoCaoDS.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item;
-            this.CtrlEl_BaoCaoDS.Text = "Báo Cáo Doanh Số";
-            // 
             // fluentDesignFormControl1
             // 
             this.fluentDesignFormControl1.FluentDesignForm = this;
@@ -465,10 +520,6 @@
             this.fluentDesignFormControl1.Size = new System.Drawing.Size(1590, 27);
             this.fluentDesignFormControl1.TabIndex = 2;
             this.fluentDesignFormControl1.TabStop = false;
-            // 
-            // accordionControlSeparator8
-            // 
-            this.accordionControlSeparator8.Name = "accordionControlSeparator8";
             // 
             // frmMainForm
             // 
@@ -519,7 +570,9 @@
         private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator7;
         private DevExpress.XtraBars.Navigation.AccordionControlElement ctrlEl_QuyDinh;
         public DevExpress.XtraBars.Navigation.AccordionControlElement ctrlBanHang;
-        private DevExpress.XtraBars.Navigation.AccordionControlElement CtrlEl_BaoCaoDS;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement CtrlEl_BaoCao;
         private DevExpress.XtraBars.Navigation.AccordionControlSeparator accordionControlSeparator8;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ctrlEl_BaoCaoDS;
+        private DevExpress.XtraBars.Navigation.AccordionControlElement ctrlEl_BaoCaoTonKho;
     }
 }

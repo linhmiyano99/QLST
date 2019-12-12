@@ -1,3 +1,4 @@
+﻿
 ﻿using QLSTDAL;
 using QLSTDTO;
 using System;
@@ -17,13 +18,18 @@ namespace QLSTBUS
             this.baoCaoDoanhSoDAL = new BaoCaoDoanhSoDAL();
         }
 
-        public DataTable GetDataTableBaoCaoDoanhSo(int iThang, int iNam)
+        public DataTable GetDataTableBaoCaoDoanhSo()
         {
-            return baoCaoDoanhSoDAL.getDanhSachChiTietByKey(iThang, iNam);
+            return baoCaoDoanhSoDAL.getDanhSachChiTietByKey();
         }
-        public DataTable GetTongDoanhSo(int iThang, int iNam)
+        public DataTable GetDataTableBaoCaoDoanhSo(DateTime dt1, DateTime dt2)
         {
-            return baoCaoDoanhSoDAL.GetTongDoanhSo(iThang, iNam);
+            return baoCaoDoanhSoDAL.getDanhSachChiTietByKey(dt1, dt2);
+        }
+
+        public DataTable GetTongDoanhSo(DateTime dt1, DateTime dt2)
+        {
+            return baoCaoDoanhSoDAL.GetTongDoanhSo(dt1, dt2);
         }
     }
 }

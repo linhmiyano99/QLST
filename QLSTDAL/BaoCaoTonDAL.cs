@@ -18,20 +18,38 @@ namespace QLSTDAL
             connectionString = ConfigurationManager.AppSettings["ConnectionString"];
         }
         public string ConnectionString { get => connectionString; set => connectionString = value; }
-        public DataTable getDanhSachChiTietByKey(int iThang, int iNam)
+        public DataTable getDanhSachChiTietByKey()
         {
             string query = string.Empty;
 
-            query += " SELECT [MaMH] ,[Ton], [GiaVon], [GiaBan]";
-            query += " FROM [dbQLST].[dbo].[tblCHITIETBAOCAOTON]";
-            query += " WHERE MONTH(NgayGio) = @Thang";
-            query += " AND YEAR(NgayGio) = @Nam";
+            query += " SELECT [MaMH] ,[TenMH], [GiaNhap], [GiaBan], [TonToiDa], [TonToiThieu] ";
+            query += " FROM [dbQLST].[dbo].[tblMatHang]";
 
 
             SqlConnection con = new SqlConnection(ConnectionString);
             SqlCommand cmd = new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@Thang", iThang);
-            cmd.Parameters.AddWithValue("@Nam", iNam);
+
+            var table = new DataTable();
+            using (var da = new SqlDataAdapter(cmd))
+
+            {
+                da.Fill(table);
+            }
+            return table;
+        }
+        public DataTable getDanhSachChiTietByKey(string MaMH)
+        {
+            string query = string.Empty;
+
+            query += " SELECT [MaMH] ,[TenMH], [GiaNhap], [GiaBan], [TonToiDa], [TonToiThieu] ";
+            query += " FROM [dbQLST].[dbo].[tblMatHang]";
+            query += " WHERE MaMH = @sKey";
+
+
+            SqlConnection con = new SqlConnection(ConnectionString);
+            SqlCommand cmd = new SqlCommand(query, con);
+
+            cmd.Parameters.AddWithValue("@sKey", MaMH);
 
             var table = new DataTable();
             using (var da = new SqlDataAdapter(cmd))

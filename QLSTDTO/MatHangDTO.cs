@@ -23,5 +23,9 @@ namespace QLSTDTO
         public string StrDonGia { get => strDonGia; set => strDonGia = value; }
         public int ITonToiDa { get => iTonToiDa; set => iTonToiDa = value; }
         public int ITonToiThieu { get => iTonToiThieu; set => iTonToiThieu = value; }
+        public MatHangDTO()
+        {
+            strBarcode = "0";
+        }
     }
 }

@@ -55,7 +55,9 @@ namespace QLST
             GetListSoHoaDon();
             GetNhanVienInfo(nhanVienDTO);
             txtSoHoaDon.Text = SoHDNextID.ToString();
-           
+            txtThuNgan.Text = nhanVienHoaDon.StrHoTen;
+
+
         }
 
 

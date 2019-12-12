@@ -24,6 +24,9 @@ namespace QLST
         frmChucVu frmChucVu = new frmChucVu();
         frmNhapKho frmNhapKho;
         frmHoaDonBanHang frmHoaDonBanHang;
+        frmBaoCaoDoanhSo frmBaoCaoDoanhSo = new frmBaoCaoDoanhSo();
+        frmBaoCaoTon frmBaoCaoTon = new frmBaoCaoTon();
+        frmMatHang frmMatHang = new frmMatHang();
         NhanVienDTO nhanVienDTO = new NhanVienDTO();
         NhanVienBUS nhanVienBUS = new NhanVienBUS();
         List<string> ListAccountInfo = new List<string>();
@@ -84,7 +87,7 @@ namespace QLST
                     }
                 case 2:
                     {
-                        CtrlEl_BaoCaoDS.Dispose();
+                        CtrlEl_BaoCao.Dispose();
                         ctrlKhoHang.Dispose();
                         ctrlEl_QuyDinh.Dispose();
                         ctrlNhaCungCap.Dispose();
@@ -96,7 +99,7 @@ namespace QLST
                         ctrlKhachHang.Dispose();
                         ctrlNhanVien.Dispose();
                         ctrlEl_QuyDinh.Dispose();
-                        CtrlEl_BaoCaoDS.Dispose();
+                        CtrlEl_BaoCao.Dispose();
                         break;
                     }
             }
@@ -183,7 +186,21 @@ namespace QLST
 
         private void ctrlEl_MatHang_Click(object sender, EventArgs e)
         {
-
+            frmMatHang.TopLevel = false;
+            if (!frmMainContainer.Contains(frmMatHang))
+            {
+                frmMainContainer.Controls.Add(frmMatHang);
+                frmMatHang.Dock = DockStyle.Fill;
+                frmMatHang.Show();
+                frmMatHang.BringToFront();
+                frmMatHang.Focus();
+            }
+            else
+            {
+                frmMatHang.Show();
+                frmMatHang.BringToFront();
+                frmMatHang.Focus();
+            }
         }
 
         private void ctrlEl_NhapHang_Click(object sender, EventArgs e)
@@ -279,6 +296,44 @@ namespace QLST
                 frmThayDoiQuyDinh.Show();
                 frmThayDoiQuyDinh.BringToFront();
                 frmThayDoiQuyDinh.Focus();
+            }
+        }
+
+        private void ctrlEl_BaoCaoDS_Click(object sender, EventArgs e)
+        {
+            frmBaoCaoDoanhSo.TopLevel = false;
+            if (!frmMainContainer.Contains(frmBaoCaoDoanhSo))
+            {
+                frmMainContainer.Controls.Add(frmBaoCaoDoanhSo);
+                frmBaoCaoDoanhSo.Dock = DockStyle.Fill;
+                frmBaoCaoDoanhSo.Show();
+                frmBaoCaoDoanhSo.BringToFront();
+                frmBaoCaoDoanhSo.Focus();
+            }
+            else
+            {
+                frmBaoCaoDoanhSo.Show();
+                frmBaoCaoDoanhSo.BringToFront();
+                frmBaoCaoDoanhSo.Focus();
+            }
+        }
+
+        private void ctrlEl_BaoCaoTonKho_Click(object sender, EventArgs e)
+        {
+            frmBaoCaoTon.TopLevel = false;
+            if (!frmMainContainer.Contains(frmBaoCaoTon))
+            {
+                frmMainContainer.Controls.Add(frmBaoCaoTon);
+                frmBaoCaoTon.Dock = DockStyle.Fill;
+                frmBaoCaoTon.Show();
+                frmBaoCaoTon.BringToFront();
+                frmBaoCaoTon.Focus();
+            }
+            else
+            {
+                frmBaoCaoTon.Show();
+                frmBaoCaoTon.BringToFront();
+                frmBaoCaoTon.Focus();
             }
         }
     }
