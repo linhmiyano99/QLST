@@ -1,9 +1,8 @@
-﻿using QLSTDTO;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+﻿using QLSTDTO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
