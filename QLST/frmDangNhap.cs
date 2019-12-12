@@ -41,8 +41,9 @@ namespace QLST
                 }
                 frmMainForm frmMain = new frmMainForm(MaChucVu, MaNV);
                 this.Hide();
-                frmMain.ShowDialog();
-                this.Show();
+           
+                frmMain.Show();
+                this.Hide();
             }
             else
             {

@@ -62,8 +62,8 @@ namespace QLST
             GetListSoPhieuNhap();
             txtMaPhieu.Text = SoPhieuNextID.ToString();
             LoadNhaCungCapCMB();
+            GetNhanVienInfo(nhanVienDTO);
 
-            nhanVienNhapKho.StrMaNhanVien = "4";
 
         }
 
@@ -93,9 +93,9 @@ namespace QLST
             {
                 nhanVienNhapKho.StrMaNhanVien = nhanVienDTO.StrMaNhanVien.ToString();
                 nhanVienNhapKho.StrHoTen = nhanVienDTO.StrHoTen.ToString();
-                nhanVienNhapKho.StrMaChucVu = nhanVienDTO.StrMaChucVu.ToString();
-                nhanVienNhapKho.StrDiaChi = nhanVienDTO.StrDiaChi.ToString();
-                nhanVienNhapKho.StrDiaChi = nhanVienDTO.StrDiaChi.ToString();
+                //nhanVienNhapKho.StrMaChucVu = nhanVienDTO.StrMaChucVu.ToString();
+               // nhanVienNhapKho.StrDiaChi = nhanVienDTO.StrDiaChi.ToString();
+               // nhanVienNhapKho.StrDiaChi = nhanVienDTO.StrDiaChi.ToString();
             }
             catch (Exception)
             {

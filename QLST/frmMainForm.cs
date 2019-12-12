@@ -285,7 +285,7 @@ namespace QLST
             frmThayDoiQuyDinh.TopLevel = false;
             if (!frmMainContainer.Contains(frmThayDoiQuyDinh))
             {
-                frmMainContainer.Controls.Add(frmNhaCungCap);
+                frmMainContainer.Controls.Add(frmThayDoiQuyDinh);
                 frmThayDoiQuyDinh.Dock = DockStyle.Fill;
                 frmThayDoiQuyDinh.Show();
                 frmThayDoiQuyDinh.BringToFront();
