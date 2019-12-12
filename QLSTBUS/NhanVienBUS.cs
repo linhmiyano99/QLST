@@ -56,6 +56,11 @@ namespace BUS
         {
             return NhanVienDAL.GetTblNhanVienID();
         }
+
+        public List<string> GetNhanVienInfoByMaNV(string MaNV)
+        {
+            return NhanVienDAL.GetNhanVienInfoByMaNV(MaNV);
+        }
     }
 
 }

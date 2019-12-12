@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDangNhap));
             this.txtUserName = new DevExpress.XtraEditors.TextEdit();
             this.lbPassword = new DevExpress.XtraEditors.LabelControl();
             this.lbUserName = new DevExpress.XtraEditors.LabelControl();
@@ -57,7 +58,7 @@
             this.lbPassword.LineVisible = true;
             this.lbPassword.Location = new System.Drawing.Point(21, 70);
             this.lbPassword.Name = "lbPassword";
-            this.lbPassword.Size = new System.Drawing.Size(59, 17);
+            this.lbPassword.Size = new System.Drawing.Size(61, 16);
             this.lbPassword.TabIndex = 10;
             this.lbPassword.Text = "Mật Khẩu";
             // 
@@ -71,7 +72,7 @@
             this.lbUserName.LineVisible = true;
             this.lbUserName.Location = new System.Drawing.Point(21, 28);
             this.lbUserName.Name = "lbUserName";
-            this.lbUserName.Size = new System.Drawing.Size(96, 17);
+            this.lbUserName.Size = new System.Drawing.Size(97, 16);
             this.lbUserName.TabIndex = 9;
             this.lbUserName.Text = "Tên Đăng Nhập";
             // 
@@ -98,6 +99,7 @@
             this.btnDangNhap.Size = new System.Drawing.Size(75, 23);
             this.btnDangNhap.TabIndex = 13;
             this.btnDangNhap.Text = "Đăng Nhập";
+            this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
             // 
             // btnThoat
             // 
@@ -109,9 +111,11 @@
             this.btnThoat.Size = new System.Drawing.Size(75, 23);
             this.btnThoat.TabIndex = 14;
             this.btnThoat.Text = "Thoát";
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // frmDangNhap
             // 
+            this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(391, 156);
@@ -124,10 +128,11 @@
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.Shadow;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmDangNhap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Đăng Nhập";
+            this.Text = "Đăng Nhập - Quản Lý Siêu Thị Mini";
             ((System.ComponentModel.ISupportInitialize)(this.txtUserName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).EndInit();
             this.ResumeLayout(false);

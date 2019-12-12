@@ -36,6 +36,8 @@ namespace QLST
         NhanVienDTO nhanVienHoaDon = new NhanVienDTO();
 
         private string PathForInvoicePrinting = string.Empty;
+        private List<MatHangDTO> ListMatHangCapNhat = new List<MatHangDTO>();
+        private MatHangBUS matHangCapNhatBUS = new MatHangBUS();
 
 
         public frmHoaDonBanHang()
@@ -43,15 +45,17 @@ namespace QLST
             InitializeComponent();
             GetListSoHoaDon();
             txtSoHoaDon.Text = SoHDNextID.ToString();
-            txtMaKH.Text = "8";
+           
         }
 
         public frmHoaDonBanHang(NhanVienDTO nhanVienDTO)
         {
             InitializeComponent();
+            cmbMaMH.Focus();
+            GetListSoHoaDon();
             GetNhanVienInfo(nhanVienDTO);
             txtSoHoaDon.Text = SoHDNextID.ToString();
-            txtMaKH.Text = "8";
+           
         }
 
 
@@ -61,7 +65,7 @@ namespace QLST
             setDefaultValueToControls();
             LoadMaMH();
             CreateDataGridViewBanHang();
-            nhanVienHoaDon.StrMaNhanVien = "4";
+          
         }
 
 
@@ -71,9 +75,9 @@ namespace QLST
         {
             nhanVienHoaDon.StrMaNhanVien = nhanVienDTO.StrMaNhanVien.ToString();
             nhanVienHoaDon.StrHoTen = nhanVienDTO.StrHoTen.ToString();
-            nhanVienHoaDon.StrMaChucVu = nhanVienDTO.StrMaChucVu.ToString();
-            nhanVienHoaDon.StrDiaChi = nhanVienDTO.StrDiaChi.ToString();
-            nhanVienHoaDon.StrDiaChi = nhanVienDTO.StrDiaChi.ToString();
+           // nhanVienHoaDon.StrMaChucVu = nhanVienDTO.StrMaChucVu.ToString();
+           // nhanVienHoaDon.StrDiaChi = nhanVienDTO.StrDiaChi.ToString();
+           // nhanVienHoaDon.StrDiaChi = nhanVienDTO.StrDiaChi.ToString();
 
         }
         void setDefaultValueToControls()
@@ -104,12 +108,20 @@ namespace QLST
         private void GetListSoHoaDon()
         {
             ListSoHD = hoaDonBanHangBUS.GetHoaDonID();
-            if (ListSoHD == null)
+            if (ListSoHD == null )
                 SoHDNextID = 1;
             else
             {
-                int temp = Int32.Parse(ListSoHD[ListSoHD.Count - 1].ToString());
-                SoHDNextID = temp + 1;
+                try
+                {
+                    int temp = Int32.Parse(ListSoHD[ListSoHD.Count - 1].ToString());
+                    SoHDNextID = temp + 1;
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("Chua co so hoa don");
+                }
+               
             }
 
         }
@@ -124,8 +136,7 @@ namespace QLST
             {
                 string ID = (row[0].ToString());
                 ListMaMatHang.Add(ID);
-                ListMaMatHang.Add(ID);
-
+   
             }
 
 
@@ -137,7 +148,7 @@ namespace QLST
 
         #endregion
 
-       
+
         #region UI CREATE
 
         /* 
@@ -242,11 +253,11 @@ namespace QLST
             txtBarcode.Text = string.Empty;
             txtMaKH.Text = string.Empty;
             cmbMaMH.Text = string.Empty;
-           
+
             txtTienTongCong.Text = string.Empty;
             txtTienTraLai.Text = string.Empty;
             txtTienKhachDua.Text = string.Empty;
-           
+
         }
         #endregion
 
@@ -266,14 +277,19 @@ namespace QLST
 
         private void btnLuu_ItemClick(object sender, ItemClickEventArgs e)
         {
+            kiemTraTrungMatHang();
             bool re = LuuHoaDon();
             bool res = LuuChiTietHoaDon();
+            CapNhatMatHang();
 
             frmPrintInvoice frm = new frmPrintInvoice(dataGridViewChiTietHoaDon, nhanVienHoaDon, tongTien.ToString(),
               txtTienKhachDua.Text.ToString(), tienTraLai.ToString(), TongSo.ToString(), PathForInvoicePrinting.ToString(), txtSoHoaDon.Text.ToString());
-            frm.ShowDialog();
+            frm.Visible = false;
 
-            if(re && res)
+            frm.Show();
+            frm.Hide();
+
+            if (re && res)
             {
                 XtraMessageBox.Show("HÓA ĐƠN ĐÃ ĐƯỢC LẬP!", "Notifications!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -321,11 +337,9 @@ namespace QLST
             GetListSoHoaDon();
             txtSoHoaDon.Text = SoHDNextID.ToString();
             setDefaultValueToControls();
-
-
         }
 
-        
+
         private void cmbMaMH_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadMaMH();
@@ -371,12 +385,14 @@ namespace QLST
             {
                 hoaDonBanHangDTO.ITongSo = TongSo;
                 hoaDonBanHangDTO.StrSoHoaDon = SoHDNextID.ToString();
+                if (string.IsNullOrEmpty(txtMaKH.Text))
+                    txtMaKH.Text = "1000";
                 hoaDonBanHangDTO.StrMaKH = txtMaKH.Text.ToString();
                 hoaDonBanHangDTO.StrMaNV = nhanVienHoaDon.StrMaNhanVien;
                 hoaDonBanHangDTO.DTienKhachTra = double.Parse(txtTienKhachDua.Text.ToString());
                 hoaDonBanHangDTO.StrNgayGio = DateTime.Now.ToString();
                 hoaDonBanHangDTO.DTongCong = double.Parse(tongTien.ToString());
-                hoaDonBanHangDTO.IDiemMuaHang = 0;
+                hoaDonBanHangDTO.IDiemMuaHang = 100;
                 hoaDonBanHangDTO.IDiemSauMuaHang = 1000;
 
 
@@ -416,18 +432,22 @@ namespace QLST
             {
                 foreach (DataRow row in dt.Rows)
                 {
-                    chiTietHDDTO = new ChiTietHoaDonBanHangDTO();
-                    chiTietHDDTO.StrMaMH = row["MaMH"].ToString();
-                    chiTietHDDTO.StrSoHoaDon = SoHDNextID.ToString();
-                    chiTietHDDTO.ISoLuong = int.Parse(row["SoLuong"].ToString());
-                    chiTietHDDTO.DDonGia = double.Parse(row["GiaBan"].ToString());
-                    chiTietHDDTO.DThanhTien = double.Parse(row["ThanhTien"].ToString());
-
-                    bool re = chiTietHDBUS.themChiTietHoaDonBanHang(chiTietHDDTO);
-                    if (!re)
+                    if (row.RowState != DataRowState.Deleted)
                     {
-                        XtraMessageBox.Show("ĐÃ CÓ LỖI XẢY RA KHI XUẤT CHI TIẾT HÓA ĐƠN, VUI LÒNG KIỂM TRA LẠI!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        chiTietHDDTO = new ChiTietHoaDonBanHangDTO();
+                        chiTietHDDTO.StrMaMH = row["MaMH"].ToString();
+                        chiTietHDDTO.StrSoHoaDon = SoHDNextID.ToString();
+                        chiTietHDDTO.ISoLuong = int.Parse(row["SoLuong"].ToString());
+                        chiTietHDDTO.DDonGia = double.Parse(row["GiaBan"].ToString());
+                        chiTietHDDTO.DThanhTien = double.Parse(row["ThanhTien"].ToString());
+
+                        bool re = chiTietHDBUS.themChiTietHoaDonBanHang(chiTietHDDTO);
+                        if (!re)
+                        {
+                            XtraMessageBox.Show("ĐÃ CÓ LỖI XẢY RA KHI XUẤT CHI TIẾT HÓA ĐƠN, VUI LÒNG KIỂM TRA LẠI!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
+                        
                 }
 
             }
@@ -435,16 +455,66 @@ namespace QLST
 
         }
 
+        private void kiemTraTrungMatHang()
+        {
+            List<string> ListMaMH = new List<string>();
+            List<int> rowIndex = new List<int>();
+            List<string> soLuong = new List<string>();
+
+            foreach (DataGridViewRow row in dataGridViewChiTietHoaDon.Rows)
+            {
+                rowIndex.Add(row.Index);
+
+                if (!ListMaMH.Contains(row.Cells[2].Value.ToString()))
+                {
+                    ListMaMH.Add(row.Cells[2].Value.ToString());
+                }
+                else
+                {
+                    int index = row.Index;
+                    string temp = row.Cells[2].Value.ToString();
+                    int SL = int .Parse(row.Cells[5].Value.ToString());
+                    int indexTrung = ListMaMH.IndexOf(temp);
+                    int SLD =int.Parse( dataGridViewChiTietHoaDon.Rows[indexTrung].Cells[5].Value.ToString());
+                    dataGridViewChiTietHoaDon.Rows[indexTrung].Cells[5].Value = SLD + SL;
+                    dataGridViewChiTietHoaDon.Rows.RemoveAt(index);
+
+                    DataTable dt = (DataTable)(dataGridViewChiTietHoaDon.DataSource);
+                    dt.AcceptChanges();
+                   
+                    dataGridViewChiTietHoaDon.Update();
+                    dataGridViewChiTietHoaDon.Refresh();
+                    dataGridViewChiTietHoaDon.DataSource = dt;
+                }
+
+            }
+        }
+        private void CapNhatMatHang()
+        {
+            DataTable dt = (DataTable)(dataGridViewChiTietHoaDon.DataSource);
+            foreach (DataRow row in dt.Rows)
+            {
+
+                string MaMH = row["MaMH"].ToString();
+                string soLuong = row["SoLuong"].ToString();
+
+                bool re = matHangCapNhatBUS.capNhatSoLuong(MaMH, soLuong);
+                if (!re)
+                {
+                    Console.Write("Loi cap nhat mat hang");
+                }
+            }
+        }
         private void AddRowFromDataTable(DataTable dataTable)
         {
             DataTable dtOld = (DataTable)dataGridViewChiTietHoaDon.DataSource;
             foreach (DataRow newRow in dataTable.Rows)
             {
                 dtOld.ImportRow(newRow);
+
             }
             dataGridViewChiTietHoaDon.DataSource = dtOld;
         }
-
 
         private void TinhTongTien()
         {
@@ -461,9 +531,9 @@ namespace QLST
 
         private void TinhTienTraLai()
         {
-            if(!string.IsNullOrEmpty(txtTienKhachDua.Text.ToString()))
+            if (!string.IsNullOrEmpty(txtTienKhachDua.Text.ToString()))
             {
-                if (float.Parse(txtTienKhachDua.Text.ToString()) > float.Parse(txtTienTongCong.Text.ToString()))
+                if (float.Parse(txtTienKhachDua.Text.ToString()) >= float.Parse(txtTienTongCong.Text.ToString()))
                 {
                     tienTraLai = float.Parse(txtTienKhachDua.Text.ToString()) - float.Parse(txtTienTongCong.Text.ToString());
                     txtTienTraLai.Text = tienTraLai.ToString();
@@ -473,7 +543,7 @@ namespace QLST
                     txtTienKhachDua.ForeColor = Color.Red;
                 }
             }
-            
+
         }
         #endregion
 
@@ -485,12 +555,16 @@ namespace QLST
 
         private void btnXuatHoaDon_ItemClick(object sender, ItemClickEventArgs e)
         {
+            kiemTraTrungMatHang();
             bool re = LuuHoaDon();
             bool res = LuuChiTietHoaDon();
 
             frmPrintInvoice frm = new frmPrintInvoice(dataGridViewChiTietHoaDon, nhanVienHoaDon, tongTien.ToString(),
               txtTienKhachDua.Text.ToString(), tienTraLai.ToString(), TongSo.ToString(), PathForInvoicePrinting.ToString(), txtSoHoaDon.Text.ToString());
-            frm.ShowDialog();
+           
+
+            frm.Show();
+            frm.Hide();
 
             if (re && res)
             {
@@ -507,14 +581,14 @@ namespace QLST
             folderBrowserDialog.SelectedPath = PathForInvoicePrinting;
             if (folderBrowserDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 WritePathToFile(folderBrowserDialog.SelectedPath);
-            
+
         }
 
         private void ReadPathAddress()
         {
-            
-            string fullpath =  System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName;
-            PathForInvoicePrinting = System.IO.File.ReadAllText(fullpath+"\\printPath.txt");
+
+            string fullpath = System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName;
+            PathForInvoicePrinting = System.IO.File.ReadAllText(fullpath + "\\printPath.txt");
 
         }
 
@@ -523,8 +597,17 @@ namespace QLST
             string fullpath = System.IO.Directory.GetParent(System.IO.Directory.GetCurrentDirectory()).Parent.FullName;
             using (StreamWriter outputFile = new StreamWriter(Path.Combine(fullpath, "printPath.txt")))
             {
-                 outputFile.WriteAsync(content);
+                outputFile.WriteAsync(content);
             }
+        }
+
+        private void txtTongCong_ItemClick(object sender, ItemClickEventArgs e)
+        {
+                    }
+
+        private void dataGridViewChiTietHoaDon_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 

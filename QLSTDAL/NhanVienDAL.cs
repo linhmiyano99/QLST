@@ -283,5 +283,51 @@ namespace QLSTDAL
           
             return ListNhanVienID;
         }
+
+        public List<String> GetNhanVienInfoByMaNV(string MaNV)
+        {
+
+            string query = string.Empty;
+            query += "SELECT HoTen FROM tblNHANVIEN Where MaNV = " + MaNV;
+
+            List<String> ListNhanVienID = new List<string>();
+            string ID = string.Empty;
+
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = con;
+                    cmd.CommandType = System.Data.CommandType.Text;
+                    cmd.CommandText = query;
+
+                    try
+                    {
+                        con.Open();
+                        SqlDataReader reader = null;
+                        reader = cmd.ExecuteReader();
+                        if (reader.HasRows == true)
+                        {
+                            while (reader.Read())
+                            {
+                                ID = (reader["HoTen"].ToString());
+                                ListNhanVienID.Add(ID);
+                            }
+                        }
+
+                        con.Close();
+                        con.Dispose();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("SELECT ID ERROR -> " + ex.ToString());
+                        con.Close();
+                        return null;
+                    }
+                }
+            }
+
+            return ListNhanVienID;
+        }
     }
 }

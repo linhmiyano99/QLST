@@ -33,6 +33,7 @@ namespace QLST
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmKhachHang));
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonThaoTac = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -156,7 +157,7 @@ namespace QLST
             this.ribbonThaoTac});
             this.ribbonControlKhachHang.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTextEdit1});
-            this.ribbonControlKhachHang.Size = new System.Drawing.Size(1249, 160);
+            this.ribbonControlKhachHang.Size = new System.Drawing.Size(1249, 162);
             // 
             // btnGroup_
             // 
@@ -212,12 +213,12 @@ namespace QLST
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewKhachHang.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewKhachHang.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dataGridViewKhachHang.Location = new System.Drawing.Point(12, 167);
+            this.dataGridViewKhachHang.Location = new System.Drawing.Point(12, 168);
             this.dataGridViewKhachHang.Name = "dataGridViewKhachHang";
             this.dataGridViewKhachHang.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             this.dataGridViewKhachHang.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dataGridViewKhachHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewKhachHang.Size = new System.Drawing.Size(1237, 451);
+            this.dataGridViewKhachHang.Size = new System.Drawing.Size(1225, 438);
             this.dataGridViewKhachHang.TabIndex = 25;
             this.dataGridViewKhachHang.AllowUserToAddRowsChanged += new System.EventHandler(this.dataGridViewKhachHang_AllowUserToAddRowsChanged);
             this.dataGridViewKhachHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewKhachHang_CellClick);
@@ -228,12 +229,15 @@ namespace QLST
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1249, 618);
+            this.ClientSize = new System.Drawing.Size(1249, 615);
+            this.ControlBox = false;
             this.Controls.Add(this.dataGridViewKhachHang);
             this.Controls.Add(this.lbSearch);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.ribbonControlKhachHang);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmKhachHang";
+            this.Ribbon = this.ribbonControlKhachHang;
             this.Text = "Quản Lý Khách Hàng";
             this.Load += new System.EventHandler(this.frmKhachHang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();

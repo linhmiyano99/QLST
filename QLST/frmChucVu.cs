@@ -14,7 +14,7 @@ using DevExpress.XtraEditors;
 
 namespace QLST
 {
-    public partial class frmChucVu : DevExpress.XtraEditors.XtraForm
+    public partial class frmChucVu : DevExpress.XtraBars.Ribbon.RibbonForm
     {
 
 

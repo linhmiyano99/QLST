@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNhanVien));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnThem = new DevExpress.XtraBars.BarButtonItem();
             this.btnXoa = new DevExpress.XtraBars.BarButtonItem();
@@ -92,7 +93,7 @@
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
-            this.ribbon.Size = new System.Drawing.Size(1071, 143);
+            this.ribbon.Size = new System.Drawing.Size(1249, 162);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
             // btnThem
@@ -136,6 +137,7 @@
             this.ribbonPageGroup1,
             this.ribbonPageGroup2,
             this.ribbonPageGroup3});
+            this.ribbonPage1.ImageOptions.SvgImage = global::QLST.Properties.Resources.bo_appointment5;
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "Thao tác";
             // 
@@ -160,10 +162,10 @@
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 618);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 615);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1071, 31);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1249, 31);
             // 
             // grThongtinNhanVien
             // 
@@ -181,15 +183,15 @@
             this.grThongtinNhanVien.Controls.Add(this.lbDiaChi);
             this.grThongtinNhanVien.Controls.Add(this.lbHoTen);
             this.grThongtinNhanVien.Controls.Add(this.lbMaNV);
-            this.grThongtinNhanVien.Location = new System.Drawing.Point(18, 149);
+            this.grThongtinNhanVien.Location = new System.Drawing.Point(18, 168);
             this.grThongtinNhanVien.Name = "grThongtinNhanVien";
-            this.grThongtinNhanVien.Size = new System.Drawing.Size(1033, 170);
+            this.grThongtinNhanVien.Size = new System.Drawing.Size(1219, 170);
             this.grThongtinNhanVien.TabIndex = 2;
             this.grThongtinNhanVien.Text = "Thông tin nhân viên";
             // 
             // txtTongCaLam
             // 
-            this.txtTongCaLam.Location = new System.Drawing.Point(863, 30);
+            this.txtTongCaLam.Location = new System.Drawing.Point(995, 32);
             this.txtTongCaLam.MenuManager = this.ribbon;
             this.txtTongCaLam.Name = "txtTongCaLam";
             this.txtTongCaLam.Size = new System.Drawing.Size(148, 20);
@@ -197,7 +199,7 @@
             // 
             // txtLuong
             // 
-            this.txtLuong.Location = new System.Drawing.Point(865, 83);
+            this.txtLuong.Location = new System.Drawing.Point(997, 85);
             this.txtLuong.MenuManager = this.ribbon;
             this.txtLuong.Name = "txtLuong";
             this.txtLuong.Size = new System.Drawing.Size(148, 20);
@@ -205,7 +207,7 @@
             // 
             // txtSDT
             // 
-            this.txtSDT.Location = new System.Drawing.Point(488, 84);
+            this.txtSDT.Location = new System.Drawing.Point(560, 83);
             this.txtSDT.MenuManager = this.ribbon;
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(206, 20);
@@ -221,7 +223,7 @@
             // 
             // txtChucVu
             // 
-            this.txtChucVu.Location = new System.Drawing.Point(488, 33);
+            this.txtChucVu.Location = new System.Drawing.Point(560, 32);
             this.txtChucVu.MenuManager = this.ribbon;
             this.txtChucVu.Name = "txtChucVu";
             this.txtChucVu.Size = new System.Drawing.Size(206, 20);
@@ -252,7 +254,7 @@
             this.lbLuong.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
             this.lbLuong.LineLocation = DevExpress.XtraEditors.LineLocation.Center;
             this.lbLuong.LineStyle = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.lbLuong.Location = new System.Drawing.Point(722, 84);
+            this.lbLuong.Location = new System.Drawing.Point(854, 86);
             this.lbLuong.Name = "lbLuong";
             this.lbLuong.Size = new System.Drawing.Size(49, 16);
             this.lbLuong.TabIndex = 8;
@@ -266,7 +268,7 @@
             this.lbTongCaLam.LineLocation = DevExpress.XtraEditors.LineLocation.Center;
             this.lbTongCaLam.LineStyle = System.Drawing.Drawing2D.DashStyle.Dot;
             this.lbTongCaLam.LineVisible = true;
-            this.lbTongCaLam.Location = new System.Drawing.Point(720, 33);
+            this.lbTongCaLam.Location = new System.Drawing.Point(852, 35);
             this.lbTongCaLam.Name = "lbTongCaLam";
             this.lbTongCaLam.Size = new System.Drawing.Size(115, 16);
             this.lbTongCaLam.TabIndex = 6;
@@ -280,7 +282,7 @@
             this.lbChucVu.LineLocation = DevExpress.XtraEditors.LineLocation.Center;
             this.lbChucVu.LineStyle = System.Drawing.Drawing2D.DashStyle.Dot;
             this.lbChucVu.LineVisible = true;
-            this.lbChucVu.Location = new System.Drawing.Point(361, 34);
+            this.lbChucVu.Location = new System.Drawing.Point(433, 33);
             this.lbChucVu.Name = "lbChucVu";
             this.lbChucVu.Size = new System.Drawing.Size(57, 16);
             this.lbChucVu.TabIndex = 4;
@@ -294,7 +296,7 @@
             this.lbSDT.LineLocation = DevExpress.XtraEditors.LineLocation.Center;
             this.lbSDT.LineStyle = System.Drawing.Drawing2D.DashStyle.Dot;
             this.lbSDT.LineVisible = true;
-            this.lbSDT.Location = new System.Drawing.Point(361, 86);
+            this.lbSDT.Location = new System.Drawing.Point(433, 85);
             this.lbSDT.Name = "lbSDT";
             this.lbSDT.Size = new System.Drawing.Size(89, 16);
             this.lbSDT.TabIndex = 3;
@@ -363,22 +365,23 @@
             // 
             // dataGridViewNhanVien
             // 
+            this.dataGridViewNhanVien.AllowUserToAddRows = false;
             this.dataGridViewNhanVien.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 8.25F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewNhanVien.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewNhanVien.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewNhanVien.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridViewNhanVien.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dataGridViewNhanVien.Location = new System.Drawing.Point(18, 325);
+            this.dataGridViewNhanVien.Location = new System.Drawing.Point(18, 344);
             this.dataGridViewNhanVien.Name = "dataGridViewNhanVien";
             this.dataGridViewNhanVien.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewNhanVien.Size = new System.Drawing.Size(1033, 287);
+            this.dataGridViewNhanVien.Size = new System.Drawing.Size(1219, 268);
             this.dataGridViewNhanVien.TabIndex = 22;
             this.dataGridViewNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewNhanVien_CellClick);
             // 
@@ -433,7 +436,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1071, 649);
+            this.ClientSize = new System.Drawing.Size(1249, 646);
+            this.ControlBox = false;
             this.Controls.Add(this.txtMatKhau);
             this.Controls.Add(this.txtTenTK);
             this.Controls.Add(this.labelControl1);
@@ -444,6 +448,7 @@
             this.Controls.Add(this.grThongtinNhanVien);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmNhanVien";
             this.Ribbon = this.ribbon;
             this.StatusBar = this.ribbonStatusBar;

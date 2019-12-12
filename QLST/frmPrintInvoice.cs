@@ -44,7 +44,7 @@ namespace QLST
         }
 
         public frmPrintInvoice(DataGridViewX datagridviewX, NhanVienDTO nhanVienDTO,
-               string strTongTien, string strTienKhachDua, string strTienTraLai, string strTongSo,string pathname, string HoaDonID)
+               string strTongTien, string strTienKhachDua, string strTienTraLai, string strTongSo, string pathname, string HoaDonID)
         {
 
             InitializeComponent();
@@ -65,7 +65,7 @@ namespace QLST
             Date.Text += today.ToShortDateString();
             Time.Text += timeNow;
 
-            lbCompany.Text = "SIÊU THỊ MINI JJADA";
+            lbCompany.Text = "SIÊU THỊ MINI FFARM";
             lbCompanyAddr.Text = "90 Vo Van Ngan - Thu Duc - Hcmc ";
             lbCompanyTel.Text = "0123456789";
             lbBranchAddr.Text = " ";
@@ -74,7 +74,34 @@ namespace QLST
 
         }
 
+        public frmPrintInvoice(DataGridViewX datagridviewX, NhanVienDTO nhanVienDTO,
+               string strTongTien, string strTongSo, string PathName, string MaSoPhieu)
+        {
 
+            InitializeComponent();
+
+            TongTien = strTongTien;
+            TongSoLuong = strTongSo.ToString();
+            dataCTHoaDon = (DataTable)(datagridviewX.DataSource);
+            NhanVienHoaDon = nhanVienDTO;
+            lbSellerName.Text += " " + nhanVienDTO.StrHoTen;
+            PathName = PathName.ToString();
+            soHoaDon = MaSoPhieu.ToString();
+            lbInvoiceNum.Text += " " + MaSoPhieu;
+
+            string timeNow = DateTime.Now.ToString("hh:mm:ss tt", System.Globalization.DateTimeFormatInfo.InvariantInfo);
+            DateTime today = DateTime.Today;
+            Date.Text += today.ToShortDateString();
+            Time.Text += timeNow;
+
+            lbCompany.Text = "SIÊU THỊ MINI FFARM";
+            lbCompanyAddr.Text = "90 Vo Van Ngan - Thu Duc - Hcmc ";
+            lbCompanyTel.Text = "0123456789";
+            lbBranchAddr.Text = " ";
+            lbBranchTel.Text = " ";
+
+
+        }
 
 
         private float getTextSize(string text)
@@ -93,7 +120,7 @@ namespace QLST
                 Label labelCT = new Label();
                 string[] temp = new string[5];
 
-                temp[0] = "  "+ row["TenMH"].ToString();
+                temp[0] = "  " + row["TenMH"].ToString();
                 float temp1 = 0;
                 temp1 = float.Parse(row["GiaBan"].ToString());
                 temp[1] = temp1.ToString();
@@ -102,7 +129,7 @@ namespace QLST
                 temp[3] = temp1.ToString();
                 temp[4] = "       ";
 
-                float size  = getTextSize(temp[0]);
+                float size = getTextSize(temp[0]);
                 int width = (int)size;
 
                 if (width < 150)
@@ -111,7 +138,7 @@ namespace QLST
                     int temp2 = width / temp[0].Length;
                     int index = iTemp / temp2;
 
-                    for(int i = 0;i< index; i++)
+                    for (int i = 0; i < index; i++)
                     {
                         temp[0] += " ";
                     }
@@ -119,12 +146,12 @@ namespace QLST
 
                 if (temp[1].Length < 16)
                 {
-                    for(int index = 0; index < 16- temp[1].Length; index++)
+                    for (int index = 0; index < 16 - temp[1].Length; index++)
                     {
                         temp[1] += " ";
                     }
                 }
-                labelCT.Text = temp[0]+  temp[1]  + temp[2] + temp[4]+"  " + temp[3];
+                labelCT.Text = temp[0] + temp[1] + temp[2] + temp[4] + "  " + temp[3];
                 labelCT.AutoSize = true;
                 labelCT.Font = new System.Drawing.Font("Consolas", 12F, FontStyle.Regular,
                 System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -137,20 +164,20 @@ namespace QLST
         {
             for (int i = 0; i < lb.Count; i++)
             {
-   
+
                 PrintPanel.Controls.Add(lb[i]);
                 lb[i].Location = new Point(20, lb[i].Location.Y + Ypos);
                 Ypos += 50;
-               // PrintPanel.Controls.Add(CreateSymbolLabel(Ypos+10 ));
+                // PrintPanel.Controls.Add(CreateSymbolLabel(Ypos+10 ));
             }
 
-            PrintPanel.Controls.Add(CreateSymbolLabel(Ypos-10));
+            PrintPanel.Controls.Add(CreateSymbolLabel(Ypos - 10));
         }
         public Label CreateSymbolLabel(int Y)
         {
             Label lb = new Label();
             lb.AutoSize = true;
-            lb.Font = new System.Drawing.Font("Consolas", 9.75F, FontStyle.Regular, 
+            lb.Font = new System.Drawing.Font("Consolas", 9.75F, FontStyle.Regular,
             System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             lb.Location = new System.Drawing.Point(20, Y + 20);
             lb.Size = new System.Drawing.Size(413, 15);
@@ -190,7 +217,7 @@ namespace QLST
             this.TongSo.Name = "TotalQty";
             this.TongSo.Size = new System.Drawing.Size(0, 22);
             this.TongSo.TabIndex = 13;
-            this.TongSo.Text = "       "+ TongSoLuong.ToString();
+            this.TongSo.Text = "       " + TongSoLuong.ToString();
             // 
             // TOTAL_TITLE
             // 
@@ -252,7 +279,7 @@ namespace QLST
                 PrintPanel.Height += 200;
             }
 
-            PrintPanel.Controls.Add(CreateSymbolLabel(y ));
+            PrintPanel.Controls.Add(CreateSymbolLabel(y));
             this.PrintPanel.Controls.Add(this.TongCong);
             this.PrintPanel.Controls.Add(this.TongSo);
             this.PrintPanel.Controls.Add(this.Title);
@@ -296,15 +323,27 @@ namespace QLST
 
         public void CreateBitmapForPrintPanel(Panel PrintPanel)
         {
-            Bitmap bmp = new Bitmap(this.PrintPanel.Width-2, this.PrintPanel.Height);
+
+
+            Bitmap bmp = new Bitmap(this.PrintPanel.Width - 2, this.PrintPanel.Height);
             SystemInformation.HorizontalScrollBarHeight.ToString();
-            this.PrintPanel.DrawToBitmap(bmp, new Rectangle(0, 0, this.PrintPanel.Width +5, this.PrintPanel.Height + 1000));
+            this.PrintPanel.DrawToBitmap(bmp, new Rectangle(0, 0, this.PrintPanel.Width + 5, this.PrintPanel.Height + 1000));
             foreach (Control control in PrintPanel.Controls)
             {
                 DrawControl(control, bmp);
             }
 
-            bmp.Save(PathName+"\\HD"+soHoaDon+".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+            try
+            {
+                bmp.Save(PathName + "\\HD" + soHoaDon + ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+            }
+
+
+            catch (Exception)
+            {
+                bmp.Save("@C:\\HD" + soHoaDon + ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+            }
+
         }
 
     }

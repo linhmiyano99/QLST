@@ -150,5 +150,40 @@ namespace QLSTDAL
             }
             return table;
         }
+
+        public bool capNhatSoLuong( string MaMH, string SoLuong)
+        {
+            string query = string.Empty;
+            query += "UPDATE tblMATHANG SET" +
+                " TonToiDa = @SoLuong,  " +
+                " WHERE MaMH = @MaMH ";
+            using (SqlConnection con = new SqlConnection(ConnectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = con;
+                    cmd.CommandType = System.Data.CommandType.Text;
+                    cmd.CommandText = query;
+                    cmd.Parameters.AddWithValue("@MaMH", MaMH);
+                    cmd.Parameters.AddWithValue("@SoLuong", SoLuong);
+                  
+
+                    try
+                    {
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                        con.Dispose();
+                    }
+                    catch (Exception)
+                    {
+                        con.Close();
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
     }
 }

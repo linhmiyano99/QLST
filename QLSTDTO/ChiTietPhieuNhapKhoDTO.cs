@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QLSTDTO
 {
-    class ChiTietPhieuNhapKhoDTO
+    public class ChiTietPhieuNhapKhoDTO
     {
         private string strMaSoPhieu;
         private string strMaMH;

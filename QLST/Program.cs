@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using DevExpress.UserSkins;
 using DevExpress.Skins;
+using DevExpress.XtraBars.FluentDesignSystem;
 
 namespace QLST
 {
@@ -18,8 +19,8 @@ namespace QLST
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             BonusSkins.Register();
-            Application.Run(new frmHoaDonBanHang());
-
+            Application.Run(new frmDangNhap());
+           
         }
     }
 }

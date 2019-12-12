@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmThemNhanVien));
             this.grThongtinNhanVien = new DevExpress.XtraEditors.GroupControl();
             this.comboBoxCV = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.txtTongCaLam = new DevExpress.XtraEditors.TextEdit();
@@ -101,9 +102,9 @@
             // 
             // txtLuong
             // 
-            this.txtLuong.Location = new System.Drawing.Point(863, 82);
+            this.txtLuong.Location = new System.Drawing.Point(488, 132);
             this.txtLuong.Name = "txtLuong";
-            this.txtLuong.Size = new System.Drawing.Size(148, 20);
+            this.txtLuong.Size = new System.Drawing.Size(206, 20);
             this.txtLuong.TabIndex = 15;
             // 
             // txtSDT
@@ -146,7 +147,7 @@
             this.lbLuong.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal;
             this.lbLuong.LineLocation = DevExpress.XtraEditors.LineLocation.Center;
             this.lbLuong.LineStyle = System.Drawing.Drawing2D.DashStyle.Dot;
-            this.lbLuong.Location = new System.Drawing.Point(720, 83);
+            this.lbLuong.Location = new System.Drawing.Point(361, 135);
             this.lbLuong.Name = "lbLuong";
             this.lbLuong.Size = new System.Drawing.Size(49, 16);
             this.lbLuong.TabIndex = 8;
@@ -263,6 +264,7 @@
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.grThongtinNhanVien);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmThemNhanVien";
             this.Text = "Thêm Nhân Viên";
             ((System.ComponentModel.ISupportInitialize)(this.grThongtinNhanVien)).EndInit();

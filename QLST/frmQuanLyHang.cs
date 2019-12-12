@@ -13,7 +13,7 @@ using QLSTBUS;
 
 namespace QLST
 {
-    public partial class frmQuanLyHang : DevExpress.XtraEditors.XtraForm
+    public partial class frmQuanLyHang : DevExpress.XtraBars.Ribbon.RibbonForm
     {
 
 
@@ -77,7 +77,7 @@ namespace QLST
         }
 
 
-        private void loadDanhSachHang_byKey(DataTable Hang)
+        private void LoadDanhSachNhaCungCap_byKey(DataTable Hang)
         {
 
             // Hang = HangBUS.getDanhSachHang();
@@ -323,7 +323,7 @@ namespace QLST
 
         }
 
-        private void deleteKhachHang()
+        private void deleteHang()
         {
 
             //Tạo List string chứ MaKH
@@ -366,13 +366,9 @@ namespace QLST
                         }
                     }
 
-
                     loadDanhSachHang();
 
                     XtraMessageBox.Show("ĐÃ XÓA THÀNH CÔNG", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
-
                 }
 
                 else
@@ -409,7 +405,7 @@ namespace QLST
 
         private void btnXoaHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            deleteKhachHang();
+            deleteHang();
         }
 
         private void btnLuu_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -458,11 +454,7 @@ namespace QLST
                 dataGridViewHang.AllowUserToAddRows = false;
             }
 
-
-
         }
-
-
         private DataTable getCurrentlyEditedRowData()
         {
             //Trả về DataTable các rows đã được chỉnh sửa
@@ -491,7 +483,6 @@ namespace QLST
          */
 
        
-
         private void dataGridViewKhachHang_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -526,11 +517,10 @@ namespace QLST
 
         private void btnDeleteClick(object sender, EventArgs e)
         {
-            deleteKhachHang();
+            deleteHang();
         }
 
        
-
         private void dataGridViewKhachHang_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             AddNewRowItem(false);

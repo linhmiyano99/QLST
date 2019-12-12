@@ -8,7 +8,7 @@ namespace QLSTDTO
 {
     public class ThamSoDTO
     {
-        private string strMaTS;
+        //private string strMaTS;
         private double dLuongCa;
         private float fChietKhauVang;
         private float fChietKhauBac;
@@ -21,7 +21,7 @@ namespace QLSTDTO
 
         public ThamSoDTO()
         {
-            strMaTS = "1";
+            //strMaTS = "1";
             fChietKhauVang = 0.2f;
             fChietKhauBac = 0.1f;
             fChietKhauBachKim = 0.3f;
