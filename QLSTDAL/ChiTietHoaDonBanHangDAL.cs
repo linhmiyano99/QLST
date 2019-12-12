@@ -119,5 +119,15 @@ namespace QLSTDAL
             }
             return true;
         }
+        public DataTable get(string shd)
+        {
+            var table = new DataTable();
+            using (var da = new SqlDataAdapter(" SELECT *  FROM tblCHITIETHOADONBANHANG WHERE SoHoaDon = "+ shd , connectionString))
+            {
+                da.Fill(table);
+            }
+            return table;
+        }
+
     }
 }

@@ -332,10 +332,6 @@ namespace QLST
             int newRowIndex =
             dataGridViewKhachHang.NewRowIndex;
 
-            dataGridViewKhachHang.CurrentCell = dataGridViewKhachHang.Rows[newRowIndex].Cells[0];
-
-
-
         }
 
         private void btnXoaKhachHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

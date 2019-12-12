@@ -32,6 +32,10 @@ namespace QLSTBUS
             bool re = this.ctDAL.xoa(ChiTietHoaDonBanHangDto);
             return re;
         }
+        public DataTable getChiTiet(string shd)
+        {
+            return this.ctDAL.get(shd);
+        }
 
     }
 }
