@@ -182,7 +182,7 @@ namespace QLST
             {
                 List<TaiKhoanDTO> ListTaiKhoan = taiKhoanBUS.SelectByKeyWord(strMaNV);
                 txtTenTK.Text = ListTaiKhoan[0].StrTenTk.ToString();
-                txtMatKhau.Text = "****";
+                txtMatKhau.Text = ListTaiKhoan[0].StrMatKhau.ToString();
             }
             catch
             {
@@ -439,5 +439,7 @@ namespace QLST
         }
 
         #endregion
+
+       
     }
 }

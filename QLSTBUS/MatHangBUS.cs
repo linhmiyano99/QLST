@@ -46,5 +46,11 @@ namespace QLSTBUS
             return MatHangDAL.GetMatHangByKey(sKey);
         }
 
+
+        public bool capNhatSoLuong(string MaMH, string soLuong)
+        {
+            return MatHangDAL.capNhatSoLuong(MaMH, soLuong);
+        }
+
     }
 }

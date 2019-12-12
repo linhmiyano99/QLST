@@ -24,7 +24,7 @@ using System.Resources;
 
 namespace QLST
 {
-    public partial class frmKhachHang : DevExpress.XtraEditors.XtraForm
+    public partial class frmKhachHang : DevExpress.XtraBars.Ribbon.RibbonForm
     {
 
         private KhachHangDTO khachHangDTO = new KhachHangDTO();

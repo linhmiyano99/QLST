@@ -29,24 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHoaDonBanHang));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnLuu = new DevExpress.XtraBars.BarButtonItem();
             this.btnXuatHoaDon = new DevExpress.XtraBars.BarButtonItem();
             this.btnXoa = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem4 = new DevExpress.XtraBars.BarButtonItem();
-            this.txtTongCong = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.txtTongSo = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.txtTienKhachTra = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemTextEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.txtDiemMuaHang = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemTextEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.txtDiemSauMuaHang = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemTextEdit5 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.txtHangHienTai = new DevExpress.XtraBars.BarEditItem();
-            this.repositoryItemTextEdit6 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.btnThem = new DevExpress.XtraBars.BarButtonItem();
             this.btnSelectPath = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -54,6 +42,12 @@
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.PrintPath = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.repositoryItemTextEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.repositoryItemTextEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.repositoryItemTextEdit5 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.repositoryItemTextEdit6 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.ribbonStatusBar = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.grThongTinHoaDon = new DevExpress.XtraEditors.GroupControl();
             this.txtMaKH = new DevExpress.XtraEditors.TextEdit();
@@ -108,12 +102,6 @@
             this.btnXuatHoaDon,
             this.btnXoa,
             this.barButtonItem4,
-            this.txtTongCong,
-            this.txtTongSo,
-            this.txtTienKhachTra,
-            this.txtDiemMuaHang,
-            this.txtDiemSauMuaHang,
-            this.txtHangHienTai,
             this.btnThem,
             this.btnSelectPath});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
@@ -128,7 +116,7 @@
             this.repositoryItemTextEdit4,
             this.repositoryItemTextEdit5,
             this.repositoryItemTextEdit6});
-            this.ribbon.Size = new System.Drawing.Size(1249, 143);
+            this.ribbon.Size = new System.Drawing.Size(1249, 162);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
             // btnLuu
@@ -165,78 +153,6 @@
             this.barButtonItem4.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem4.ImageOptions.SvgImage")));
             this.barButtonItem4.Name = "barButtonItem4";
             // 
-            // txtTongCong
-            // 
-            this.txtTongCong.Caption = "Tổng cộng";
-            this.txtTongCong.Edit = this.repositoryItemTextEdit1;
-            this.txtTongCong.Id = 6;
-            this.txtTongCong.Name = "txtTongCong";
-            // 
-            // repositoryItemTextEdit1
-            // 
-            this.repositoryItemTextEdit1.AutoHeight = false;
-            this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
-            // 
-            // txtTongSo
-            // 
-            this.txtTongSo.Caption = "Tổng số";
-            this.txtTongSo.Edit = this.repositoryItemTextEdit2;
-            this.txtTongSo.Id = 7;
-            this.txtTongSo.Name = "txtTongSo";
-            // 
-            // repositoryItemTextEdit2
-            // 
-            this.repositoryItemTextEdit2.AutoHeight = false;
-            this.repositoryItemTextEdit2.Name = "repositoryItemTextEdit2";
-            // 
-            // txtTienKhachTra
-            // 
-            this.txtTienKhachTra.Caption = "Tiền khách trả";
-            this.txtTienKhachTra.Edit = this.repositoryItemTextEdit3;
-            this.txtTienKhachTra.Id = 8;
-            this.txtTienKhachTra.Name = "txtTienKhachTra";
-            // 
-            // repositoryItemTextEdit3
-            // 
-            this.repositoryItemTextEdit3.AutoHeight = false;
-            this.repositoryItemTextEdit3.Name = "repositoryItemTextEdit3";
-            // 
-            // txtDiemMuaHang
-            // 
-            this.txtDiemMuaHang.Caption = "Điểm mua hàng";
-            this.txtDiemMuaHang.Edit = this.repositoryItemTextEdit4;
-            this.txtDiemMuaHang.Id = 9;
-            this.txtDiemMuaHang.Name = "txtDiemMuaHang";
-            // 
-            // repositoryItemTextEdit4
-            // 
-            this.repositoryItemTextEdit4.AutoHeight = false;
-            this.repositoryItemTextEdit4.Name = "repositoryItemTextEdit4";
-            // 
-            // txtDiemSauMuaHang
-            // 
-            this.txtDiemSauMuaHang.Caption = "Điểm sau mua hàng";
-            this.txtDiemSauMuaHang.Edit = this.repositoryItemTextEdit5;
-            this.txtDiemSauMuaHang.Id = 10;
-            this.txtDiemSauMuaHang.Name = "txtDiemSauMuaHang";
-            // 
-            // repositoryItemTextEdit5
-            // 
-            this.repositoryItemTextEdit5.AutoHeight = false;
-            this.repositoryItemTextEdit5.Name = "repositoryItemTextEdit5";
-            // 
-            // txtHangHienTai
-            // 
-            this.txtHangHienTai.Caption = "Hạng hiện tại";
-            this.txtHangHienTai.Edit = this.repositoryItemTextEdit6;
-            this.txtHangHienTai.Id = 11;
-            this.txtHangHienTai.Name = "txtHangHienTai";
-            // 
-            // repositoryItemTextEdit6
-            // 
-            this.repositoryItemTextEdit6.AutoHeight = false;
-            this.repositoryItemTextEdit6.Name = "repositoryItemTextEdit6";
-            // 
             // btnThem
             // 
             this.btnThem.Caption = "Thêm Mới";
@@ -261,6 +177,7 @@
             this.ribbonPageGroup1,
             this.ribbonPageGroup2,
             this.PrintPath});
+            this.ribbonPage1.ImageOptions.SvgImage = global::QLST.Properties.Resources.bo_appointment3;
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "Thao tác";
             // 
@@ -290,18 +207,42 @@
             this.PrintPath.Name = "PrintPath";
             this.PrintPath.Text = "Nơi Lưu Trữ Hóa Đơn";
             // 
+            // repositoryItemTextEdit1
+            // 
+            this.repositoryItemTextEdit1.AutoHeight = false;
+            this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
+            // 
+            // repositoryItemTextEdit2
+            // 
+            this.repositoryItemTextEdit2.AutoHeight = false;
+            this.repositoryItemTextEdit2.Name = "repositoryItemTextEdit2";
+            // 
+            // repositoryItemTextEdit3
+            // 
+            this.repositoryItemTextEdit3.AutoHeight = false;
+            this.repositoryItemTextEdit3.Name = "repositoryItemTextEdit3";
+            // 
+            // repositoryItemTextEdit4
+            // 
+            this.repositoryItemTextEdit4.AutoHeight = false;
+            this.repositoryItemTextEdit4.Name = "repositoryItemTextEdit4";
+            // 
+            // repositoryItemTextEdit5
+            // 
+            this.repositoryItemTextEdit5.AutoHeight = false;
+            this.repositoryItemTextEdit5.Name = "repositoryItemTextEdit5";
+            // 
+            // repositoryItemTextEdit6
+            // 
+            this.repositoryItemTextEdit6.AutoHeight = false;
+            this.repositoryItemTextEdit6.Name = "repositoryItemTextEdit6";
+            // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.ItemLinks.Add(this.txtTongCong, true);
-            this.ribbonStatusBar.ItemLinks.Add(this.txtTongSo);
-            this.ribbonStatusBar.ItemLinks.Add(this.txtTienKhachTra, true);
-            this.ribbonStatusBar.ItemLinks.Add(this.txtDiemMuaHang);
-            this.ribbonStatusBar.ItemLinks.Add(this.txtDiemSauMuaHang, true);
-            this.ribbonStatusBar.ItemLinks.Add(this.txtHangHienTai, true);
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 587);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 591);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1249, 31);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1249, 27);
             // 
             // grThongTinHoaDon
             // 
@@ -319,7 +260,7 @@
             this.grThongTinHoaDon.Controls.Add(this.lbThuNgan);
             this.grThongTinHoaDon.Controls.Add(this.txtSoHoaDon);
             this.grThongTinHoaDon.Controls.Add(this.lbSoHoaDon);
-            this.grThongTinHoaDon.Location = new System.Drawing.Point(9, 143);
+            this.grThongTinHoaDon.Location = new System.Drawing.Point(12, 168);
             this.grThongTinHoaDon.Name = "grThongTinHoaDon";
             this.grThongTinHoaDon.Size = new System.Drawing.Size(860, 146);
             this.grThongTinHoaDon.TabIndex = 2;
@@ -365,19 +306,19 @@
             // 
             // txtNgay
             // 
-            this.txtNgay.Enabled = false;
             this.txtNgay.Location = new System.Drawing.Point(659, 44);
             this.txtNgay.MenuManager = this.ribbon;
             this.txtNgay.Name = "txtNgay";
+            this.txtNgay.Properties.ReadOnly = true;
             this.txtNgay.Size = new System.Drawing.Size(185, 20);
             this.txtNgay.TabIndex = 13;
             // 
             // txtGio
             // 
-            this.txtGio.Enabled = false;
             this.txtGio.Location = new System.Drawing.Point(659, 88);
             this.txtGio.MenuManager = this.ribbon;
             this.txtGio.Name = "txtGio";
+            this.txtGio.Properties.ReadOnly = true;
             this.txtGio.Size = new System.Drawing.Size(185, 20);
             this.txtGio.TabIndex = 12;
             // 
@@ -447,10 +388,10 @@
             // 
             // txtThuNgan
             // 
-            this.txtThuNgan.Enabled = false;
             this.txtThuNgan.Location = new System.Drawing.Point(98, 45);
             this.txtThuNgan.MenuManager = this.ribbon;
             this.txtThuNgan.Name = "txtThuNgan";
+            this.txtThuNgan.Properties.ReadOnly = true;
             this.txtThuNgan.Size = new System.Drawing.Size(165, 20);
             this.txtThuNgan.TabIndex = 3;
             // 
@@ -470,10 +411,10 @@
             // 
             // txtSoHoaDon
             // 
-            this.txtSoHoaDon.Enabled = false;
             this.txtSoHoaDon.Location = new System.Drawing.Point(411, 45);
             this.txtSoHoaDon.MenuManager = this.ribbon;
             this.txtSoHoaDon.Name = "txtSoHoaDon";
+            this.txtSoHoaDon.Properties.ReadOnly = true;
             this.txtSoHoaDon.Size = new System.Drawing.Size(147, 20);
             this.txtSoHoaDon.TabIndex = 1;
             // 
@@ -499,7 +440,7 @@
             this.lbTongCong.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.lbTongCong.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTongCong.ForeColor = System.Drawing.Color.Red;
-            this.lbTongCong.Location = new System.Drawing.Point(909, 143);
+            this.lbTongCong.Location = new System.Drawing.Point(905, 168);
             this.lbTongCong.Name = "lbTongCong";
             this.lbTongCong.SingleLineColor = System.Drawing.SystemColors.ActiveCaption;
             this.lbTongCong.Size = new System.Drawing.Size(104, 41);
@@ -515,7 +456,7 @@
             this.lbTienKhachDua.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.lbTienKhachDua.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTienKhachDua.ForeColor = System.Drawing.Color.Green;
-            this.lbTienKhachDua.Location = new System.Drawing.Point(909, 191);
+            this.lbTienKhachDua.Location = new System.Drawing.Point(905, 216);
             this.lbTienKhachDua.Name = "lbTienKhachDua";
             this.lbTienKhachDua.SingleLineColor = System.Drawing.SystemColors.ActiveCaption;
             this.lbTienKhachDua.Size = new System.Drawing.Size(104, 28);
@@ -530,7 +471,7 @@
             // 
             this.lbTienTraLai.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.lbTienTraLai.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTienTraLai.Location = new System.Drawing.Point(909, 234);
+            this.lbTienTraLai.Location = new System.Drawing.Point(905, 259);
             this.lbTienTraLai.Name = "lbTienTraLai";
             this.lbTienTraLai.SingleLineColor = System.Drawing.SystemColors.ActiveCaption;
             this.lbTienTraLai.Size = new System.Drawing.Size(104, 35);
@@ -543,25 +484,26 @@
             this.dataGridViewChiTietHoaDon.AllowUserToAddRows = false;
             this.dataGridViewChiTietHoaDon.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewChiTietHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 8.25F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewChiTietHoaDon.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8.25F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewChiTietHoaDon.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewChiTietHoaDon.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dataGridViewChiTietHoaDon.Location = new System.Drawing.Point(13, 296);
+            this.dataGridViewChiTietHoaDon.Location = new System.Drawing.Point(13, 325);
             this.dataGridViewChiTietHoaDon.Name = "dataGridViewChiTietHoaDon";
             this.dataGridViewChiTietHoaDon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewChiTietHoaDon.Size = new System.Drawing.Size(1224, 285);
+            this.dataGridViewChiTietHoaDon.Size = new System.Drawing.Size(1224, 256);
             this.dataGridViewChiTietHoaDon.TabIndex = 14;
+            this.dataGridViewChiTietHoaDon.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewChiTietHoaDon_CellContentClick);
             this.dataGridViewChiTietHoaDon.CellValidated += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewChiTietHoaDon_CellValidated);
             // 
             // txtTienKhachDua
             // 
-            this.txtTienKhachDua.Location = new System.Drawing.Point(1020, 193);
+            this.txtTienKhachDua.Location = new System.Drawing.Point(1016, 218);
             this.txtTienKhachDua.MenuManager = this.ribbon;
             this.txtTienKhachDua.Name = "txtTienKhachDua";
             this.txtTienKhachDua.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -575,7 +517,7 @@
             // 
             // txtTienTraLai
             // 
-            this.txtTienTraLai.Location = new System.Drawing.Point(1019, 239);
+            this.txtTienTraLai.Location = new System.Drawing.Point(1015, 264);
             this.txtTienTraLai.MenuManager = this.ribbon;
             this.txtTienTraLai.Name = "txtTienTraLai";
             this.txtTienTraLai.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -587,7 +529,7 @@
             // 
             // txtTienTongCong
             // 
-            this.txtTienTongCong.Location = new System.Drawing.Point(1019, 151);
+            this.txtTienTongCong.Location = new System.Drawing.Point(1015, 176);
             this.txtTienTongCong.MenuManager = this.ribbon;
             this.txtTienTongCong.Name = "txtTienTongCong";
             this.txtTienTongCong.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -604,6 +546,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1249, 618);
+            this.ControlBox = false;
             this.Controls.Add(this.txtTienTongCong);
             this.Controls.Add(this.txtTienTraLai);
             this.Controls.Add(this.txtTienKhachDua);
@@ -614,6 +557,8 @@
             this.Controls.Add(this.grThongTinHoaDon);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmHoaDonBanHang";
             this.Ribbon = this.ribbon;
             this.StatusBar = this.ribbonStatusBar;
@@ -665,17 +610,11 @@
         private DevExpress.XtraEditors.LabelControl lbSoHoaDon;
         private DevExpress.XtraEditors.LabelControl lbGio;
         private DevExpress.XtraBars.BarButtonItem barButtonItem4;
-        private DevExpress.XtraBars.BarEditItem txtTongCong;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
-        private DevExpress.XtraBars.BarEditItem txtTongSo;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit2;
-        private DevExpress.XtraBars.BarEditItem txtTienKhachTra;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit3;
-        private DevExpress.XtraBars.BarEditItem txtDiemMuaHang;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit4;
-        private DevExpress.XtraBars.BarEditItem txtDiemSauMuaHang;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit5;
-        private DevExpress.XtraBars.BarEditItem txtHangHienTai;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit6;
         private DevExpress.XtraBars.BarButtonItem btnThem;
         private DevExpress.XtraEditors.LabelControl lbMaKH;

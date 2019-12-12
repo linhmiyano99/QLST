@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEditKhachHang));
             this.groupThongTIn = new DevExpress.XtraEditors.GroupControl();
+            this.cmbTenHang = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.txtDiem = new DevExpress.XtraEditors.TextEdit();
             this.lbLuongTheoCa = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
@@ -38,7 +40,6 @@
             this.txtHoTen = new DevExpress.XtraEditors.TextEdit();
             this.btnLuu = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
-            this.cmbTenHang = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             ((System.ComponentModel.ISupportInitialize)(this.groupThongTIn)).BeginInit();
             this.groupThongTIn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtDiem.Properties)).BeginInit();
@@ -61,6 +62,18 @@
             this.groupThongTIn.Size = new System.Drawing.Size(731, 223);
             this.groupThongTIn.TabIndex = 12;
             this.groupThongTIn.Text = "Quy Định";
+            // 
+            // cmbTenHang
+            // 
+            this.cmbTenHang.DisplayMember = "Text";
+            this.cmbTenHang.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmbTenHang.FormattingEnabled = true;
+            this.cmbTenHang.ItemHeight = 16;
+            this.cmbTenHang.Location = new System.Drawing.Point(199, 186);
+            this.cmbTenHang.Name = "cmbTenHang";
+            this.cmbTenHang.Size = new System.Drawing.Size(214, 22);
+            this.cmbTenHang.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cmbTenHang.TabIndex = 12;
             // 
             // txtDiem
             // 
@@ -167,18 +180,6 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // cmbTenHang
-            // 
-            this.cmbTenHang.DisplayMember = "Text";
-            this.cmbTenHang.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmbTenHang.FormattingEnabled = true;
-            this.cmbTenHang.ItemHeight = 15;
-            this.cmbTenHang.Location = new System.Drawing.Point(199, 186);
-            this.cmbTenHang.Name = "cmbTenHang";
-            this.cmbTenHang.Size = new System.Drawing.Size(214, 21);
-            this.cmbTenHang.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cmbTenHang.TabIndex = 12;
-            // 
             // frmEditKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -187,6 +188,7 @@
             this.Controls.Add(this.groupThongTIn);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.btnCancel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmEditKhachHang";
             this.Text = "Edit Form";
             ((System.ComponentModel.ISupportInitialize)(this.groupThongTIn)).EndInit();

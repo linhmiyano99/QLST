@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQuanLyHang));
             this.ribbonControlQLHang = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnGroup_ = new DevExpress.XtraBars.BarButtonGroup();
             this.btnThemHang = new DevExpress.XtraBars.BarButtonItem();
@@ -90,7 +91,7 @@
             this.ribbonThaoTac});
             this.ribbonControlQLHang.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTextEdit1});
-            this.ribbonControlQLHang.Size = new System.Drawing.Size(1243, 160);
+            this.ribbonControlQLHang.Size = new System.Drawing.Size(1240, 162);
             // 
             // btnGroup_
             // 
@@ -273,7 +274,7 @@
             this.grThongTinHang.Controls.Add(this.lbTenHang);
             this.grThongTinHang.Controls.Add(this.lbMaHang);
             this.grThongTinHang.Controls.Add(this.txtTenHang);
-            this.grThongTinHang.Location = new System.Drawing.Point(12, 185);
+            this.grThongTinHang.Location = new System.Drawing.Point(12, 168);
             this.grThongTinHang.Name = "grThongTinHang";
             this.grThongTinHang.Size = new System.Drawing.Size(1219, 130);
             this.grThongTinHang.TabIndex = 5;
@@ -370,13 +371,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1243, 612);
+            this.ClientSize = new System.Drawing.Size(1240, 615);
+            this.ControlBox = false;
             this.Controls.Add(this.lbSearch);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.dataGridViewHang);
             this.Controls.Add(this.grThongTinHang);
             this.Controls.Add(this.ribbonControlQLHang);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmQuanLyHang";
+            this.Ribbon = this.ribbonControlQLHang;
             this.Text = "Quản Lý Hạng";
             this.Load += new System.EventHandler(this.frmQuanLyHang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControlQLHang)).EndInit();

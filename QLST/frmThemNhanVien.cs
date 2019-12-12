@@ -67,13 +67,26 @@ namespace QLST
         }
         private void getNewNhanVienInfo()
         {
-            newNhanVienDTO.StrMaNhanVien = txtMaNV.Text.ToString();
-            newNhanVienDTO.StrHoTen = txtHoTen.Text.ToString();
-            newNhanVienDTO.StrMaChucVu = comboBoxCV.SelectedValue.ToString();
-            newNhanVienDTO.StrDiaChi = (txtDiaChi.Text.ToString());
-            newNhanVienDTO.StrSoDT = (txtSDT.Text.ToString());
-            newNhanVienDTO.FlLuong = float.Parse(txtLuong.Text.ToString());
-            newNhanVienDTO.IntTongCaLam = Int32.Parse(txtTongCaLam.Text.ToString());
+            try
+            {
+                newNhanVienDTO.StrMaNhanVien = txtMaNV.Text.ToString();
+                newNhanVienDTO.StrHoTen = txtHoTen.Text.ToString();
+                newNhanVienDTO.StrMaChucVu = comboBoxCV.SelectedValue.ToString();
+                newNhanVienDTO.StrDiaChi = (txtDiaChi.Text.ToString());
+                newNhanVienDTO.StrSoDT = (txtSDT.Text.ToString());
+                newNhanVienDTO.FlLuong = float.Parse(txtLuong.Text.ToString());
+                if (string.IsNullOrEmpty(txtTongCaLam.Text.ToString())){
+
+                    txtTongCaLam.Text = "0";
+                     newNhanVienDTO.IntTongCaLam = Int32.Parse(txtTongCaLam.Text.ToString());
+                }
+               
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Error at frmThemNhanVien :: DTO area");
+            }
+           
 
         }
 

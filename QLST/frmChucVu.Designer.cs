@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmChucVu));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnThem = new DevExpress.XtraBars.BarButtonItem();
             this.btnXoa = new DevExpress.XtraBars.BarButtonItem();
@@ -74,7 +75,7 @@
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1});
-            this.ribbon.Size = new System.Drawing.Size(1071, 141);
+            this.ribbon.Size = new System.Drawing.Size(1250, 162);
             this.ribbon.StatusBar = this.ribbonStatusBar;
             // 
             // btnThem
@@ -118,6 +119,7 @@
             this.ribbonPageGroup1,
             this.ribbonPageGroup2,
             this.ribbonPageGroup3});
+            this.ribbonPage1.ImageOptions.SvgImage = global::QLST.Properties.Resources.bo_appointment4;
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "Thao tác";
             // 
@@ -142,10 +144,10 @@
             // 
             // ribbonStatusBar
             // 
-            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 622);
+            this.ribbonStatusBar.Location = new System.Drawing.Point(0, 588);
             this.ribbonStatusBar.Name = "ribbonStatusBar";
             this.ribbonStatusBar.Ribbon = this.ribbon;
-            this.ribbonStatusBar.Size = new System.Drawing.Size(1071, 27);
+            this.ribbonStatusBar.Size = new System.Drawing.Size(1250, 31);
             // 
             // grThongTinChucVu
             // 
@@ -155,9 +157,9 @@
             this.grThongTinChucVu.Controls.Add(this.lbLuongCa);
             this.grThongTinChucVu.Controls.Add(this.lbTenChucVu);
             this.grThongTinChucVu.Controls.Add(this.lbMaCV);
-            this.grThongTinChucVu.Location = new System.Drawing.Point(12, 149);
+            this.grThongTinChucVu.Location = new System.Drawing.Point(12, 168);
             this.grThongTinChucVu.Name = "grThongTinChucVu";
-            this.grThongTinChucVu.Size = new System.Drawing.Size(1047, 90);
+            this.grThongTinChucVu.Size = new System.Drawing.Size(1226, 90);
             this.grThongTinChucVu.TabIndex = 2;
             this.grThongTinChucVu.Text = "Thông tin chức vụ";
             // 
@@ -240,10 +242,10 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewChucVu.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewChucVu.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dataGridViewChucVu.Location = new System.Drawing.Point(12, 261);
+            this.dataGridViewChucVu.Location = new System.Drawing.Point(12, 277);
             this.dataGridViewChucVu.Name = "dataGridViewChucVu";
             this.dataGridViewChucVu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewChucVu.Size = new System.Drawing.Size(1047, 351);
+            this.dataGridViewChucVu.Size = new System.Drawing.Size(1226, 300);
             this.dataGridViewChucVu.TabIndex = 8;
             this.dataGridViewChucVu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewChucVu_CellClick);
             // 
@@ -252,7 +254,7 @@
             this.lbSearch.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbSearch.Appearance.Options.UseFont = true;
             this.lbSearch.LineVisible = true;
-            this.lbSearch.Location = new System.Drawing.Point(307, 84);
+            this.lbSearch.Location = new System.Drawing.Point(313, 96);
             this.lbSearch.Name = "lbSearch";
             this.lbSearch.Size = new System.Drawing.Size(41, 13);
             this.lbSearch.TabIndex = 21;
@@ -260,7 +262,7 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(366, 81);
+            this.txtSearch.Location = new System.Drawing.Point(372, 93);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(220, 20);
             this.txtSearch.TabIndex = 20;
@@ -270,14 +272,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1071, 649);
+            this.ClientSize = new System.Drawing.Size(1250, 619);
+            this.ControlBox = false;
             this.Controls.Add(this.lbSearch);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.dataGridViewChucVu);
             this.Controls.Add(this.grThongTinChucVu);
             this.Controls.Add(this.ribbonStatusBar);
             this.Controls.Add(this.ribbon);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmChucVu";
+            this.Ribbon = this.ribbon;
+            this.StatusBar = this.ribbonStatusBar;
             this.Text = "Chức vụ";
             this.Load += new System.EventHandler(this.frmChucVu_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();

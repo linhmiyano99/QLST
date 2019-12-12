@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEditNhanVien));
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.comboBoxCV = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.txtTongCaLam = new DevExpress.XtraEditors.TextEdit();
@@ -261,6 +262,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnLuu);
             this.Controls.Add(this.grThongtinNhanVien);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmEditNhanVien";
             this.Text = "Edit Nhân Viên";
             ((System.ComponentModel.ISupportInitialize)(this.txtTongCaLam.Properties)).EndInit();

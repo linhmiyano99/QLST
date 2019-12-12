@@ -43,7 +43,7 @@ namespace QLST
             this.Close();
         }
 
-        private void getKhachHangEditInfo()
+        private void getHangEditInfo()
         {
             hangDTO.StrMaHang = txtMaHang.Text.ToString();
             hangDTO.StrTenHang = cmbTenHang.Text.ToString();
@@ -94,7 +94,7 @@ namespace QLST
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            getKhachHangEditInfo();
+            getHangEditInfo();
             bool re = hangBUS.sua(hangDTO);
             if (re)
             {
