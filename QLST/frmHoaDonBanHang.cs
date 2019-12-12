@@ -14,6 +14,9 @@ using DevExpress.XtraEditors;
 using DevExpress.Utils.CommonDialogs;
 using DevExpress.XtraEditors.UI;
 using System.IO;
+using AForge.Video;
+using AForge.Video.DirectShow;
+using ZXing;
 
 namespace QLST
 {
@@ -39,13 +42,14 @@ namespace QLST
         private List<MatHangDTO> ListMatHangCapNhat = new List<MatHangDTO>();
         private MatHangBUS matHangCapNhatBUS = new MatHangBUS();
 
-
+        FilterInfoCollection filterInfoCollection;
+        VideoCaptureDevice videoCaptureDevice;
         public frmHoaDonBanHang()
         {
             InitializeComponent();
             GetListSoHoaDon();
             txtSoHoaDon.Text = SoHDNextID.ToString();
-           
+
         }
 
         public frmHoaDonBanHang(NhanVienDTO nhanVienDTO)
@@ -56,8 +60,6 @@ namespace QLST
             GetNhanVienInfo(nhanVienDTO);
             txtSoHoaDon.Text = SoHDNextID.ToString();
             txtThuNgan.Text = nhanVienHoaDon.StrHoTen;
-
-
         }
 
 
@@ -69,7 +71,6 @@ namespace QLST
             CreateDataGridViewBanHang();
           
         }
-
 
 
         #region DATA BINDING
@@ -124,6 +125,7 @@ namespace QLST
                     Console.WriteLine("Chua co so hoa don");
                 }
                
+
             }
 
         }
@@ -603,13 +605,13 @@ namespace QLST
             }
         }
 
+
         private void txtTongCong_ItemClick(object sender, ItemClickEventArgs e)
         {
-                    }
+        }
 
         private void dataGridViewChiTietHoaDon_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+        {     
         }
     }
 

@@ -181,3 +181,21 @@ CREATE TABLE [dbo].[tblCHITIETPHIEUXUATKHO](
 	PRIMARY KEY ([MaSoPhieu], [MaMH])
 ) ON [PRIMARY]
 GO
+CREATE TABLE [dbo].[tblCHITIETPHIEUNHAPKHO](
+	[MaSoPhieu] [int] NOT NULL,
+	[MaMH] [int] NOT NULL,
+	[SoLuongTheoChungTu] [int] NULL,
+	[SoLuongThucNhap] [int] NOT NULL,
+	[DonGia] [money] NOT NULL,
+	[ThanhTien] [money] NOT NULL,
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[tblCHITIETPHIEUNHAPKHO]  WITH CHECK ADD FOREIGN KEY([MaSoPhieu])
+REFERENCES [dbo].[tblPHIEUXUATKHO] ([MaSoPhieu])
+GO
+
+ALTER TABLE [dbo].[tblCHITIETPHIEUNHAPKHO]  WITH CHECK ADD FOREIGN KEY([MaMH])
+REFERENCES [dbo].[tblMATHANG] ([MaMH])
+GO
+

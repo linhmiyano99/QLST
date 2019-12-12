@@ -332,7 +332,6 @@ namespace QLST
             {
                 DrawControl(control, bmp);
             }
-
             try
             {
                 bmp.Save(PathName + "\\HD" + soHoaDon + ".jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
