@@ -14,6 +14,10 @@ using DevExpress.XtraEditors;
 using DevExpress.Utils.CommonDialogs;
 using DevExpress.XtraEditors.UI;
 using System.IO;
+using AForge.Video;
+using AForge.Video.DirectShow;
+using ZXing;
+
 
 namespace QLST
 {
@@ -39,7 +43,8 @@ namespace QLST
         private List<MatHangDTO> ListMatHangCapNhat = new List<MatHangDTO>();
         private MatHangBUS matHangCapNhatBUS = new MatHangBUS();
 
-
+        FilterInfoCollection filterInfoCollection;
+        VideoCaptureDevice videoCaptureDevice;
         public frmHoaDonBanHang()
         {
             InitializeComponent();
@@ -67,7 +72,12 @@ namespace QLST
             setDefaultValueToControls();
             LoadMaMH();
             CreateDataGridViewBanHang();
-          
+
+            filterInfoCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            foreach (FilterInfo Device in filterInfoCollection)
+                cboCamera.Items.Add(Device.Name);
+            cboCamera.SelectedIndex = 0;
+            videoCaptureDevice = new VideoCaptureDevice();
         }
 
 
@@ -611,6 +621,52 @@ namespace QLST
         {
 
         }
-    }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (pictureBox.Image != null)
+            {
+                BarcodeReader Reader = new BarcodeReader();
+                Result result = Reader.Decode((Bitmap)pictureBox.Image);
+                if (result != null)
+                {
+                    cmbMaMH.Text = result.ToString();
+                    timer1.Stop();
+                    if (videoCaptureDevice.IsRunning)
+                    {
+                        videoCaptureDevice.Stop();
+                    }
+                }
+            }
+        }
+        private void FinalFrame_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        {
+            pictureBox.Image = (Bitmap)eventArgs.Frame.Clone();
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            videoCaptureDevice = new VideoCaptureDevice(filterInfoCollection[cboCamera.SelectedIndex].MonikerString);
+            videoCaptureDevice.NewFrame += FinalFrame_NewFrame;
+            videoCaptureDevice.Start();
+            timer1.Start();
+        }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            if (videoCaptureDevice.IsRunning)
+                videoCaptureDevice.Stop();
+        }
+
+        private void cboCamera_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (videoCaptureDevice.IsRunning)
+                    videoCaptureDevice.Stop();
+            }
+            catch (Exception) { }
+        }
+    }
 }
+
