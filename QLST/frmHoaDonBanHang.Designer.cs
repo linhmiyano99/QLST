@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmHoaDonBanHang));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnLuu = new DevExpress.XtraBars.BarButtonItem();
             this.btnXuatHoaDon = new DevExpress.XtraBars.BarButtonItem();
@@ -131,6 +131,8 @@
             // 
             this.btnLuu.Caption = "Lưu thông tin";
             this.btnLuu.Id = 1;
+            this.btnLuu.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLuu.ImageOptions.Image")));
+            this.btnLuu.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnLuu.ImageOptions.LargeImage")));
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLuu_ItemClick);
             // 
@@ -138,6 +140,8 @@
             // 
             this.btnXuatHoaDon.Caption = "Xuất hóa đơn";
             this.btnXuatHoaDon.Id = 2;
+            this.btnXuatHoaDon.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnXuatHoaDon.ImageOptions.Image")));
+            this.btnXuatHoaDon.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnXuatHoaDon.ImageOptions.LargeImage")));
             this.btnXuatHoaDon.Name = "btnXuatHoaDon";
             this.btnXuatHoaDon.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnXuatHoaDon_ItemClick);
             // 
@@ -145,6 +149,8 @@
             // 
             this.btnXoa.Caption = "Xóa Hóa Đơn";
             this.btnXoa.Id = 3;
+            this.btnXoa.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.ImageOptions.Image")));
+            this.btnXoa.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnXoa.ImageOptions.LargeImage")));
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnXoa_ItemClick);
             // 
@@ -166,6 +172,8 @@
             // 
             this.btnSelectPath.Caption = "Chọn Thư Mục";
             this.btnSelectPath.Id = 13;
+            this.btnSelectPath.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSelectPath.ImageOptions.Image")));
+            this.btnSelectPath.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnSelectPath.ImageOptions.LargeImage")));
             this.btnSelectPath.Name = "btnSelectPath";
             this.btnSelectPath.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSelectPath_ItemClick);
             // 
@@ -501,14 +509,14 @@
             this.dataGridViewChiTietHoaDon.AllowUserToAddRows = false;
             this.dataGridViewChiTietHoaDon.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridViewChiTietHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 7.8F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewChiTietHoaDon.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 7.8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(31)))), ((int)(((byte)(53)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewChiTietHoaDon.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewChiTietHoaDon.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridViewChiTietHoaDon.Location = new System.Drawing.Point(15, 551);
             this.dataGridViewChiTietHoaDon.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);

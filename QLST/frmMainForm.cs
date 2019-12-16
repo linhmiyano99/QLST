@@ -147,7 +147,7 @@ namespace QLST
 
         private void ctrlBanHang_Click(object sender, EventArgs e)
         {
-
+            frmHoaDonBanHang frmHoaDonBanHang = new frmHoaDonBanHang();
             frmHoaDonBanHang.TopLevel = false;
             if (!frmMainContainer.Contains(frmHoaDonBanHang))
             {
